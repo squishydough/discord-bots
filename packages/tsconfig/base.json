@@ -16,8 +16,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es5",
-    "module": "commonjs",
-    "outDir": "./dist"
+    "module": "commonjs"
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]
