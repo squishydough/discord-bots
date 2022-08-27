@@ -19,5 +19,5 @@
     "module": "commonjs"
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
