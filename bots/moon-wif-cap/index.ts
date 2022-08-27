@@ -29,8 +29,9 @@ client.on('messageCreate', async (message) => {
 
   if (dickWordFound) {
     const dickPhrase = dickPhrases[randomNumber(0, dickPhrases.length - 1)]
-    message.react('<:feelsMoonMan:980865025394745354>')
     message.react('🍆')
+    message.react('<:feelsMoonMan:980865025394745354>')
+    message.react('<:smau:815016088576065547>')
     message.reply(
       dickPhrase.replace(madlib, identifiedDickWord ?? '--redacted--')
     )
