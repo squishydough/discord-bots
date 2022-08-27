@@ -12,7 +12,7 @@ const client = new Client({
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
-  console.info('Ready!')
+  console.info('Someone Say Chicken Bot - Ready!')
 })
 
 client.on('messageCreate', async (message) => {
