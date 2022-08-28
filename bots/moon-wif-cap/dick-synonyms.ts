@@ -417,7 +417,6 @@ export default [
   `Ineffective Scope`,
   `Inflatable Poo-Jabber`,
   `Inside-the-Pants-Belt`,
-  `It`,
   `Italian Stallion`,
   `Jack in the Box`,
   `Jean Steak`,
