@@ -32,12 +32,13 @@ client.on('messageCreate', async (message) => {
 
   const content = message.content.toLowerCase()
 
+  // TODO add better exactMatch logic
+  // Should work at the end of the sentence or beginning
+
   let identifiedSynonym: Synonym | null = null
   for (const synonym of synonyms) {
     const synonymLabel = synonym.label.toLowerCase()
-    if (
-      content.includes(synonym.exactMatch ? `${synonymLabel} ` : synonymLabel)
-    ) {
+    if (content.includes(synonymLabel)) {
       identifiedSynonym = synonym
       break
     }
