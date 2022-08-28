@@ -41,6 +41,7 @@ client.on('messageCreate', async (message) => {
       if (synonym.exactMatch) {
         // Beginning of sentence
         if (foundAt === 0) {
+          // Should have a space after it
           if (content[synonymLabel.length] !== ' ') {
             break
           }
@@ -48,6 +49,7 @@ client.on('messageCreate', async (message) => {
 
         // End of sentence
         if (foundAt === content.length - synonymLabel.length) {
+          // Should have a space before it
           if (content[foundAt - 1] !== ' ') {
             break
           }
