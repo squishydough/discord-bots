@@ -19,15 +19,14 @@ client.on('messageCreate', async (message) => {
   const content = message.content.toLowerCase()
 
   let identifiedDickWord: string | null = null
-  const dickWordFound = dickSynonyms.some((dickWord) => {
-    const found = content.indexOf(dickWord.toLowerCase()) > -1
-    if (found) {
-      identifiedDickWord = dickWord.toLowerCase()
+  for (const dickWord of dickSynonyms) {
+    if (content.includes(dickWord)) {
+      identifiedDickWord = dickWord
+      break
     }
-    return found
-  })
+  }
 
-  if (dickWordFound) {
+  if (identifiedDickWord) {
     const dickPhrase = dickPhrases[randomNumber(0, dickPhrases.length - 1)]
     message.react('🍆')
     message.react('<:feelsMoonMan:980865025394745354>')
