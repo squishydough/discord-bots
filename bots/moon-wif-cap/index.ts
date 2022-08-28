@@ -32,13 +32,28 @@ client.on('messageCreate', async (message) => {
 
   const content = message.content.toLowerCase()
 
-  // TODO add better exactMatch logic
-  // Should work at the end of the sentence or beginning
-
   let identifiedSynonym: Synonym | null = null
   for (const synonym of synonyms) {
     const synonymLabel = synonym.label.toLowerCase()
-    if (content.includes(synonymLabel)) {
+    const foundAt = content.indexOf(synonymLabel)
+
+    if (foundAt > -1) {
+      if (synonym.exactMatch) {
+        // Beginning of sentence
+        if (foundAt === 0) {
+          if (content[synonymLabel.length] !== ' ') {
+            break
+          }
+        }
+
+        // End of sentence
+        if (foundAt === content.length - synonymLabel.length) {
+          if (content[foundAt - 1] !== ' ') {
+            break
+          }
+        }
+      }
+
       identifiedSynonym = synonym
       break
     }
@@ -51,6 +66,14 @@ client.on('messageCreate', async (message) => {
     message.react('🍆')
     message.react('<:feelsMoonMan:980865025394745354>')
     message.react('<:smau:815016088576065547>')
+
+    console.info(
+      `${new Date()} - User ${
+        message.author.username
+      } said: "${content}". Matched ${
+        identifiedSynonym.label
+      }. Output "${finalPhrase}".`
+    )
   }
 })
 
