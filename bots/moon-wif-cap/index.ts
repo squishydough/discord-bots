@@ -1,8 +1,8 @@
 import 'dotenv/config'
 
 import { Client, Intents } from 'discord.js'
-import dickWords from './dick-words'
-import dickPhrases, { madlib } from './dick-phrases'
+import dickSynonyms from './dick-synonyms'
+import dickPhrases, { blankSpot } from './dick-phrases'
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -19,7 +19,7 @@ client.on('messageCreate', async (message) => {
   const content = message.content.toLowerCase()
 
   let identifiedDickWord: string | null = null
-  const dickWordFound = dickWords.some((dickWord) => {
+  const dickWordFound = dickSynonyms.some((dickWord) => {
     const found = content.indexOf(dickWord.toLowerCase()) > -1
     if (found) {
       identifiedDickWord = dickWord.toLowerCase()
@@ -33,7 +33,7 @@ client.on('messageCreate', async (message) => {
     message.react('<:feelsMoonMan:980865025394745354>')
     message.react('<:smau:815016088576065547>')
     message.reply(
-      dickPhrase.replace(madlib, identifiedDickWord ?? '--redacted--')
+      dickPhrase.replace(blankSpot, identifiedDickWord ?? '--redacted--')
     )
   }
 })
