@@ -251,6 +251,7 @@ export const synonyms: Synonym[] = [
     ],
   },
   { label: 'scarf', replace: ['beef scarf'] },
+  { label: 'schlong' },
   { label: 'seat', exactMatch: true },
   { label: 'seatbelt' },
   { label: 'shaft' },
