@@ -35,5 +35,4 @@ export default [
   `The Note 8 was certainly worth the wait as it received their largest Infinity Display, lost its physical home button to on-screen buttons, and received the smallest top and bottom bezels you have ever seen — it's a shame that Samsung did not include a bottom, front-facing speaker in an area where there is a ${blankSpot}.`,
   `They experience ${blankSpot}s in their driving all the time, sometimes at 60 miles per hour.`,
   `You just need to long press the ${blankSpot} on your home screen to pull up the launcher edit buttons.`,
-  ``,
 ]
