@@ -1,0 +1,21 @@
+export const descriptors: string[] = [
+  'angry',
+  'bad',
+  'bald',
+  'balogna',
+  'bearded',
+  'big',
+  'bulbous',
+  'bulging',
+  'bulgy',
+  'classy',
+  'cursed',
+  'fancy',
+  'forbidden',
+  'love',
+  'majestic',
+  'painful',
+  'shitty',
+  'upright',
+]
+export default descriptors
