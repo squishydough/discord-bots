@@ -108,9 +108,14 @@ client.on('messageCreate', async (message) => {
           }
         }
 
-        // Middle of sentence
+        // Middle of sentence should be surrounded by spaces
         else {
-          continue
+          if (
+            content[foundAt - 1] !== ' ' ||
+            content[foundAt + synonymLabel.length] !== ' '
+          ) {
+            continue // go to next synonym
+          }
         }
       }
 
