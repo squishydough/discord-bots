@@ -305,7 +305,7 @@ export const synonyms: Synonym[] = [
   { label: 'torch' },
   { label: 'torpedo', replace: ['torpedo', 'tadpole torpedo'] },
   { label: 'tower', replace: ['tower', 'leaning tower'], exactMatch: true },
-  { label: 'tree', replace: ['branch of the man-tree', 'the giving tree'] },
+  { label: 'tree', replace: ['branch of the man-tree', 'tree'] },
   {
     label: 'troll',
     replace: ['troll', 'cave troll', 'forest troll', 'mountain troll'],
