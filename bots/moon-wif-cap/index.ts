@@ -101,11 +101,16 @@ client.on('messageCreate', async (message) => {
         }
 
         // End of sentence
-        if (foundAt === content.length - synonymLabel.length) {
+        else if (foundAt === content.length - synonymLabel.length) {
           // If no space before synonym, don't use it
           if (content[foundAt - 1] !== ' ') {
             continue // go to next synonym
           }
+        }
+
+        // Middle of sentence
+        else {
+          continue
         }
       }
 
