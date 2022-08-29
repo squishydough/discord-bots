@@ -155,6 +155,7 @@ export const synonyms: Synonym[] = [
   { label: 'laser pointer' },
   { label: 'lizard', replace: ['lap lizard'] },
   { label: 'llama' },
+  { label: 'list', exactMatch: true },
   { label: 'little guy' },
   { label: 'loch ness monster' },
   { label: 'log', replace: ['lincoln log'], exactMatch: true },
