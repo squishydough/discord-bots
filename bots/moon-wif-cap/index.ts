@@ -11,24 +11,30 @@ import descriptors from './descriptors'
  * @returns
  */
 function buildFinalPhrase(phrase: string, synonym: Synonym): string {
-  // If synonym replacements exist, pick a random one
-  // Otherwise, use the label
-  if (!synonym.replace) {
-    return phrase.replace(blankSpot, synonym.label.toLowerCase())
-  }
-
   // Pick a random `synonym.replace` if it exists
   // Otherwise just use the label
   const replacement: string | null = synonym.replace
     ? synonym.replace[randomNumber(0, synonym.replace.length - 1)].toLowerCase()
     : synonym.label
 
-  // Pick a random `synonym.descriptor` if it exists
-  const descriptor = `${descriptors[
-    randomNumber(0, descriptors.length - 1)
-  ].toLowerCase()}`
+  // Immutably clone descriptors
+  // This will allow us to remove descriptors as we select them
+  // in order to avoid duplicates.
+  let descriptorPool = [...descriptors]
 
-  return `${phrase.replace(blankSpot, `${descriptor} ${replacement}`)}`
+  // Pick 1-2 descriptors
+  const howManyDescriptors = randomNumber(1, 2)
+  const selectedDescriptors: string[] = []
+  for (let i = 0; i < howManyDescriptors; i++) {
+    const index = randomNumber(0, descriptorPool.length - 1)
+    const selectedDescriptor = descriptorPool.splice(index, 1)[0]
+    selectedDescriptors.push(selectedDescriptor)
+  }
+
+  return `${phrase.replace(
+    blankSpot,
+    `${selectedDescriptors.join(', ')} ${replacement}`
+  )}`
 }
 
 /**
@@ -85,7 +91,7 @@ client.on('messageCreate', async (message) => {
     // If synonym is found, do some extra checking if exactMatch is true
     // If everything looks good, store synonym in identifiedSynonym and break loop
     if (synonymFound) {
-      if (synonym.exactMatch) {
+      if (synonym.exactMatch && synonymLabel !== content) {
         // Beginning of sentence
         if (foundAt === 0) {
           // If no space after the synonym, don't use it
