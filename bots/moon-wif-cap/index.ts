@@ -1,88 +1,16 @@
 import 'dotenv/config'
-
 import { Client, Intents } from 'discord.js'
 import synonyms, { Synonym } from './synonyms'
 import phrases, { blankSpot } from './phrases'
 import descriptors from './descriptors'
 
-const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
-})
-
-// When the client is ready, run this code (only once)
-client.once('ready', () => {
-  console.info('Moon wif cap - Ready!')
-})
-
-client.on('messageCreate', async (message) => {
-  if (message.author.bot) return
-  // Only watch the following channels:
-  //    #moon-is-bitch  874747632319361075
-  //    #shitposting    696877172186677291
-  //    #nsfw           697152467527401563
-  //    #discussion     697599842070954095 (my test server)
-  if (
-    message.channel.id !== '874747632319361075' &&
-    message.channel.id !== '696877172186677291' &&
-    message.channel.id !== '697152467527401563' &&
-    message.channel.id !== '697599842070954095'
-  ) {
-    return
-  }
-
-  const content = message.content.toLowerCase()
-
-  let identifiedSynonym: Synonym | null = null
-  for (const synonym of synonyms) {
-    const synonymLabel = synonym.label.toLowerCase()
-    const foundAt = content.indexOf(synonymLabel)
-
-    if (foundAt > -1) {
-      if (synonym.exactMatch) {
-        // Beginning of sentence
-        if (foundAt === 0) {
-          // Should have a space after it
-          if (content[synonymLabel.length] !== ' ') {
-            break
-          }
-        }
-
-        // End of sentence
-        if (foundAt === content.length - synonymLabel.length) {
-          // Should have a space before it
-          if (content[foundAt - 1] !== ' ') {
-            break
-          }
-        }
-      }
-
-      identifiedSynonym = synonym
-      break
-    }
-  }
-
-  if (identifiedSynonym) {
-    const phrase = phrases[randomNumber(0, phrases.length - 1)]
-    const finalPhrase = buildFinalPhrase(phrase, identifiedSynonym)
-    message.reply(finalPhrase)
-    message.react('🍆')
-    message.react('<:feelsMoonMan:980865025394745354>')
-    message.react('<:smau:815016088576065547>')
-
-    console.info(
-      `${new Date()} - User ${
-        message.author.username
-      } said: "${content}". Matched ${
-        identifiedSynonym.label
-      }. Output "${finalPhrase}".`
-    )
-  }
-})
-
-// Login to Discord
-client.login(process.env.TOKEN)
-
-const buildFinalPhrase = (phrase: string, synonym: Synonym): string => {
+/**
+ * Inserts a synonym and descriptor into a phrase.
+ * @param phrase The base phrase to build off of
+ * @param synonym The synonym to insert into the phrase
+ * @returns
+ */
+function buildFinalPhrase(phrase: string, synonym: Synonym): string {
   // If synonym replacements exist, pick a random one
   // Otherwise, use the label
   if (!synonym.replace) {
@@ -103,6 +31,109 @@ const buildFinalPhrase = (phrase: string, synonym: Synonym): string => {
   return `${phrase.replace(blankSpot, `${descriptor} ${replacement}`)}`
 }
 
-const randomNumber = (min: number, max: number) => {
+/**
+ * Picks a random number between two numbers
+ * @param min Lower bounds
+ * @param max Upper bounds
+ * @returns
+ */
+function randomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+/** Discord.js client */
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+})
+
+// When the client is ready, run this code (only once)
+client.once('ready', () => {
+  console.info(`${new Date()} - Moon wif cap is ready!`)
+})
+
+// When a message is received, run this code
+client.on('messageCreate', async (message) => {
+  // Exit if message is from a bot
+  if (message.author.bot) return
+
+  // Only watch specific channels
+  //    #moon-is-bitch  874747632319361075
+  //    #shitposting    696877172186677291
+  //    #nsfw           697152467527401563
+  //    #discussion     697599842070954095 (my test server)
+  if (
+    message.channel.id !== '874747632319361075' &&
+    message.channel.id !== '696877172186677291' &&
+    message.channel.id !== '697152467527401563' &&
+    message.channel.id !== '697599842070954095'
+  ) {
+    return
+  }
+
+  /** Discord message content, lower-cased for better string matching. */
+  const content = message.content.toLowerCase()
+
+  /** The synonym found in the message content. */
+  let identifiedSynonym: Synonym | null = null
+
+  // Check all synonyms for a match, exit as soon as one is found
+  for (const synonym of synonyms) {
+    const synonymLabel = synonym.label.toLowerCase()
+    const foundAt = content.indexOf(synonymLabel) // Returns the index where the word was found, -1 if not found
+    const synonymFound = foundAt > -1
+
+    // If synonym is found, do some extra checking if exactMatch is true
+    // If everything looks good, store synonym in identifiedSynonym and break loop
+    if (synonymFound) {
+      if (synonym.exactMatch) {
+        // Beginning of sentence
+        if (foundAt === 0) {
+          // If no space after the synonym, don't use it
+          if (content[synonymLabel.length] !== ' ') {
+            continue // go to next synonym
+          }
+        }
+
+        // End of sentence
+        if (foundAt === content.length - synonymLabel.length) {
+          // If no space before synonym, don't use it
+          if (content[foundAt - 1] !== ' ') {
+            continue // go to next synonym
+          }
+        }
+      }
+
+      identifiedSynonym = synonym
+      break // exit loop, don't need to look anymore
+    }
+  }
+
+  // No action required if no synonym found
+  if (!identifiedSynonym) return
+
+  /**  Pick a random phrase from the list of phrases */
+  const randomPhrase = phrases[randomNumber(0, phrases.length - 1)]
+
+  /** Phrase without blanks and with descriptors. */
+  const finalPhrase = buildFinalPhrase(randomPhrase, identifiedSynonym)
+
+  // Send the response
+  message.reply(finalPhrase)
+
+  // Add some emojis to the orginal message
+  message.react('🍆')
+  message.react('<:feelsMoonMan:980865025394745354>')
+  message.react('<:smau:815016088576065547>')
+
+  // Timestamp and log it!
+  console.info(
+    `${new Date()} - User ${
+      message.author.username
+    } said: "${content}". Matched ${
+      identifiedSynonym.label
+    }. Output "${finalPhrase}".`
+  )
+})
+
+// Login to Discord
+client.login(process.env.TOKEN)
