@@ -1,6 +1,5 @@
 export const blankSpot = '_____ '
 
-// Most of these sourced from https://linguazza.com/sentences-with/blank+spots
 export default [
   `I've got your ${blankSpot} right here.`,
   `Oh, someone's got a ${blankSpot} on the mind.`,
