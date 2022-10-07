@@ -77,7 +77,7 @@ export const synonyms: Synonym[] = [
   { label: 'compass', replace: ['crotch compass'] },
   { label: 'constrictor' },
   { label: 'corkscrew' },
-  { label: 'corn', replace: ['corn on the cob'] },
+  { label: 'corn', replace: ['corn on the cob'], exactMatch: true },
   { label: 'crank' },
   { label: 'crocodile', replace: ['hole-hungry crotch crocodile'] },
   { label: 'crotch' },
