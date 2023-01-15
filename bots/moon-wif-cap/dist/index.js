@@ -131,10 +131,7 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         //    #shitposting    696877172186677291
         //    #nsfw           697152467527401563
         //    #discussion     697599842070954095 (my test server)
-        if (message.channel.id !== '874747632319361075' &&
-            message.channel.id !== '696877172186677291' &&
-            message.channel.id !== '697152467527401563' &&
-            message.channel.id !== '697599842070954095') {
+        if (message.channel.id !== '874747632319361075' && message.channel.id !== '696877172186677291' && message.channel.id !== '697152467527401563' && message.channel.id !== '697599842070954095') {
             return [2 /*return*/];
         }
         content = message.content.toLowerCase();
