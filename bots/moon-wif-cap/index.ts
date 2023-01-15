@@ -67,19 +67,14 @@ client.on('messageCreate', async (message) => {
   //    #shitposting    696877172186677291
   //    #nsfw           697152467527401563
   //    #discussion     697599842070954095 (my test server)
-  if (
-    message.channel.id !== '874747632319361075' &&
-    message.channel.id !== '696877172186677291' &&
-    message.channel.id !== '697152467527401563' &&
-    message.channel.id !== '697599842070954095'
+  if ( message.channel.id !== '874747632319361075' && message.channel.id !== '696877172186677291' && message.channel.id !== '697152467527401563' && message.channel.id !== '697599842070954095'
   ) {
     return
   }
 
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
-
-  /** The synonym found in the message content. */
+  /** The synonym found in the message content. */ 
   let identifiedSynonym: Synonym | null = null
 
   // Check all synonyms for a match, exit as soon as one is found

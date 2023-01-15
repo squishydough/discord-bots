@@ -1,11 +1,7 @@
 export const blankSpot = '_____ '
 
 export default [
-  `I've got your ${blankSpot} right here.`,
-  `just has ${blankSpot} on the mind.`,
-  `PAUSE.`,
-  `are you happy to see me or is that a ${blankSpot}.`,
-  `Mmmmm ${blankSpot}.`,
+  `I've got your ${blankSpot} right here.`,`just has ${blankSpot} on the mind.`, `PAUSE.`, `are you happy to see me or is that a ${blankSpot}.`, `Mmmmm ${blankSpot}.`,
   `Get your hand off my ${blankSpot}.`,
   `A wild ${blankSpot} has appeared.`,
   `${blankSpot}`,

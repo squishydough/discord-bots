@@ -41,6 +41,7 @@ export const synonyms: Synonym[] = [
       'wrinklebeast',
     ],
   },
+  { label: 'beaver' },
   { label: 'bigfoot' },
   { label: 'binky' },
   { label: 'blade', replace: ['mighty blade', 'blade'] },
