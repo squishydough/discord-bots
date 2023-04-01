@@ -13,6 +13,17 @@ function randomNumber(min: number, max: number): number {
  * Checks if the message contains a one-off trigger.
  */
 function checkOneOffTriggers(message: string): string | undefined {
+  if (message.indexOf('jazz') > -1) {
+    const responses = [
+      'but if you dont like jazz then have fun driving for hours and the only thing you can see is grass everywhere',
+      'im a jazz guys actually',
+      'I LOVE JAZZ SO MUCH OMG',
+      'i live in a small town there are no jazz here ;(',
+      'am i allowed to talk ab music in here',
+    ]
+    return responses[randomNumber(0, responses.length - 1)]
+  }
+
   if (message.indexOf('miles davis') > -1) {
     const weight = 6
     const random = randomNumber(1, 10)
@@ -30,6 +41,14 @@ function checkOneOffTriggers(message: string): string | undefined {
     const random = randomNumber(1, 10)
     if (random < weight) {
       return 'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c'
+    }
+  }
+
+  if (message.indexOf('chess') > -1) {
+    const weight = 3
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return 'YOU WONT LAST 0.0035 SECONDS PLAYING THIS GAME'
     }
   }
 
@@ -61,6 +80,7 @@ function checkOneOffTriggers(message: string): string | undefined {
     const responses = [
       'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.',
       'i cant tell what is genuine from you anymore\r\nbut thanks!!',
+      'and the michael jackson insta account is celebrating by giving away cds lmao',
     ]
     return responses[randomNumber(0, responses.length - 1)]
   }
@@ -121,10 +141,14 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (message.indexOf('food') > -1) {
+    const responses = [
+      'AT A TABLE\r\nWE ARE EATINGN',
+      'ILL COOK 5 AND EAT EACH ONE IN A BITE',
+    ]
     const weight = 2
     const random = randomNumber(1, 10)
     if (random < weight) {
-      return 'ILL COOK 5 AND EAT EACH ONE IN A BITE'
+      return responses[randomNumber(0, responses.length - 1)]
     }
   }
 
@@ -146,6 +170,58 @@ function checkOneOffTriggers(message: string): string | undefined {
 
   if (message.indexOf('dj khaled') > -1) {
     return 'god dj khaled is so cringe'
+  }
+
+  if (message.indexOf('mercy') > -1) {
+    return 'bro whats this gotta do with my support'
+  }
+
+  if (message.indexOf('toronto') > -1 || message.indexOf('montreal') > -1) {
+    return 'toronto and montreal are the only decent jazz scenes'
+  }
+
+  if (message.indexOf('alberta') > -1) {
+    return 'only cool thing here is the jazz musicians'
+  }
+
+  if (message.indexOf('club') > -1) {
+    return 'theres this place called the yardbirde suite its a jazz club'
+  }
+
+  if (message.indexOf('camp') > -1) {
+    return 'i thought it was supposed to be like a jazz camp with a bunch of young whippersnappers\r\nbut 4/9 people are at least 40\r\n1 of the guys is literally 72 fucking years old'
+  }
+
+  if (message.indexOf('anime') > -1) {
+    return 'its an anime about jazz'
+  }
+
+  if (message.indexOf('league of legends') > -1) {
+    return 'you should play jazz music instead'
+  }
+
+  if (message.indexOf('michael jackson') > -1) {
+    const responses = [
+      'michael jackson died on the same day joey alexander was born',
+      'i was reading a story about someone saying they went to high school with michael jackson and then i realized it was probably fanfiction',
+      'economy collapsed then michael jackson died',
+      'bro did you know that kid is the godfather of 2 of michael jacksons kids',
+      'i just gave up and now listening to michael jackson',
+      'someone in my game yesterday told me michael jackson was overrated',
+    ]
+    return responses[randomNumber(0, responses.length - 1)]
+  }
+
+  if (message.indexOf('classical') > -1) {
+    return 'not much classical music i can actually jam out to but this is it'
+  }
+
+  if (message.indexOf('apple') > -1) {
+    return 'sheesh whats the deal with apple music'
+  }
+
+  if (message.indexOf('jeopardy') > -1) {
+    return 'who was the dancer on the music video for Moments Notice'
   }
 }
 
@@ -188,6 +264,10 @@ function checkArtistTriggers(message: string): string | undefined {
       '_'
     )}`
 
+    const otherInstruments = instruments.filter(
+      (i) => i.instrument !== artistTrigger?.instrument
+    )
+
     const responses = [
       `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
       `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarTrigger.artist}. ${similarWikipediaUrl}`,
@@ -203,6 +283,23 @@ function checkArtistTriggers(message: string): string | undefined {
       `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
       `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarWikipediaUrl}`,
       `not me arranging a ${artistTrigger.artist} song for my jazz combo ${artistWikipediaUrl}`,
+      `holy shit ~~bill clinton~~ ${artistTrigger.artist} on the ${artistTrigger.instrument} ${artistWikipediaUrl}`,
+      `WHY IS ${artistTrigger.artist.toUpperCase()} PLAYING A D# OVER A B MINOR CHORD. ${similarTrigger.artist.toUpperCase()} IS BETTER ${similarWikipediaUrl}`,
+      `currently plays in an all female jazz group called artemis that literaly just has some of the best jazz players of the modern day ${artistWikipediaUrl}`,
+      `fun fact: they also play jazz ${artistWikipediaUrl}`,
+      `well actually this one woman and ${artistTrigger.instrument} player dude did kids songs, but it was jazz and that was actualyl dope ${artistWikipediaUrl}`,
+      `dont tell me you guys think ${artistTrigger.artist} can only play smooth jazz ${artistWikipediaUrl}`,
+      `i saw a video of an ai music robot and like you could program it to play 50% like ${artistTrigger.artist} and 50% like ${similarTrigger.artist}`,
+      `the music side is great, they got this amazing ${
+        similarTrigger.instrument
+      } player named ${similarTrigger.artist} who is just insane, they play ${
+        otherInstruments[randomNumber(0, otherInstruments.length - 1)]
+      } too at an insane level ${artistWikipediaUrl}`,
+      `i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ${artistWikipediaUrl}`,
+      `theyve inspired me to quit music forever ${artistWikipediaUrl}`,
+      `you think this 12 year old was blasting music next to you too? ${artistWikipediaUrl}`,
+      `but they dont play music. try ${similarTrigger.artist} ${similarWikipediaUrl}`,
+      `not a joke i know more music theory than ${artistTrigger.artist} ${artistWikipediaUrl}`,
     ]
 
     // Send the response
@@ -239,7 +336,9 @@ function checkInstrumentTriggers(message: string): string | undefined {
 
     const responses = [
       `${instrumentTrigger.instrument} is a dogwater instrument. Try learning ${similarTrigger.instrument} if you want a real jazz instrument.`,
-      `${instrumentTrigger.instrument} is whack bro`,
+      `${instrumentTrigger.instrument} is whack bro. ${similarTrigger.instrument} is way better`,
+      `bro ${similarTrigger.artist} is the best ${instrumentTrigger.instrument} player`,
+      `it plays me my jazz`,
     ]
 
     // Send the response
@@ -270,6 +369,13 @@ function respondRandomly(): string | undefined {
     'i will literally unleash my inner beast\r\nmy demons',
     'jimmy car is coming to my city should i go see him',
     'wait i dont understandable',
+    'so true bestie',
+    'i could hear you saying that in my head',
+    'so youre the one that deleted my jazz playlist i posted here a while ago',
+    'IM JAZZING',
+    'I LOVE JAZZ SO MUCH OMG',
+    'should probably quit music and go lay on the grass',
+    'gotta say, the inside of the music building is quite ubderwhelming',
   ]
 
   const random = randomNumber(0, 100)
