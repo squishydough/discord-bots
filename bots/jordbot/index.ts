@@ -415,7 +415,7 @@ function respondRandomly(): string | undefined {
   ]
 
   const random = randomNumber(0, 100)
-  const weight = 5
+  const weight = 2
   if (random < weight) {
     return responses[randomNumber(0, responses.length - 1)]
   }
