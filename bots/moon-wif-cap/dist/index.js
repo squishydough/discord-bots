@@ -123,6 +123,13 @@ client.once('ready', function () {
 client.on('messageCreate', function (message) { return __awaiter(void 0, void 0, void 0, function () {
     var invalidChannel, authorIsBot, content, identifiedSynonym, _i, synonyms_2, synonym, synonymLabel, foundAt, synonymFound, randomPhrase, finalPhrase;
     return __generator(this, function (_a) {
+        // Exit if message from a bot other than Jordbot,
+        // or if the message is in a channel we don't want to watch
+        //    #moon-is-bitch  874747632319361075
+        //    #shitposting    696877172186677291
+        //    #nsfw           697152467527401563
+        //    #discussion     697599842070954095 (my test server)
+        console.info('message.author.username', message.author.username);
         invalidChannel = message.channel.id !== '874747632319361075' &&
             message.channel.id !== '696877172186677291' &&
             message.channel.id !== '697152467527401563' &&

@@ -66,6 +66,8 @@ client.on('messageCreate', async (message) => {
   //    #shitposting    696877172186677291
   //    #nsfw           697152467527401563
   //    #discussion     697599842070954095 (my test server)
+  console.info('message.author.username', message.author.username)
+
   const invalidChannel =
     message.channel.id !== '874747632319361075' &&
     message.channel.id !== '696877172186677291' &&
