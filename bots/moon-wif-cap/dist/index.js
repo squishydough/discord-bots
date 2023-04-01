@@ -121,19 +121,15 @@ client.once('ready', function () {
 });
 // When a message is received, run this code
 client.on('messageCreate', function (message) { return __awaiter(void 0, void 0, void 0, function () {
-    var content, identifiedSynonym, _i, synonyms_2, synonym, synonymLabel, foundAt, synonymFound, randomPhrase, finalPhrase;
+    var invalidChannel, authorIsBot, content, identifiedSynonym, _i, synonyms_2, synonym, synonymLabel, foundAt, synonymFound, randomPhrase, finalPhrase;
     return __generator(this, function (_a) {
-        // Exit if message is from a bot
-        if (message.author.bot)
+        invalidChannel = message.channel.id !== '874747632319361075' &&
+            message.channel.id !== '696877172186677291' &&
+            message.channel.id !== '697152467527401563' &&
+            message.channel.id !== '697599842070954095';
+        authorIsBot = message.author.bot && message.author.username.toLowerCase() !== 'Jordbot';
+        if (authorIsBot || invalidChannel)
             return [2 /*return*/];
-        // Only watch specific channels
-        //    #moon-is-bitch  874747632319361075
-        //    #shitposting    696877172186677291
-        //    #nsfw           697152467527401563
-        //    #discussion     697599842070954095 (my test server)
-        if (message.channel.id !== '874747632319361075' && message.channel.id !== '696877172186677291' && message.channel.id !== '697152467527401563' && message.channel.id !== '697599842070954095') {
-            return [2 /*return*/];
-        }
         content = message.content.toLowerCase();
         identifiedSynonym = null;
         // Check all synonyms for a match, exit as soon as one is found

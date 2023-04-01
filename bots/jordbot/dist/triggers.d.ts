@@ -3,4 +3,5 @@ export declare type Trigger = {
     artist: string;
 };
 export declare const triggers: Trigger[];
+export declare const instruments: Trigger[];
 //# sourceMappingURL=triggers.d.ts.map

@@ -41,12 +41,71 @@ var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
 /**
  * Picks a random number between two numbers
- * @param min Lower bounds
- * @param max Upper bounds
- * @returns
  */
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+/**
+ * Checks if the message contains a one-off trigger.
+ */
+function checkOneOffTriggers(message) {
+    if (message.indexOf('miles davis') > -1) {
+        return 'https://imgur.com/a/FauNoJr';
+    }
+    if (message.indexOf('joey alexander') > -1) {
+        return 'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c';
+    }
+}
+/**
+ * Checks if the message contains a name for a specific artist.
+ * If so, it will return a response stating a different artist who plays the
+ * same instrument is better, along with a link to their Wikipedia page.
+ */
+function checkArtistTriggers(message) {
+    var artistTrigger = null;
+    for (var _i = 0, triggers_2 = triggers_1.triggers; _i < triggers_2.length; _i++) {
+        var trigger = triggers_2[_i];
+        var artist = trigger.artist.toLowerCase();
+        var artistFoundAt = message.indexOf(artist); // Returns the index where the word was found, -1 if not found
+        var triggerFound = artistFoundAt > -1;
+        if (triggerFound) {
+            artistTrigger = trigger;
+            break; // exit loop, don't need to look anymore
+        }
+    }
+    // No action required if no trigger found
+    if (artistTrigger) {
+        // Find triggers from the same instrument type
+        var similarTriggers = triggers_1.triggers.filter(function (t) {
+            return t.instrument === (artistTrigger === null || artistTrigger === void 0 ? void 0 : artistTrigger.instrument) &&
+                t.artist !== artistTrigger.artist;
+        });
+        var similarTrigger = similarTriggers[randomNumber(0, similarTriggers.length - 1)];
+        var wikipediaUrl = "https://en.wikipedia.org/wiki/".concat(similarTrigger.artist.replace(' ', '_'));
+        // Send the response
+        return "".concat(artistTrigger.artist, " is a decent ").concat(artistTrigger.instrument, " player, but they're no ").concat(similarTrigger.artist, ". ").concat(wikipediaUrl);
+    }
+}
+function checkInstrumentTriggers(message) {
+    var instrumentTrigger = null;
+    for (var _i = 0, instruments_1 = triggers_1.instruments; _i < instruments_1.length; _i++) {
+        var trigger = instruments_1[_i];
+        var instrument = trigger.instrument.toLowerCase();
+        var instrumentFoundAt = message.indexOf(instrument); // Returns the index where the word was found, -1 if not found
+        var triggerFound = instrumentFoundAt > -1;
+        if (triggerFound) {
+            instrumentTrigger = trigger;
+            break; // exit loop, don't need to look anymore
+        }
+    }
+    // No action required if no trigger found
+    if (instrumentTrigger) {
+        // Find triggers from the same instrument type
+        var similarTriggers = triggers_1.instruments.filter(function (trigger) { return trigger.instrument !== (instrumentTrigger === null || instrumentTrigger === void 0 ? void 0 : instrumentTrigger.instrument); });
+        var similarTrigger = similarTriggers[randomNumber(0, similarTriggers.length - 1)];
+        // Send the response
+        return "".concat(instrumentTrigger.instrument, " is a dogwater instrument. Try learning ").concat(similarTrigger.instrument, " if you want a real jazz instrument.");
+    }
 }
 /** Discord.js client */
 var client = new discord_js_1.Client({
@@ -54,43 +113,31 @@ var client = new discord_js_1.Client({
 });
 // When the client is ready, run this code (only once)
 client.once('ready', function () {
-    console.info("".concat(new Date(), " - Moon wif cap is ready!"));
+    console.info("".concat(new Date(), " - Jordbot is ready!"));
 });
 // When a message is received, run this code
 client.on('messageCreate', function (message) { return __awaiter(void 0, void 0, void 0, function () {
-    var content, identifiedTrigger, _i, triggers_2, trigger, instrument, artist, instrumentFoundAt, artistFoundAt, triggerFound, wikipediaUrl, similarArtists, similarArtist;
+    var content, oneOffResponse, artistResponse, instrumentResponse;
     return __generator(this, function (_a) {
         // Exit if message is from a bot
         if (message.author.bot)
             return [2 /*return*/];
         content = message.content.toLowerCase();
-        identifiedTrigger = null;
-        // Check all triggers for a match, exit as soon as one is found
-        for (_i = 0, triggers_2 = triggers_1.triggers; _i < triggers_2.length; _i++) {
-            trigger = triggers_2[_i];
-            instrument = trigger.instrument.toLowerCase();
-            artist = trigger.artist.toLowerCase();
-            instrumentFoundAt = content.indexOf(instrument) // Returns the index where the word was found, -1 if not found
-            ;
-            artistFoundAt = content.indexOf(artist) // Returns the index where the word was found, -1 if not found
-            ;
-            triggerFound = instrumentFoundAt > -1 || artistFoundAt > -1;
-            if (triggerFound) {
-                identifiedTrigger = trigger;
-                break; // exit loop, don't need to look anymore
-            }
-        }
-        // No action required if no trigger found
-        if (!identifiedTrigger)
+        oneOffResponse = checkOneOffTriggers(content);
+        if (oneOffResponse) {
+            message.reply(oneOffResponse);
             return [2 /*return*/];
-        wikipediaUrl = "https://en.wikipedia.org/wiki/".concat(identifiedTrigger.artist.replace(' ', '_'));
-        similarArtists = triggers_1.triggers.filter(function (t) {
-            return t.instrument === (identifiedTrigger === null || identifiedTrigger === void 0 ? void 0 : identifiedTrigger.instrument) &&
-                t.artist !== (identifiedTrigger === null || identifiedTrigger === void 0 ? void 0 : identifiedTrigger.artist);
-        });
-        similarArtist = similarArtists[randomNumber(0, similarArtists.length - 1)];
-        // Send the response
-        message.reply("\n    ".concat(identifiedTrigger.artist, " is a decent ").concat(identifiedTrigger.instrument, " player, but they're no ").concat(similarArtist.artist, ".\n    Check out ").concat(similarArtist.artist, "'s Wikipedia page: ").concat(wikipediaUrl, "\n  "));
+        }
+        artistResponse = checkArtistTriggers(content);
+        if (artistResponse) {
+            message.reply(artistResponse);
+            return [2 /*return*/];
+        }
+        instrumentResponse = checkInstrumentTriggers(content);
+        if (instrumentResponse) {
+            message.reply(instrumentResponse);
+            return [2 /*return*/];
+        }
         return [2 /*return*/];
     });
 }); });
