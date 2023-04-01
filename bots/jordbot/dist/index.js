@@ -162,7 +162,7 @@ function checkOneOffTriggers(message) {
     if (message.indexOf('egg') > -1) {
         return 'ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE';
     }
-    if (message.indexOf('food') > -1) {
+    if (message.indexOf('food') > -1 || message.indexOf('hungry') > -1) {
         var responses = [
             'AT A TABLE\r\nWE ARE EATINGN',
             'ILL COOK 5 AND EAT EACH ONE IN A BITE',
