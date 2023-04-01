@@ -1,9 +1,9 @@
-export type Trigger = {
+export type ArtistInstrumentTrigger = {
   instrument: string
   artist: string
 }
 
-export const triggers: Trigger[] = [
+export const artistTriggers: ArtistInstrumentTrigger[] = [
   { instrument: 'trumpet', artist: 'Buddy Bolden' },
   { instrument: 'trumpet', artist: 'Freddie Keppard' },
   { instrument: 'trumpet', artist: 'Johnny Dunn' },
@@ -520,11 +520,300 @@ export const triggers: Trigger[] = [
   { instrument: 'organ', artist: 'John Patton' },
 ]
 
-export const instruments = triggers
+/**
+ * One trigger for each instrument, used in instrument triggered responses
+ */
+export const instrumentTriggers: ArtistInstrumentTrigger[] = artistTriggers
   .filter((trigger) => trigger.instrument !== 'groups')
-  .reduce<Trigger[]>((acc, trigger) => {
+  .reduce<ArtistInstrumentTrigger[]>((acc, trigger) => {
     if (!acc.some((t) => t.instrument === trigger.instrument)) {
       acc.push(trigger)
     }
     return acc
   }, [])
+
+export type OneOffTrigger = {
+  triggers: string[]
+  responses: string[]
+  weight: number
+  lowestWeight: number
+  highestWeight: number
+}
+
+// Sometimes we may not want a term to always trigger a response.
+// In those cases, we can use a weight to randomize whether it actually triggers.
+//
+// So if the weight is a number between 1 and 10, such as 6, it will trigger if a
+// random between 1 and 10 is 6 or less, i.e. a 60% chance.
+const defaultWeights = {
+  weight: 1,
+  lowestWeight: 1,
+  highestWeight: 1,
+}
+
+export const oneOffTriggers: OneOffTrigger[] = [
+  {
+    triggers: ['jazz'],
+    responses: [
+      'but if you dont like jazz then have fun driving for hours and the only thing you can see is grass everywhere',
+      'im a jazz guys actually',
+      'I LOVE JAZZ SO MUCH OMG',
+      'i live in a small town there are no jazz here ;(',
+      'am i allowed to talk ab music in here',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['miles davis'],
+    responses: ['https://i.imgur.com/jSO2YvA.png'],
+    weight: 6,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['shoes'],
+    responses: ['https://i.imgur.com/Epm6dQl.png'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['joey alexander'],
+    responses: [
+      'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c',
+    ],
+    weight: 6,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['chess'],
+    responses: ['YOU WONT LAST 0.0035 SECONDS PLAYING THIS GAME'],
+    weight: 3,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['squirrels'],
+    responses: ['squirrels arent real'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['surefour'],
+    responses: [
+      'bro surefour is from calgary how cool is that\r\nme and him literally went to the same laser tag place when we were little\r\nnot at the same time but still',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['legs'],
+    responses: ['crazy calves bro\r\nim not jealous at all :ANGRYCRYING:'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['pokemon'],
+    responses: ['i forget how to fuxkint spell it'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['party'],
+    responses: ['invite me next time :heart_eyes: :heart_eyes:'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['congrats', 'congratulations', 'grats'],
+    responses: [
+      'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.',
+      'i cant tell what is genuine from you anymore\r\nbut thanks!!',
+      'and the michael jackson insta account is celebrating by giving away cds lmao',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['among us'],
+    responses: ['among us'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['donald glover', 'childish gambino'],
+    responses: [
+      'WAIT DONALD GLOVER IS CHILDISH GAMBINO??\r\nWHY DOES DONALD GLOVER DO EVERYTHING\r\nliterally fucking writes acts comdeians and then turns around and makes bangers with 1.2 billion streams\r\nand has won 5 grammys???\r\ngod dammit\r\ni need to jus stop',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['squishydough'],
+    responses: [
+      'squish you enhance my qualities',
+      'i want to go to christmas dinner with squishydough ☹️',
+    ],
+    weight: 2,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['burger'],
+    responses: [
+      'they put too many onion on my quarter pounder with cheese and now i feel icky ☹️',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['dog', 'hotdog'],
+    responses: [
+      'i resent this lack of respect for me. i always put ketchup and mustard on my dogs',
+      'hot dog lore',
+      'just saw a place selling a poutine dog\r\nwhich is a hot dog with gracy and cheese on',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['thankful', 'grateful'],
+    responses: ['im thankful for your cute face'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['onnen'],
+    responses: ['happy thanksigiving @Onnen#7393'],
+    weight: 2,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['mansplain'],
+    responses: ['IT WAS JUST A DISCLAIMER I DIDNT MEAN TO MANSPLAIN'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['stupid'],
+    responses: [
+      `“It's not just that I'm stupid; it's that I'm just smart enough to know how stupid I am. I wish I weren't so stupid. Or that I were stupider.” - John Hall`,
+    ],
+    weight: 2,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['egg'],
+    responses: ['ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['food', 'hungry'],
+    responses: [
+      'AT A TABLE\r\nWE ARE EATINGN',
+      'ILL COOK 5 AND EAT EACH ONE IN A BITE',
+    ],
+    weight: 2,
+    lowestWeight: 1,
+    highestWeight: 10,
+  },
+  {
+    triggers: ['vegetable'],
+    responses: ['i dojt eat vegetabled'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['breakfast'],
+    responses: ['OMG I WAS JUST EATING BREAKFAST TOO'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['dairy queen'],
+    responses: ['bro i havent had a dairy queen salad in a lonngass time'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['musk'],
+    responses: ['musk fetish 😨😨😨💀💀'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['dj khaled'],
+    responses: ['god dj khaled is so cringe'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['mercy'],
+    responses: ['bro whats this gotta do with my support'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['toronto', 'montreal'],
+    responses: ['toronto and montreal are the only decent jazz scenes'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['alberta'],
+    responses: ['only cool thing here is the jazz musicians'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['club'],
+    responses: ['theres this place called the yardbirde suite its a jazz club'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['camp'],
+    responses: [
+      'i thought it was supposed to be like a jazz camp with a bunch of young whippersnappers\r\nbut 4/9 people are at least 40\r\n1 of the guys is literally 72 fucking years old',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['anime'],
+    responses: ['its an anime about jazz'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['league of legends'],
+    responses: ['you should play jazz music instead'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['michael jackson', 'king of pop'],
+    responses: [
+      'michael jackson died on the same day joey alexander was born',
+      'i was reading a story about someone saying they went to high school with michael jackson and then i realized it was probably fanfiction',
+      'economy collapsed then michael jackson died',
+      'bro did you know that kid is the godfather of 2 of michael jacksons kids',
+      'i just gave up and now listening to michael jackson',
+      'someone in my game yesterday told me michael jackson was overrated',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['classical'],
+    responses: [
+      'not much classical music i can actually jam out to but this is it',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['apple'],
+    responses: ['sheesh whats the deal with apple music'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['jeopardy'],
+    responses: ['who was the dancer on the music video for Moments Notice'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['beatles'],
+    responses: ['not a joke i know more music theory than the beatles'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['fall guys', 'fall beans'],
+    responses: [
+      'i would love to put down my saxophone right now and play fall guys with you (my best friends)',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['shorts'],
+    responses: [
+      `but also the first thing i think when i see those shorts is 'squishy wears those'`,
+    ],
+    ...defaultWeights,
+  },
+]
