@@ -14,7 +14,11 @@ function randomNumber(min: number, max: number): number {
  */
 function checkOneOffTriggers(message: string): string | undefined {
   if (message.indexOf('miles davis') > -1) {
-    return 'https://i.imgur.com/jSO2YvA.png'
+    const weight = 6
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return 'https://i.imgur.com/jSO2YvA.png'
+    }
   }
 
   if (message.indexOf('shoes') > -1) {
@@ -22,7 +26,11 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (message.indexOf('joey alexander') > -1) {
-    return 'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c'
+    const weight = 6
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return 'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c'
+    }
   }
 
   if (message.indexOf('squirrel') > -1) {
@@ -50,7 +58,11 @@ function checkOneOffTriggers(message: string): string | undefined {
     message.indexOf('congratulations') > -1 ||
     message.indexOf('grats') > -1
   ) {
-    return 'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.'
+    const responses = [
+      'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.',
+      'i cant tell what is genuine from you anymore\r\nbut thanks!!',
+    ]
+    return responses[randomNumber(0, responses.length - 1)]
   }
 
   if (message.indexOf('among us') > -1) {
@@ -62,6 +74,78 @@ function checkOneOffTriggers(message: string): string | undefined {
     message.indexOf('childish gambino') > -1
   ) {
     return 'WAIT DONALD GLOVER IS CHILDISH GAMBINO??\r\nWHY DOES DONALD GLOVER DO EVERYTHING\r\nliterally fucking writes acts comdeians and then turns around and makes bangers with 1.2 billion streams\r\nand has won 5 grammys???\r\ngod dammit\r\ni need to jus stop'
+  }
+
+  if (message.indexOf('squishydough') > -1) {
+    const responses = [
+      'squish you enhance my qualities',
+      'i want to go to christmas dinner with squishydough ☹️',
+    ]
+    const weight = 2
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return responses[randomNumber(0, responses.length - 1)]
+    }
+  }
+
+  if (message.indexOf('burger') > -1) {
+    return 'they put too many onion on my quarter pounder with cheese and now i feel icky ☹️'
+  }
+
+  if (message.indexOf('thankful') > -1 || message.indexOf('grateful') > -1) {
+    return 'im thankful for your cute face'
+  }
+
+  if (message.indexOf('onnen') > -1) {
+    const weight = 2
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return 'happy thanksigiving @Onnen#7393'
+    }
+  }
+
+  if (message.indexOf('mansplain') > -1) {
+    return 'IT WAS JUST A DISCLAIMER I DIDNT MEAN TO MANSPLAIN'
+  }
+
+  if (message.indexOf('stupid') > -1) {
+    const weight = 2
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return `“It's not just that I'm stupid; it's that I'm just smart enough to know how stupid I am. I wish I weren't so stupid. Or that I were stupider.” - John Hall`
+    }
+  }
+
+  if (message.indexOf('egg') > -1) {
+    return 'ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'
+  }
+
+  if (message.indexOf('food') > -1) {
+    const weight = 2
+    const random = randomNumber(1, 10)
+    if (random < weight) {
+      return 'ILL COOK 5 AND EAT EACH ONE IN A BITE'
+    }
+  }
+
+  if (message.indexOf('vegetable') > -1) {
+    return 'i dojt eat vegetabled'
+  }
+
+  if (message.indexOf('breakfast') > -1) {
+    return 'OMG I WAS JUST EATING BREAKFAST TOO'
+  }
+
+  if (message.indexOf('dairy queen') > -1) {
+    return 'bro i havent had a dairy queen salad in a lonngass time'
+  }
+
+  if (message.indexOf('musk') > -1) {
+    return 'musk fetish 😨😨😨💀💀'
+  }
+
+  if (message.indexOf('dj khaled') > -1) {
+    return 'god dj khaled is so cringe'
   }
 }
 
@@ -112,6 +196,13 @@ function checkArtistTriggers(message: string): string | undefined {
       `they are hairy and bulging ${artistWikipediaUrl}`,
       `finally some god damn facts.\r\n${similarTrigger.artist} is a better ${similarTrigger.instrument} player. ${similarWikipediaUrl}`,
       `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
+      `god they're all so fancily dressed. ${artistWikipediaUrl}`,
+      `that man cannot play swing. check out ${similarTrigger.artist}. ${similarWikipediaUrl}`,
+      `and they are such a classical ${artistTrigger.instrument} its making me cringe when they play swing. ${artistWikipediaUrl}`,
+      `but im better than them so its okay ${artistWikipediaUrl}`,
+      `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
+      `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarWikipediaUrl}`,
+      `not me arranging a ${artistTrigger.artist} song for my jazz combo ${artistWikipediaUrl}`,
     ]
 
     // Send the response
@@ -172,6 +263,13 @@ function respondRandomly(): string | undefined {
     'it was nice knowing you all',
     'OH MY GOD SOMEONE SAID IT',
     'sorry i hate men',
+    `you can just search 'land of the misty giants'\r\nor my name when i show up\r\nill lyk when im up`,
+    'WAIT HOW TFDID YOU KNOW THE NAME OF MY FILE',
+    'i wish i appreciated jazz the way squishy does',
+    'AHHHHHHHHHHHHHHHHHHHHHHHHHHHH',
+    'i will literally unleash my inner beast\r\nmy demons',
+    'jimmy car is coming to my city should i go see him',
+    'wait i dont understandable',
   ]
 
   const random = randomNumber(0, 100)
