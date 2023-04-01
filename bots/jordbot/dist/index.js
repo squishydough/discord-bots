@@ -129,6 +129,16 @@ function checkOneOffTriggers(message) {
     if (message.indexOf('burger') > -1) {
         return 'they put too many onion on my quarter pounder with cheese and now i feel icky ☹️';
     }
+    if (message.indexOf('dog') > -1) {
+        return 'i resent this lack of respect for me. i always put ketchup and mustard on my dogs';
+    }
+    if (message.indexOf('hotdog') > -1 || message.indexOf('hot dog') > -1) {
+        var responses = [
+            'hot dog lore',
+            'just saw a place selling a poutine dog\r\nwhich is a hot dog with gracy and cheese on',
+        ];
+        return responses[randomNumber(0, responses.length - 1)];
+    }
     if (message.indexOf('thankful') > -1 || message.indexOf('grateful') > -1) {
         return 'im thankful for your cute face';
     }
@@ -222,6 +232,9 @@ function checkOneOffTriggers(message) {
     if (message.indexOf('beatles') > -1) {
         return 'not a joke i know more music theory than the beatles';
     }
+    if (message.indexOf('fall guys') > -1) {
+        return 'i would love to put down my saxophone right now and play fall guys with you (my best friends)';
+    }
 }
 /**
  * Checks if the message contains a name for a specific artist.
@@ -285,7 +298,9 @@ function checkArtistTriggers(message) {
             "magical things happen on ".concat(artistTrigger.artist, "s birthday ").concat(artistWikipediaUrl),
             "welp now i know youre a real ".concat(artistTrigger.artist, " fan ").concat(artistWikipediaUrl),
             "so if youre a bigger ".concat(artistTrigger.artist, " fand and you even know his dad then youd know the answer too ").concat(artistWikipediaUrl),
-            "",
+            "regular sized woman plays oversized ".concat(artistTrigger.instrument, " ").concat(artistWikipediaUrl),
+            "i found another piano idol ".concat(artistWikipediaUrl),
+            "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
         ];
         // Send the response
         return responses[randomNumber(0, responses.length - 1)];
@@ -318,6 +333,9 @@ function checkInstrumentTriggers(message) {
             "".concat(instrumentTrigger.instrument, " is whack bro. ").concat(similarTrigger.instrument, " is way better"),
             "bro ".concat(similarTrigger.artist, " is the best ").concat(instrumentTrigger.instrument, " player"),
             "it plays me my jazz",
+            "incase you dont know: the highest regular note on ".concat(instrumentTrigger.instrument, " is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with"),
+            "i TAUGHT those kids how to play ".concat(instrumentTrigger.instrument),
+            "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
         ];
         // Send the response
         return responses[randomNumber(0, responses.length - 1)];
@@ -356,6 +374,7 @@ function respondRandomly() {
         'thats not what joey alexander would want',
         'youre a disappointment to all joey alexanser fans',
         "if i looked up 'Joey Alexander Fan Cublets' then why did the link titled 'Joey Alexander Fan Cublets' not pop up",
+        "i hope i break my arm in a way that still lets me play piano and saxophone but i can never play overwatch against you again",
     ];
     var random = randomNumber(0, 100);
     var weight = 5;
