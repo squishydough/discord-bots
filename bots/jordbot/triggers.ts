@@ -503,7 +503,6 @@ export const triggers: Trigger[] = [
   { instrument: 'piano', artist: 'Jason Moran' },
   { instrument: 'piano', artist: 'Milt Buckner' },
   { instrument: 'piano', artist: 'Randy Weston' },
-  { instrument: 'piano', artist: 'Nat King Cole' },
   { instrument: 'piano', artist: 'Andre Previn' },
   { instrument: 'piano', artist: 'Mal Waldron' },
   { instrument: 'piano', artist: 'Billy Kyle' },
@@ -540,9 +539,11 @@ export const triggers: Trigger[] = [
   { instrument: 'organ', artist: 'John Patton' },
 ]
 
-export const instruments = triggers.reduce<Trigger[]>((acc, trigger) => {
-  if (!acc.some((t) => t.instrument === trigger.instrument)) {
-    acc.push(trigger)
-  }
-  return acc
-}, [])
+export const instruments = triggers
+  .filter((trigger) => trigger.instrument !== 'groups')
+  .reduce<Trigger[]>((acc, trigger) => {
+    if (!acc.some((t) => t.instrument === trigger.instrument)) {
+      acc.push(trigger)
+    }
+    return acc
+  }, [])

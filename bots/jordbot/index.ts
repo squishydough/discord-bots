@@ -223,6 +223,10 @@ function checkOneOffTriggers(message: string): string | undefined {
   if (message.indexOf('jeopardy') > -1) {
     return 'who was the dancer on the music video for Moments Notice'
   }
+
+  if (message.indexOf('beatles') > -1) {
+    return 'not a joke i know more music theory than the beatles'
+  }
 }
 
 /**
@@ -256,17 +260,19 @@ function checkArtistTriggers(message: string): string | undefined {
 
     // Wikipedia link
     const artistWikipediaUrl = `https://en.wikipedia.org/wiki/${artistTrigger.artist.replace(
-      ' ',
+      / /g,
       '_'
     )}`
     const similarWikipediaUrl = `https://en.wikipedia.org/wiki/${similarTrigger.artist.replace(
-      ' ',
+      / /g,
       '_'
     )}`
 
     const otherInstruments = instruments.filter(
       (i) => i.instrument !== artistTrigger?.instrument
     )
+    const otherInstrument =
+      otherInstruments[randomNumber(0, otherInstruments.length - 1)]
 
     const responses = [
       `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
@@ -278,7 +284,7 @@ function checkArtistTriggers(message: string): string | undefined {
       `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
       `god they're all so fancily dressed. ${artistWikipediaUrl}`,
       `that man cannot play swing. check out ${similarTrigger.artist}. ${similarWikipediaUrl}`,
-      `and they are such a classical ${artistTrigger.instrument} its making me cringe when they play swing. ${artistWikipediaUrl}`,
+      `and they are such a classical ${artistTrigger.instrument} player its making me cringe when they play swing. ${artistWikipediaUrl}`,
       `but im better than them so its okay ${artistWikipediaUrl}`,
       `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
       `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarWikipediaUrl}`,
@@ -290,16 +296,17 @@ function checkArtistTriggers(message: string): string | undefined {
       `well actually this one woman and ${artistTrigger.instrument} player dude did kids songs, but it was jazz and that was actualyl dope ${artistWikipediaUrl}`,
       `dont tell me you guys think ${artistTrigger.artist} can only play smooth jazz ${artistWikipediaUrl}`,
       `i saw a video of an ai music robot and like you could program it to play 50% like ${artistTrigger.artist} and 50% like ${similarTrigger.artist}`,
-      `the music side is great, they got this amazing ${
-        similarTrigger.instrument
-      } player named ${similarTrigger.artist} who is just insane, they play ${
-        otherInstruments[randomNumber(0, otherInstruments.length - 1)]
-      } too at an insane level ${artistWikipediaUrl}`,
+      `the music side is great, they got this amazing ${similarTrigger.instrument} player named ${similarTrigger.artist} who is just insane, they play ${otherInstrument} too at an insane level ${artistWikipediaUrl}`,
       `i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ${artistWikipediaUrl}`,
       `theyve inspired me to quit music forever ${artistWikipediaUrl}`,
       `you think this 12 year old was blasting music next to you too? ${artistWikipediaUrl}`,
       `but they dont play music. try ${similarTrigger.artist} ${similarWikipediaUrl}`,
       `not a joke i know more music theory than ${artistTrigger.artist} ${artistWikipediaUrl}`,
+      `OH MY GOD SAME ${artistTrigger.instrument.toUpperCase()} PLAYERS AND RHYTHM SECTION B TWITH JOEY ALEXANDER ${artistWikipediaUrl}`,
+      `magical things happen on ${artistTrigger.artist}s birthday ${artistWikipediaUrl}`,
+      `welp now i know youre a real ${artistTrigger.artist} fan ${artistWikipediaUrl}`,
+      `so if youre a bigger ${artistTrigger.artist} fand and you even know his dad then youd know the answer too ${artistWikipediaUrl}`,
+      ``,
     ]
 
     // Send the response
@@ -376,6 +383,9 @@ function respondRandomly(): string | undefined {
     'I LOVE JAZZ SO MUCH OMG',
     'should probably quit music and go lay on the grass',
     'gotta say, the inside of the music building is quite ubderwhelming',
+    'thats not what joey alexander would want',
+    'youre a disappointment to all joey alexanser fans',
+    `if i looked up 'Joey Alexander Fan Cublets' then why did the link titled 'Joey Alexander Fan Cublets' not pop up`,
   ]
 
   const random = randomNumber(0, 100)
