@@ -14,11 +14,54 @@ function randomNumber(min: number, max: number): number {
  */
 function checkOneOffTriggers(message: string): string | undefined {
   if (message.indexOf('miles davis') > -1) {
-    return 'https://imgur.com/a/FauNoJr'
+    return 'https://i.imgur.com/jSO2YvA.png'
+  }
+
+  if (message.indexOf('shoes') > -1) {
+    return 'https://i.imgur.com/Epm6dQl.png'
   }
 
   if (message.indexOf('joey alexander') > -1) {
     return 'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c'
+  }
+
+  if (message.indexOf('squirrel') > -1) {
+    return 'squirrels arent real'
+  }
+
+  if (message.indexOf('surefour') > -1) {
+    return 'bro surefour is from calgary how cool is that\r\nme and him literally went to the same laser tag place when we were little\r\nnot at the same time but still'
+  }
+
+  if (message.indexOf('legs') > -1) {
+    return 'crazy calves bro\r\nim not jealous at all :ANGRYCRYING:'
+  }
+
+  if (message.indexOf('pokemon') > -1) {
+    return 'i forget how to fuxkint spell it'
+  }
+
+  if (message.indexOf('party') > -1) {
+    return 'invite me next time :heart_eyes: :heart_eyes:'
+  }
+
+  if (
+    message.indexOf('congrats') > -1 ||
+    message.indexOf('congratulations') > -1 ||
+    message.indexOf('grats') > -1
+  ) {
+    return 'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.'
+  }
+
+  if (message.indexOf('among us') > -1) {
+    return 'among us'
+  }
+
+  if (
+    message.indexOf('donald glover') > -1 ||
+    message.indexOf('childish gambino') > -1
+  ) {
+    return 'WAIT DONALD GLOVER IS CHILDISH GAMBINO??\r\nWHY DOES DONALD GLOVER DO EVERYTHING\r\nliterally fucking writes acts comdeians and then turns around and makes bangers with 1.2 billion streams\r\nand has won 5 grammys???\r\ngod dammit\r\ni need to jus stop'
   }
 }
 
@@ -51,16 +94,36 @@ function checkArtistTriggers(message: string): string | undefined {
     const similarTrigger =
       similarTriggers[randomNumber(0, similarTriggers.length - 1)]
 
-    const wikipediaUrl = `https://en.wikipedia.org/wiki/${similarTrigger.artist.replace(
+    // Wikipedia link
+    const artistWikipediaUrl = `https://en.wikipedia.org/wiki/${artistTrigger.artist.replace(
+      ' ',
+      '_'
+    )}`
+    const similarWikipediaUrl = `https://en.wikipedia.org/wiki/${similarTrigger.artist.replace(
       ' ',
       '_'
     )}`
 
+    const responses = [
+      `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
+      `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarTrigger.artist}. ${similarWikipediaUrl}`,
+      `they are pieces of art on the same level as da vinci and miles davis. ${artistWikipediaUrl}`,
+      `bro is famous ${artistWikipediaUrl}`,
+      `they are hairy and bulging ${artistWikipediaUrl}`,
+      `finally some god damn facts.\r\n${similarTrigger.artist} is a better ${similarTrigger.instrument} player. ${similarWikipediaUrl}`,
+      `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
+    ]
+
     // Send the response
-    return `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarTrigger.artist}. ${wikipediaUrl}`
+    return responses[randomNumber(0, responses.length - 1)]
   }
 }
 
+/**
+ * Checks if the message contains a name for a specific instrument.
+ * If so, it will return a response stating the instrument is dogwater,
+ * and recommend a different instrument.
+ */
 function checkInstrumentTriggers(message: string): string | undefined {
   let instrumentTrigger: Trigger | null = null
   for (const trigger of instruments) {
@@ -83,8 +146,38 @@ function checkInstrumentTriggers(message: string): string | undefined {
     const similarTrigger =
       similarTriggers[randomNumber(0, similarTriggers.length - 1)]
 
+    const responses = [
+      `${instrumentTrigger.instrument} is a dogwater instrument. Try learning ${similarTrigger.instrument} if you want a real jazz instrument.`,
+      `${instrumentTrigger.instrument} is whack bro`,
+    ]
+
     // Send the response
-    return `${instrumentTrigger.instrument} is a dogwater instrument. Try learning ${similarTrigger.instrument} if you want a real jazz instrument.`
+    return responses[randomNumber(0, responses.length - 1)]
+  }
+}
+
+function respondRandomly(): string | undefined {
+  const responses = [
+    'YOOOO LETS GO',
+    'NOO THEY NERFED BALL MINES',
+    'invite me next time :heart_eyes: :heart_eyes: ',
+    'bro just started going off on a 17 year old on the internet.',
+    'jesus',
+    'like why are you so quick with it\r\ngive me a chance\r\njesus',
+    'kinda real though',
+    'im not jealous at all :ANGRYCRYING:',
+    'HOW DO YOU KNOW',
+    'im parked. in a parking lot.',
+    'ok WHY was i kicked',
+    'it was nice knowing you all',
+    'OH MY GOD SOMEONE SAID IT',
+    'sorry i hate men',
+  ]
+
+  const random = randomNumber(0, 100)
+  const weight = 5
+  if (random < weight) {
+    return responses[randomNumber(0, responses.length - 1)]
   }
 }
 
@@ -121,6 +214,12 @@ client.on('messageCreate', async (message) => {
   const instrumentResponse = checkInstrumentTriggers(content)
   if (instrumentResponse) {
     message.reply(instrumentResponse)
+    return
+  }
+
+  const randomResponse = respondRandomly()
+  if (randomResponse) {
+    message.reply(randomResponse)
     return
   }
 })
