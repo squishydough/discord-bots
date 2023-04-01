@@ -380,7 +380,7 @@ function respondRandomly() {
         "i hope i break my arm in a way that still lets me play piano and saxophone but i can never play overwatch against you again",
     ];
     var random = randomNumber(0, 100);
-    var weight = 5;
+    var weight = 2;
     if (random < weight) {
         return responses[randomNumber(0, responses.length - 1)];
     }
