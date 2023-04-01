@@ -243,6 +243,10 @@ function checkOneOffTriggers(message: string): string | undefined {
   if (message.indexOf('fall guys') > -1) {
     return 'i would love to put down my saxophone right now and play fall guys with you (my best friends)'
   }
+
+  if (message.indexOf('shorts') > -1) {
+    return `but also the first thing i think when i see those shorts is 'squishy wears those'`
+  }
 }
 
 /**
