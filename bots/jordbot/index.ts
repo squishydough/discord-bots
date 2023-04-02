@@ -83,14 +83,12 @@ function checkArtistTriggers(message: string): string | undefined {
       / /g,
       '_'
     )}`
-    const similarWikipediaUrl = `https://en.wikipedia.org/wiki/${similarArtistTrigger.artist.replace(
+    const similarArtistWikipediaUrl = `https://en.wikipedia.org/wiki/${similarArtistTrigger.artist.replace(
       / /g,
       '_'
     )}`
 
-    /**
-     * Find triggers from other instrument types other than the one that was detected.
-     */
+    // Find triggers from other instrument types other than the one that was detected.
     const otherInstrumentTriggers = instrumentTriggers.filter(
       (i) => i.instrument !== artistTrigger?.instrument
     )
@@ -101,21 +99,21 @@ function checkArtistTriggers(message: string): string | undefined {
 
     const responses = [
       `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
-      `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarArtistTrigger.artist}. ${similarWikipediaUrl}`,
+      `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
       `they are pieces of art on the same level as da vinci and miles davis. ${artistWikipediaUrl}`,
       `bro is famous ${artistWikipediaUrl}`,
       `they are hairy and bulging ${artistWikipediaUrl}`,
-      `finally some god damn facts.\r\n${similarArtistTrigger.artist} is a better ${similarArtistTrigger.instrument} player. ${similarWikipediaUrl}`,
+      `finally some god damn facts.\r\n${similarArtistTrigger.artist} is a better ${similarArtistTrigger.instrument} player. ${similarArtistWikipediaUrl}`,
       `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
       `god they're all so fancily dressed. ${artistWikipediaUrl}`,
-      `that man cannot play swing. check out ${similarArtistTrigger.artist}. ${similarWikipediaUrl}`,
+      `that man cannot play swing. check out ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
       `and they are such a classical ${artistTrigger.instrument} player its making me cringe when they play swing. ${artistWikipediaUrl}`,
       `but im better than them so its okay ${artistWikipediaUrl}`,
       `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
-      `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarWikipediaUrl}`,
+      `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarArtistWikipediaUrl}`,
       `not me arranging a ${artistTrigger.artist} song for my jazz combo ${artistWikipediaUrl}`,
       `holy shit ~~bill clinton~~ ${artistTrigger.artist} on the ${artistTrigger.instrument} ${artistWikipediaUrl}`,
-      `WHY IS ${artistTrigger.artist.toUpperCase()} PLAYING A D# OVER A B MINOR CHORD. ${similarArtistTrigger.artist.toUpperCase()} IS BETTER ${similarWikipediaUrl}`,
+      `WHY IS ${artistTrigger.artist.toUpperCase()} PLAYING A D# OVER A B MINOR CHORD. ${similarArtistTrigger.artist.toUpperCase()} IS BETTER ${similarArtistWikipediaUrl}`,
       `currently plays in an all female jazz group called artemis that literaly just has some of the best jazz players of the modern day ${artistWikipediaUrl}`,
       `fun fact: they also play jazz ${artistWikipediaUrl}`,
       `well actually this one woman and ${artistTrigger.instrument} player dude did kids songs, but it was jazz and that was actualyl dope ${artistWikipediaUrl}`,
@@ -125,7 +123,7 @@ function checkArtistTriggers(message: string): string | undefined {
       `i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ${artistWikipediaUrl}`,
       `theyve inspired me to quit music forever ${artistWikipediaUrl}`,
       `you think this 12 year old was blasting music next to you too? ${artistWikipediaUrl}`,
-      `but they dont play music. try ${similarArtistTrigger.artist} ${similarWikipediaUrl}`,
+      `but they dont play music. try ${similarArtistTrigger.artist} ${similarArtistWikipediaUrl}`,
       `not a joke i know more music theory than ${artistTrigger.artist} ${artistWikipediaUrl}`,
       `OH MY GOD SAME ${artistTrigger.instrument.toUpperCase()} PLAYERS AND RHYTHM SECTION B TWITH JOEY ALEXANDER ${artistWikipediaUrl}`,
       `magical things happen on ${artistTrigger.artist}s birthday ${artistWikipediaUrl}`,
