@@ -222,8 +222,8 @@ function getRandomResponse(): string | undefined {
   ]
 
   const random = randomNumber(0, 100)
-  const weight = 2
-  if (random < weight) {
+  const weight = 3
+  if (random <= weight) {
     return responses[randomNumber(0, responses.length - 1)]
   }
 }
