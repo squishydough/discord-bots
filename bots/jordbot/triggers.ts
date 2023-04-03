@@ -816,4 +816,11 @@ export const oneOffTriggers: OneOffTrigger[] = [
     ],
     ...defaultWeights,
   },
+  {
+    triggers: ['quincy jones'],
+    responses: [
+      'QUNCY JONES IS OBSCURE https://en.wikipedia.org/wiki/Quincy_Jones',
+    ],
+    ...defaultWeights,
+  },
 ]

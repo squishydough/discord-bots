@@ -102,29 +102,27 @@ function checkArtistTriggers(message) {
         var similarArtistTrigger = similarArtistTriggers[randomNumber(0, similarArtistTriggers.length - 1)];
         // Swap blank spaces with underscores for wikipedia urls
         var artistWikipediaUrl = "https://en.wikipedia.org/wiki/".concat(artistTrigger.artist.replace(/ /g, '_'));
-        var similarWikipediaUrl = "https://en.wikipedia.org/wiki/".concat(similarArtistTrigger.artist.replace(/ /g, '_'));
-        /**
-         * Find triggers from other instrument types other than the one that was detected.
-         */
+        var similarArtistWikipediaUrl = "https://en.wikipedia.org/wiki/".concat(similarArtistTrigger.artist.replace(/ /g, '_'));
+        // Find triggers from other instrument types other than the one that was detected.
         var otherInstrumentTriggers = triggers_1.instrumentTriggers.filter(function (i) { return i.instrument !== (artistTrigger === null || artistTrigger === void 0 ? void 0 : artistTrigger.instrument); });
         var otherInstrumentTrigger = otherInstrumentTriggers[randomNumber(0, otherInstrumentTriggers.length - 1)];
         var responses = [
             "".concat(artistTrigger.artist, " is an awesome ").concat(artistTrigger.instrument, " player who won the best rhythm section player award at the alberta international band festival. ").concat(artistWikipediaUrl),
-            "".concat(artistTrigger.artist, " is a decent ").concat(artistTrigger.instrument, " player, but they're no ").concat(similarArtistTrigger.artist, ". ").concat(similarWikipediaUrl),
+            "".concat(artistTrigger.artist, " is a decent ").concat(artistTrigger.instrument, " player, but they're no ").concat(similarArtistTrigger.artist, ". ").concat(similarArtistWikipediaUrl),
             "they are pieces of art on the same level as da vinci and miles davis. ".concat(artistWikipediaUrl),
             "bro is famous ".concat(artistWikipediaUrl),
             "they are hairy and bulging ".concat(artistWikipediaUrl),
-            "finally some god damn facts.\r\n".concat(similarArtistTrigger.artist, " is a better ").concat(similarArtistTrigger.instrument, " player. ").concat(similarWikipediaUrl),
+            "finally some god damn facts.\r\n".concat(similarArtistTrigger.artist, " is a better ").concat(similarArtistTrigger.instrument, " player. ").concat(similarArtistWikipediaUrl),
             "".concat(artistTrigger.artist, " when he sees a cute animal :heart_eyes: ").concat(artistWikipediaUrl),
             "god they're all so fancily dressed. ".concat(artistWikipediaUrl),
-            "that man cannot play swing. check out ".concat(similarArtistTrigger.artist, ". ").concat(similarWikipediaUrl),
+            "that man cannot play swing. check out ".concat(similarArtistTrigger.artist, ". ").concat(similarArtistWikipediaUrl),
             "and they are such a classical ".concat(artistTrigger.instrument, " player its making me cringe when they play swing. ").concat(artistWikipediaUrl),
             "but im better than them so its okay ".concat(artistWikipediaUrl),
             "the ".concat(artistTrigger.instrument, " players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ").concat(artistTrigger.artist, " song. ").concat(artistWikipediaUrl),
-            "2 of my favorite ".concat(artistTrigger.instrument, " players got sponsored by overwatch\r\nkind of large actually\r\n").concat(artistWikipediaUrl, " ").concat(similarWikipediaUrl),
+            "2 of my favorite ".concat(artistTrigger.instrument, " players got sponsored by overwatch\r\nkind of large actually\r\n").concat(artistWikipediaUrl, " ").concat(similarArtistWikipediaUrl),
             "not me arranging a ".concat(artistTrigger.artist, " song for my jazz combo ").concat(artistWikipediaUrl),
             "holy shit ~~bill clinton~~ ".concat(artistTrigger.artist, " on the ").concat(artistTrigger.instrument, " ").concat(artistWikipediaUrl),
-            "WHY IS ".concat(artistTrigger.artist.toUpperCase(), " PLAYING A D# OVER A B MINOR CHORD. ").concat(similarArtistTrigger.artist.toUpperCase(), " IS BETTER ").concat(similarWikipediaUrl),
+            "WHY IS ".concat(artistTrigger.artist.toUpperCase(), " PLAYING A D# OVER A B MINOR CHORD. ").concat(similarArtistTrigger.artist.toUpperCase(), " IS BETTER ").concat(similarArtistWikipediaUrl),
             "currently plays in an all female jazz group called artemis that literaly just has some of the best jazz players of the modern day ".concat(artistWikipediaUrl),
             "fun fact: they also play jazz ".concat(artistWikipediaUrl),
             "well actually this one woman and ".concat(artistTrigger.instrument, " player dude did kids songs, but it was jazz and that was actualyl dope ").concat(artistWikipediaUrl),
@@ -134,7 +132,7 @@ function checkArtistTriggers(message) {
             "i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ".concat(artistWikipediaUrl),
             "theyve inspired me to quit music forever ".concat(artistWikipediaUrl),
             "you think this 12 year old was blasting music next to you too? ".concat(artistWikipediaUrl),
-            "but they dont play music. try ".concat(similarArtistTrigger.artist, " ").concat(similarWikipediaUrl),
+            "but they dont play music. try ".concat(similarArtistTrigger.artist, " ").concat(similarArtistWikipediaUrl),
             "not a joke i know more music theory than ".concat(artistTrigger.artist, " ").concat(artistWikipediaUrl),
             "OH MY GOD SAME ".concat(artistTrigger.instrument.toUpperCase(), " PLAYERS AND RHYTHM SECTION B TWITH JOEY ALEXANDER ").concat(artistWikipediaUrl),
             "magical things happen on ".concat(artistTrigger.artist, "s birthday ").concat(artistWikipediaUrl),
