@@ -185,7 +185,7 @@ function getRandomResponse() {
     var responses = [
         'YOOOO LETS GO',
         'NOO THEY NERFED BALL MINES',
-        'invite me next time :heart_eyes: :heart_eyes: ',
+        'I SAID BOFA DEEZ NUTS',
         'bro just started going off on a 17 year old on the internet.',
         'jesus',
         'like why are you so quick with it\r\ngive me a chance\r\njesus',
