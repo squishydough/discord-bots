@@ -176,6 +176,7 @@ function checkInstrumentTriggers(message) {
             "incase you dont know: the highest regular note on ".concat(instrumentTrigger.instrument, " is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with"),
             "i TAUGHT those kids how to play ".concat(instrumentTrigger.instrument),
             "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
+            "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(similarInstrumentTrigger.instrument, " but i can never play overwatch against you again"),
         ];
         // Send the response
         return responses[randomNumber(0, responses.length - 1)];
@@ -214,7 +215,7 @@ function getRandomResponse() {
         'thats not what joey alexander would want',
         'youre a disappointment to all joey alexanser fans',
         "if i looked up 'Joey Alexander Fan Cublets' then why did the link titled 'Joey Alexander Fan Cublets' not pop up",
-        "i hope i break my arm in a way that still lets me play piano and saxophone but i can never play overwatch against you again",
+        "god damn thats pretty",
     ];
     var random = randomNumber(0, 100);
     var weight = 3;
