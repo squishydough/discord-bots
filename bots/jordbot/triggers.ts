@@ -823,4 +823,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     ],
     ...defaultWeights,
   },
+  {
+    triggers: ['committed'],
+    responses: ['why the fuck is he so committed'],
+    ...defaultWeights,
+  },
 ]

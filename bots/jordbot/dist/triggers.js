@@ -681,4 +681,5 @@ exports.oneOffTriggers = [
     __assign({ triggers: ['quincy jones'], responses: [
             'QUNCY JONES IS OBSCURE https://en.wikipedia.org/wiki/Quincy_Jones',
         ] }, defaultWeights),
+    __assign({ triggers: ['committed'], responses: ['why the fuck is he so committed'] }, defaultWeights),
 ];
