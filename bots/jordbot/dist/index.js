@@ -216,6 +216,7 @@ function getRandomResponse() {
         'youre a disappointment to all joey alexanser fans',
         "if i looked up 'Joey Alexander Fan Cublets' then why did the link titled 'Joey Alexander Fan Cublets' not pop up",
         "god damn thats pretty",
+        "thats actuall wild though wtf",
     ];
     var random = randomNumber(0, 100);
     var weight = 3;
