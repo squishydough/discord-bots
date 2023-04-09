@@ -546,9 +546,9 @@ export type OneOffTrigger = {
 // So if the weight is a number between 1 and 10, such as 6, it will trigger if a
 // random between 1 and 10 is 6 or less, i.e. a 60% chance.
 const defaultWeights = {
-  weight: 1,
+  weight: 4,
   lowestWeight: 1,
-  highestWeight: 1,
+  highestWeight: 10,
 }
 
 export const oneOffTriggers: OneOffTrigger[] = [
