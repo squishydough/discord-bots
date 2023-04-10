@@ -219,6 +219,7 @@ function getRandomResponse(): string | undefined {
     `if i looked up 'Joey Alexander Fan Cublets' then why did the link titled 'Joey Alexander Fan Cublets' not pop up`,
     `god damn thats pretty`,
     `thats actuall wild though wtf`,
+    `why the fuck is he so committed`,
   ]
 
   const random = randomNumber(0, 100)
