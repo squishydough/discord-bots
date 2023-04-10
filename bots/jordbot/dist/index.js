@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
-var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 };
+var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 4 };
 var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
 var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
 /**
