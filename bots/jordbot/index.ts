@@ -8,6 +8,10 @@ import {
   type OneOffTrigger,
 } from './triggers'
 
+const RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 }
+const ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
+const INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
+
 /**
  * Picks a random number between two numbers
  */
@@ -134,8 +138,8 @@ function checkArtistTriggers(message: string): string | undefined {
       `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
     ]
 
-    const random = randomNumber(1, 10)
-    const weight = 5
+    const { lowest, highest, weight } = ARTIST_TRIGGER_WEIGHT
+    const random = randomNumber(lowest, highest)
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
@@ -184,8 +188,8 @@ function checkInstrumentTriggers(message: string): string | undefined {
       `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${similarInstrumentTrigger.instrument} but i can never play overwatch against you again`,
     ]
 
-    const random = randomNumber(1, 10)
-    const weight = 5
+    const { lowest, highest, weight } = INSTRUMENT_TRIGGER_WEIGHT
+    const random = randomNumber(lowest, highest)
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
@@ -232,8 +236,8 @@ function getRandomResponse(): string | undefined {
     `why the fuck is he so committed`,
   ]
 
-  const random = randomNumber(1, 100)
-  const weight = 3
+  const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT
+  const random = randomNumber(lowest, highest)
   const shouldReturnResponse = random <= weight
   if (shouldReturnResponse) {
     return responses[randomNumber(0, responses.length - 1)]

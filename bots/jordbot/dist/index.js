@@ -39,6 +39,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
+var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 };
+var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
+var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
 /**
  * Picks a random number between two numbers
  */
@@ -142,8 +145,8 @@ function checkArtistTriggers(message) {
             "i found another piano idol ".concat(artistWikipediaUrl),
             "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
         ];
-        var random = randomNumber(1, 10);
-        var weight = 5;
+        var lowest = ARTIST_TRIGGER_WEIGHT.lowest, highest = ARTIST_TRIGGER_WEIGHT.highest, weight = ARTIST_TRIGGER_WEIGHT.weight;
+        var random = randomNumber(lowest, highest);
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
@@ -183,8 +186,8 @@ function checkInstrumentTriggers(message) {
             "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
             "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(similarInstrumentTrigger.instrument, " but i can never play overwatch against you again"),
         ];
-        var random = randomNumber(1, 10);
-        var weight = 5;
+        var lowest = INSTRUMENT_TRIGGER_WEIGHT.lowest, highest = INSTRUMENT_TRIGGER_WEIGHT.highest, weight = INSTRUMENT_TRIGGER_WEIGHT.weight;
+        var random = randomNumber(lowest, highest);
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
@@ -229,8 +232,8 @@ function getRandomResponse() {
         "thats actuall wild though wtf",
         "why the fuck is he so committed",
     ];
-    var random = randomNumber(1, 100);
-    var weight = 3;
+    var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
+    var random = randomNumber(lowest, highest);
     var shouldReturnResponse = random <= weight;
     if (shouldReturnResponse) {
         return responses[randomNumber(0, responses.length - 1)];
