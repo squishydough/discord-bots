@@ -566,9 +566,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['miles davis'],
     responses: ['https://i.imgur.com/jSO2YvA.png'],
-    weight: 6,
-    lowestWeight: 1,
-    highestWeight: 10,
+    ...defaultWeights,
   },
   {
     triggers: ['shoes'],
@@ -580,9 +578,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [
       'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c',
     ],
-    weight: 6,
-    lowestWeight: 1,
-    highestWeight: 10,
+    ...defaultWeights,
   },
   {
     triggers: ['chess'],

@@ -134,8 +134,13 @@ function checkArtistTriggers(message: string): string | undefined {
       `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
     ]
 
-    // Send the response
-    return responses[randomNumber(0, responses.length - 1)]
+    const random = randomNumber(1, 10)
+    const weight = 5
+    const shouldReturnResponse = random <= weight
+    if (shouldReturnResponse) {
+      // Send the response
+      return responses[randomNumber(0, responses.length - 1)]
+    }
   }
 }
 
@@ -179,8 +184,13 @@ function checkInstrumentTriggers(message: string): string | undefined {
       `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${similarInstrumentTrigger.instrument} but i can never play overwatch against you again`,
     ]
 
-    // Send the response
-    return responses[randomNumber(0, responses.length - 1)]
+    const random = randomNumber(1, 10)
+    const weight = 5
+    const shouldReturnResponse = random <= weight
+    if (shouldReturnResponse) {
+      // Send the response
+      return responses[randomNumber(0, responses.length - 1)]
+    }
   }
 }
 
@@ -222,9 +232,10 @@ function getRandomResponse(): string | undefined {
     `why the fuck is he so committed`,
   ]
 
-  const random = randomNumber(0, 100)
+  const random = randomNumber(1, 100)
   const weight = 3
-  if (random <= weight) {
+  const shouldReturnResponse = random <= weight
+  if (shouldReturnResponse) {
     return responses[randomNumber(0, responses.length - 1)]
   }
 }

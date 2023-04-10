@@ -142,8 +142,13 @@ function checkArtistTriggers(message) {
             "i found another piano idol ".concat(artistWikipediaUrl),
             "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
         ];
-        // Send the response
-        return responses[randomNumber(0, responses.length - 1)];
+        var random = randomNumber(1, 10);
+        var weight = 5;
+        var shouldReturnResponse = random <= weight;
+        if (shouldReturnResponse) {
+            // Send the response
+            return responses[randomNumber(0, responses.length - 1)];
+        }
     }
 }
 /**
@@ -178,8 +183,13 @@ function checkInstrumentTriggers(message) {
             "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
             "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(similarInstrumentTrigger.instrument, " but i can never play overwatch against you again"),
         ];
-        // Send the response
-        return responses[randomNumber(0, responses.length - 1)];
+        var random = randomNumber(1, 10);
+        var weight = 5;
+        var shouldReturnResponse = random <= weight;
+        if (shouldReturnResponse) {
+            // Send the response
+            return responses[randomNumber(0, responses.length - 1)];
+        }
     }
 }
 function getRandomResponse() {
@@ -219,9 +229,10 @@ function getRandomResponse() {
         "thats actuall wild though wtf",
         "why the fuck is he so committed",
     ];
-    var random = randomNumber(0, 100);
+    var random = randomNumber(1, 100);
     var weight = 3;
-    if (random <= weight) {
+    var shouldReturnResponse = random <= weight;
+    if (shouldReturnResponse) {
         return responses[randomNumber(0, responses.length - 1)];
     }
 }
