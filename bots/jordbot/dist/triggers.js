@@ -590,6 +590,7 @@ exports.oneOffTriggers = [
         responses: [
             'squish you enhance my qualities',
             'i want to go to christmas dinner with squishydough ☹️',
+            'but squish said thats how the song gods\r\nbut its not',
         ],
         weight: 2,
         lowestWeight: 1,
@@ -670,4 +671,9 @@ exports.oneOffTriggers = [
             'QUNCY JONES IS OBSCURE https://en.wikipedia.org/wiki/Quincy_Jones',
         ] }, defaultWeights),
     __assign({ triggers: ['committed'], responses: ['why the fuck is he so committed'] }, defaultWeights),
+    __assign({ triggers: ['theater', 'theatre'], responses: ['gonna accidentally rizz up everyone in the theatre'] }, defaultWeights),
+    __assign({ triggers: ['bronze'], responses: [
+            'i mean those bronze players are pretty tough to play againsy\r\ni would know',
+        ] }, defaultWeights),
+    __assign({ triggers: ['rhythm'], responses: ['listen you dont know anything ab my rhythm ok'] }, defaultWeights),
 ];

@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
-var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 4 };
+var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 };
 var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
 var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
 /**
@@ -145,6 +145,7 @@ function checkArtistTriggers(message) {
             "regular sized woman plays oversized ".concat(artistTrigger.instrument, " ").concat(artistWikipediaUrl),
             "i found another piano idol ".concat(artistWikipediaUrl),
             "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
+            "with that dope of a name he has to be good ".concat(artistWikipediaUrl),
         ];
         var lowest = ARTIST_TRIGGER_WEIGHT.lowest, highest = ARTIST_TRIGGER_WEIGHT.highest, weight = ARTIST_TRIGGER_WEIGHT.weight;
         var random = randomNumber(lowest, highest);
@@ -187,6 +188,8 @@ function checkInstrumentTriggers(message) {
             "i TAUGHT those kids how to play ".concat(instrumentTrigger.instrument),
             "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
             "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(similarInstrumentTrigger.instrument, " but i can never play overwatch against you again"),
+            "NOOOOO\r\nONE OF MY FAVORITE ".concat(instrumentTrigger.instrument.toUpperCase(), "S IS MOVING TO JAPAN"),
+            "wow.. who is that ".concat(instrumentTrigger.instrument, " player.."),
         ];
         var lowest = INSTRUMENT_TRIGGER_WEIGHT.lowest, highest = INSTRUMENT_TRIGGER_WEIGHT.highest, weight = INSTRUMENT_TRIGGER_WEIGHT.weight;
         var random = randomNumber(lowest, highest);
@@ -235,6 +238,18 @@ function getRandomResponse() {
         "thats actuall wild though wtf",
         "why the fuck is he so committed",
         "IT WAS A TEAP\r\nahh",
+        "LMAOOO I SHOULDA DONE THAT",
+        "im finally 8!!!",
+        "im at my elementary school principals house",
+        "jeez i found cheeses soft spit\r\nspit\r\nspot",
+        "istg cheese has so many beldums and i have none\r\nrich get richer ig",
+        "????????\r\nyou guys arent real",
+        "IM JUST FJCKING CONFUSED\r\nU GUYS ARE THE REASON I DONT ASKQUESTIONSANYMORE",
+        "WE HAD A DANCE UNIT IN GYM AND I WAS AT MY HOUSE AND THESE MORMONS OR WHATEVER CAME TO OUR DOOR AND MY DAD GOT ME TO FUXKING DO MY DANCE FOR THEM",
+        "did you just call me wario",
+        "how u get ghost balls",
+        "i mean like hes right but i just got $4 on me bro im just here for the jazz",
+        "i had a dream there was a third minions movie and i went to see it but tickets were sold out",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);

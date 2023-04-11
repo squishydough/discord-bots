@@ -640,6 +640,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [
       'squish you enhance my qualities',
       'i want to go to christmas dinner with squishydough ☹️',
+      'but squish said thats how the song gods\r\nbut its not',
     ],
     weight: 2,
     lowestWeight: 1,
@@ -822,6 +823,23 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['committed'],
     responses: ['why the fuck is he so committed'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['theater', 'theatre'],
+    responses: ['gonna accidentally rizz up everyone in the theatre'],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['bronze'],
+    responses: [
+      'i mean those bronze players are pretty tough to play againsy\r\ni would know',
+    ],
+    ...defaultWeights,
+  },
+  {
+    triggers: ['rhythm'],
+    responses: ['listen you dont know anything ab my rhythm ok'],
     ...defaultWeights,
   },
 ]
