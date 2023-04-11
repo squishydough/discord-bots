@@ -9,8 +9,8 @@ import {
 } from './triggers'
 
 const RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 }
-const ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
-const INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
+const ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 3 }
+const INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 3 }
 
 /**
  * Picks a random number between two numbers

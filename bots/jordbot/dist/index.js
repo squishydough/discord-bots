@@ -40,8 +40,8 @@ require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
 var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 };
-var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
-var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 };
+var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 3 };
+var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 3 };
 /**
  * Picks a random number between two numbers
  */
