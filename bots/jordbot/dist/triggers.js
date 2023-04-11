@@ -677,4 +677,5 @@ exports.oneOffTriggers = [
         ] }, defaultWeights),
     __assign({ triggers: ['rhythm'], responses: ['listen you dont know anything ab my rhythm ok'] }, defaultWeights),
     __assign({ triggers: ['gym', 'exercise'], responses: ['u aint tge only one at the gym shitter'] }, defaultWeights),
+    __assign({ triggers: ['frog', 'toad'], responses: ["i dont need this frog\r\ni have jazz"] }, defaultWeights),
 ];

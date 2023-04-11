@@ -254,6 +254,8 @@ function getRandomResponse(): string | undefined {
     `yep turning notifications off for this channel`,
     `ur my biggest hater u know that`,
     `i was at school. and then passed my drivers test. and am now busking at a market.`,
+    `?\r\nwhat is your point exacrtly`,
+    `you dont deserve me`,
   ]
 
   const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT

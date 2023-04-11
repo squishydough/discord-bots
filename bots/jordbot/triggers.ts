@@ -847,4 +847,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: ['u aint tge only one at the gym shitter'],
     ...defaultWeights,
   },
+  {
+    triggers: ['frog', 'toad'],
+    responses: [`i dont need this frog\r\ni have jazz`],
+    ...defaultWeights,
+  },
 ]

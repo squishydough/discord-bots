@@ -253,6 +253,8 @@ function getRandomResponse() {
         "yep turning notifications off for this channel",
         "ur my biggest hater u know that",
         "i was at school. and then passed my drivers test. and am now busking at a market.",
+        "?\r\nwhat is your point exacrtly",
+        "you dont deserve me",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);
