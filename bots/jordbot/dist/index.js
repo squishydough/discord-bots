@@ -150,7 +150,8 @@ function checkArtistTriggers(message) {
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
-            return responses[randomNumber(0, responses.length - 1)];
+            var randomIndex = randomNumber(0, responses.length - 1);
+            return responses[randomIndex];
         }
     }
 }
@@ -191,7 +192,8 @@ function checkInstrumentTriggers(message) {
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
-            return responses[randomNumber(0, responses.length - 1)];
+            var randomIndex = randomNumber(0, responses.length - 1);
+            return responses[randomIndex];
         }
     }
 }
@@ -231,12 +233,14 @@ function getRandomResponse() {
         "god damn thats pretty",
         "thats actuall wild though wtf",
         "why the fuck is he so committed",
+        "IT WAS A TEAP\r\nahh",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);
     var shouldReturnResponse = random <= weight;
     if (shouldReturnResponse) {
-        return responses[randomNumber(0, responses.length - 1)];
+        var randomIndex = randomNumber(0, responses.length - 1);
+        return responses[randomIndex];
     }
 }
 /** Discord.js client */

@@ -143,7 +143,8 @@ function checkArtistTriggers(message: string): string | undefined {
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
-      return responses[randomNumber(0, responses.length - 1)]
+      const randomIndex = randomNumber(0, responses.length - 1)
+      return responses[randomIndex]
     }
   }
 }
@@ -193,7 +194,8 @@ function checkInstrumentTriggers(message: string): string | undefined {
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
-      return responses[randomNumber(0, responses.length - 1)]
+      const randomIndex = randomNumber(0, responses.length - 1)
+      return responses[randomIndex]
     }
   }
 }
@@ -234,13 +236,15 @@ function getRandomResponse(): string | undefined {
     `god damn thats pretty`,
     `thats actuall wild though wtf`,
     `why the fuck is he so committed`,
+    `IT WAS A TEAP\r\nahh`,
   ]
 
   const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT
   const random = randomNumber(lowest, highest)
   const shouldReturnResponse = random <= weight
   if (shouldReturnResponse) {
-    return responses[randomNumber(0, responses.length - 1)]
+    const randomIndex = randomNumber(0, responses.length - 1)
+    return responses[randomIndex]
   }
 }
 
