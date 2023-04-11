@@ -74,7 +74,8 @@ function checkOneOffTriggers(message) {
             oneOffTrigger.weight;
         if (shouldReturnResponse) {
             // Pick a random response
-            return oneOffTrigger.responses[randomNumber(0, oneOffTrigger.responses.length - 1)];
+            var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
+            return oneOffTrigger.responses[randomIndex];
         }
     }
 }

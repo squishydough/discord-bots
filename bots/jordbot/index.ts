@@ -8,7 +8,7 @@ import {
   type OneOffTrigger,
 } from './triggers'
 
-const RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 4 }
+const RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 3 }
 const ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
 const INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 5 }
 
@@ -46,9 +46,8 @@ function checkOneOffTriggers(message: string): string | undefined {
 
     if (shouldReturnResponse) {
       // Pick a random response
-      return oneOffTrigger.responses[
-        randomNumber(0, oneOffTrigger.responses.length - 1)
-      ]
+      const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
+      return oneOffTrigger.responses[randomIndex]
     }
   }
 }
