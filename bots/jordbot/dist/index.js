@@ -250,6 +250,9 @@ function getRandomResponse() {
         "how u get ghost balls",
         "i mean like hes right but i just got $4 on me bro im just here for the jazz",
         "i had a dream there was a third minions movie and i went to see it but tickets were sold out",
+        "yep turning notifications off for this channel",
+        "ur my biggest hater u know that",
+        "i was at school. and then passed my drivers test. and am now busking at a market.",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);

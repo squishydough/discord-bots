@@ -842,4 +842,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: ['listen you dont know anything ab my rhythm ok'],
     ...defaultWeights,
   },
+  {
+    triggers: ['gym', 'exercise'],
+    responses: ['u aint tge only one at the gym shitter'],
+    ...defaultWeights,
+  },
 ]

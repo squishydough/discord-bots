@@ -676,4 +676,5 @@ exports.oneOffTriggers = [
             'i mean those bronze players are pretty tough to play againsy\r\ni would know',
         ] }, defaultWeights),
     __assign({ triggers: ['rhythm'], responses: ['listen you dont know anything ab my rhythm ok'] }, defaultWeights),
+    __assign({ triggers: ['gym', 'exercise'], responses: ['u aint tge only one at the gym shitter'] }, defaultWeights),
 ];
