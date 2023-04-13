@@ -255,6 +255,11 @@ function getRandomResponse() {
         "i was at school. and then passed my drivers test. and am now busking at a market.",
         "?\r\nwhat is your point exacrtly",
         "you dont deserve me",
+        "GOD DAMN DIDNT KNOW U WERE CHILL LIKE THAT \uD83E\uDD1D",
+        "maybe youll cut jordbot some slack\r\n\uD83D\uDE12",
+        "i have to work on my game to not be overshadowed by jordo",
+        "soon jordbot will be coded to join vc and yell about minecraft bedwars",
+        "YO WHY THE QUESTION MARKS IN MY NICKNAME",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);

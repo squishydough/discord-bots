@@ -256,6 +256,11 @@ function getRandomResponse(): string | undefined {
     `i was at school. and then passed my drivers test. and am now busking at a market.`,
     `?\r\nwhat is your point exacrtly`,
     `you dont deserve me`,
+    `GOD DAMN DIDNT KNOW U WERE CHILL LIKE THAT 🤝`,
+    `maybe youll cut jordbot some slack\r\n😒`,
+    `i have to work on my game to not be overshadowed by jordo`,
+    `soon jordbot will be coded to join vc and yell about minecraft bedwars`,
+    `YO WHY THE QUESTION MARKS IN MY NICKNAME`,
   ]
 
   const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT
