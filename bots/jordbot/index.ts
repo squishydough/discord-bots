@@ -136,6 +136,7 @@ function checkArtistTriggers(message: string): string | undefined {
       `i found another piano idol ${artistWikipediaUrl}`,
       `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
       `with that dope of a name he has to be good ${artistWikipediaUrl}`,
+      `hey ${artistTrigger.artist} is from florida show some respect 😤`,
     ]
 
     const { lowest, highest, weight } = ARTIST_TRIGGER_WEIGHT
@@ -261,6 +262,7 @@ function getRandomResponse(): string | undefined {
     `i have to work on my game to not be overshadowed by jordo`,
     `soon jordbot will be coded to join vc and yell about minecraft bedwars`,
     `YO WHY THE QUESTION MARKS IN MY NICKNAME`,
+    `this is the airport in lauderdale`,
   ]
 
   const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT
