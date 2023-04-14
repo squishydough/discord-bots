@@ -326,6 +326,7 @@ exports.artistTriggers = [
     { instrument: 'saxophone', artist: 'Jon Raskin' },
     { instrument: 'saxophone', artist: 'Dave Liebman ' },
     { instrument: 'saxophone', artist: 'Gary Smulyan' },
+    { instrument: 'saxophone', artist: 'Patrick Bartley' },
     { instrument: 'clarinet', artist: 'Barney Bigard' },
     { instrument: 'clarinet', artist: 'Johnny Dodds' },
     { instrument: 'clarinet', artist: 'Jimmie Noone' },

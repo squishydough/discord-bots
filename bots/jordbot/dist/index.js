@@ -146,6 +146,7 @@ function checkArtistTriggers(message) {
             "i found another piano idol ".concat(artistWikipediaUrl),
             "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
             "with that dope of a name he has to be good ".concat(artistWikipediaUrl),
+            "hey ".concat(artistTrigger.artist, " is from florida show some respect \uD83D\uDE24"),
         ];
         var lowest = ARTIST_TRIGGER_WEIGHT.lowest, highest = ARTIST_TRIGGER_WEIGHT.highest, weight = ARTIST_TRIGGER_WEIGHT.weight;
         var random = randomNumber(lowest, highest);
@@ -260,6 +261,7 @@ function getRandomResponse() {
         "i have to work on my game to not be overshadowed by jordo",
         "soon jordbot will be coded to join vc and yell about minecraft bedwars",
         "YO WHY THE QUESTION MARKS IN MY NICKNAME",
+        "this is the airport in lauderdale",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);
