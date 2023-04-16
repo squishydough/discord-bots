@@ -180,8 +180,6 @@ function checkInstrumentTriggers(message: string): string | undefined {
       ]
 
     const responses = [
-      `${instrumentTrigger.instrument} is a dogwater instrument. Try learning ${similarInstrumentTrigger.instrument} if you want a real jazz instrument.`,
-      `${instrumentTrigger.instrument} is whack bro. ${similarInstrumentTrigger.instrument} is way better`,
       `bro ${similarInstrumentTrigger.artist} is the best ${instrumentTrigger.instrument} player`,
       `it plays me my jazz`,
       `incase you dont know: the highest regular note on ${instrumentTrigger.instrument} is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with`,
@@ -263,6 +261,7 @@ function getRandomResponse(): string | undefined {
     `soon jordbot will be coded to join vc and yell about minecraft bedwars`,
     `YO WHY THE QUESTION MARKS IN MY NICKNAME`,
     `this is the airport in lauderdale`,
+    `ok good cause thats what i was just about to ask`,
   ]
 
   const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT

@@ -181,8 +181,6 @@ function checkInstrumentTriggers(message) {
         var similarInstrumentTriggers = triggers_1.instrumentTriggers.filter(function (trigger) { return trigger.instrument !== (instrumentTrigger === null || instrumentTrigger === void 0 ? void 0 : instrumentTrigger.instrument); });
         var similarInstrumentTrigger = similarInstrumentTriggers[randomNumber(0, similarInstrumentTriggers.length - 1)];
         var responses = [
-            "".concat(instrumentTrigger.instrument, " is a dogwater instrument. Try learning ").concat(similarInstrumentTrigger.instrument, " if you want a real jazz instrument."),
-            "".concat(instrumentTrigger.instrument, " is whack bro. ").concat(similarInstrumentTrigger.instrument, " is way better"),
             "bro ".concat(similarInstrumentTrigger.artist, " is the best ").concat(instrumentTrigger.instrument, " player"),
             "it plays me my jazz",
             "incase you dont know: the highest regular note on ".concat(instrumentTrigger.instrument, " is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with"),
@@ -262,6 +260,7 @@ function getRandomResponse() {
         "soon jordbot will be coded to join vc and yell about minecraft bedwars",
         "YO WHY THE QUESTION MARKS IN MY NICKNAME",
         "this is the airport in lauderdale",
+        "ok good cause thats what i was just about to ask",
     ];
     var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
     var random = randomNumber(lowest, highest);
