@@ -853,4 +853,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`i dont need this frog\r\ni have jazz`],
     ...defaultWeights,
   },
+  {
+    triggers: ['fuck you'],
+    responses: [`fuck you too bitch`],
+    ...defaultWeights,
+  },
 ]
