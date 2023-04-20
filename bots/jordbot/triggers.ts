@@ -858,4 +858,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`fuck you too bitch`],
     ...defaultWeights,
   },
+  {
+    triggers: ['money', 'bank', 'cash'],
+    responses: ['thanks to you i can bank responsibly'],
+    ...defaultWeights,
+  },
 ]
