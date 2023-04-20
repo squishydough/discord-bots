@@ -562,6 +562,7 @@ exports.oneOffTriggers = [
     __assign({ triggers: ['shoes'], responses: ['https://i.imgur.com/Epm6dQl.png'] }, defaultWeights),
     __assign({ triggers: ['joey alexander'], responses: [
             'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c',
+            "YO\r\nchill with the joey slander mr head joey",
         ] }, defaultWeights),
     {
         triggers: ['chess'],
