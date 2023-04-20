@@ -681,4 +681,5 @@ exports.oneOffTriggers = [
     __assign({ triggers: ['frog', 'toad'], responses: ["i dont need this frog\r\ni have jazz"] }, defaultWeights),
     __assign({ triggers: ['fuck you'], responses: ["fuck you too bitch"] }, defaultWeights),
     __assign({ triggers: ['money', 'bank', 'cash'], responses: ['thanks to you i can bank responsibly'] }, defaultWeights),
+    __assign({ triggers: ['bitwarden', 'password manager'], responses: ['ive BEEN using bit warden bro fym'] }, defaultWeights),
 ];

@@ -863,4 +863,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: ['thanks to you i can bank responsibly'],
     ...defaultWeights,
   },
+  {
+    triggers: ['bitwarden', 'password manager'],
+    responses: ['ive BEEN using bit warden bro fym'],
+    ...defaultWeights,
+  },
 ]
