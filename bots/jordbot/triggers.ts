@@ -577,8 +577,15 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['joey alexander'],
     responses: [
-      'For more info about Joey Alexander, greatest jazz pianist of our time, consult with Joey Alexander Fan Club president (aka Head Joey) SquishyDough, and not some other imposter that rhymes with Bordo. https://i.guim.co.uk/img/media/6c45f0f6188c6b2ec1b357d74058588c00706c39/0_91_2696_1618/master/2696.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ef8a45e1269f746a73aa5d322874121c',
       `YO\r\nchill with the joey slander mr head joey`,
+      `maybe if you listened to joey youd understand`,
+      `THANKS JOEY I SURE WILL`,
+      `LMAO i understand why you thought I was nicknamed joey alexander`,
+      `JOEY FUCKING ALEXANDER`,
+      `but good point ab nee york cause i was planning to go there for a grad trip and im pretty sure thats where joey lives`,
+      `bro i saw the notification saying joey alexander replie dto me`,
+      `WERE NOT ON THE FIFTH FUCKINF JOEY ALEXANDER`,
+      `im so happy joey alexander himself deleted my comment`,
     ],
     ...defaultWeights,
   },
@@ -638,7 +645,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
     ...defaultWeights,
   },
   {
-    triggers: ['squishydough'],
+    triggers: ['squishydough', 'squishy', 'squish'],
     responses: [
       'squish you enhance my qualities',
       'i want to go to christmas dinner with squishydough ☹️',
