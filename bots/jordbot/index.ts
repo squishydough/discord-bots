@@ -7,10 +7,11 @@ import {
   type ArtistInstrumentTrigger,
   type OneOffTrigger,
 } from './triggers'
-
-const RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 2 }
-const ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 2 }
-const INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 2 }
+import {
+  ARTIST_TRIGGER_WEIGHT,
+  INSTRUMENT_TRIGGER_WEIGHT,
+  RANDOM_RESPONSE_WEIGHT,
+} from './weights'
 
 /**
  * Picks a random number between two numbers
@@ -139,8 +140,8 @@ function checkArtistTriggers(message: string): string | undefined {
       `hey ${artistTrigger.artist} is from florida show some respect 😤`,
     ]
 
-    const { lowest, highest, weight } = ARTIST_TRIGGER_WEIGHT
-    const random = randomNumber(lowest, highest)
+    const { lowestWeight, highestWeight, weight } = ARTIST_TRIGGER_WEIGHT
+    const random = randomNumber(lowestWeight, highestWeight)
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
@@ -190,8 +191,8 @@ function checkInstrumentTriggers(message: string): string | undefined {
       `wow.. who is that ${instrumentTrigger.instrument} player..`,
     ]
 
-    const { lowest, highest, weight } = INSTRUMENT_TRIGGER_WEIGHT
-    const random = randomNumber(lowest, highest)
+    const { lowestWeight, highestWeight, weight } = INSTRUMENT_TRIGGER_WEIGHT
+    const random = randomNumber(lowestWeight, highestWeight)
     const shouldReturnResponse = random <= weight
     if (shouldReturnResponse) {
       // Send the response
@@ -264,8 +265,8 @@ function getRandomResponse(): string | undefined {
     `ok good cause thats what i was just about to ask`,
   ]
 
-  const { lowest, highest, weight } = RANDOM_RESPONSE_TRIGGER_WEIGHT
-  const random = randomNumber(lowest, highest)
+  const { lowestWeight, highestWeight, weight } = RANDOM_RESPONSE_WEIGHT
+  const random = randomNumber(lowestWeight, highestWeight)
   const shouldReturnResponse = random <= weight
   if (shouldReturnResponse) {
     const randomIndex = randomNumber(0, responses.length - 1)

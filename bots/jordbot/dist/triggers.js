@@ -12,6 +12,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.oneOffTriggers = exports.instrumentTriggers = exports.artistTriggers = void 0;
+var weights_1 = require("./weights");
 exports.artistTriggers = [
     { instrument: 'trumpet', artist: 'Buddy Bolden' },
     { instrument: 'trumpet', artist: 'Freddie Keppard' },
@@ -540,16 +541,6 @@ exports.instrumentTriggers = exports.artistTriggers
     }
     return acc;
 }, []);
-// Sometimes we may not want a term to always trigger a response.
-// In those cases, we can use a weight to randomize whether it actually triggers.
-//
-// So if the weight is a number between 1 and 10, such as 6, it will trigger if a
-// random between 1 and 10 is 6 or less, i.e. a 60% chance.
-var defaultWeights = {
-    weight: 2,
-    lowestWeight: 1,
-    highestWeight: 10,
-};
 exports.oneOffTriggers = [
     __assign({ triggers: ['jazz'], responses: [
             'but if you dont like jazz then have fun driving for hours and the only thing you can see is grass everywhere',
@@ -557,9 +548,9 @@ exports.oneOffTriggers = [
             'I LOVE JAZZ SO MUCH OMG',
             'i live in a small town there are no jazz here ;(',
             'am i allowed to talk ab music in here',
-        ] }, defaultWeights),
-    __assign({ triggers: ['miles davis'], responses: ['https://i.imgur.com/jSO2YvA.png'] }, defaultWeights),
-    __assign({ triggers: ['shoes'], responses: ['https://i.imgur.com/Epm6dQl.png'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['miles davis'], responses: ['https://i.imgur.com/jSO2YvA.png'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['shoes'], responses: ['https://i.imgur.com/Epm6dQl.png'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['joey alexander'], responses: [
             "YO\r\nchill with the joey slander mr head joey",
             "maybe if you listened to joey youd understand",
@@ -570,7 +561,7 @@ exports.oneOffTriggers = [
             "bro i saw the notification saying joey alexander replie dto me",
             "WERE NOT ON THE FIFTH FUCKINF JOEY ALEXANDER",
             "im so happy joey alexander himself deleted my comment",
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     {
         triggers: ['chess'],
         responses: ['YOU WONT LAST 0.0035 SECONDS PLAYING THIS GAME'],
@@ -578,22 +569,22 @@ exports.oneOffTriggers = [
         lowestWeight: 1,
         highestWeight: 10,
     },
-    __assign({ triggers: ['squirrels'], responses: ['squirrels arent real'] }, defaultWeights),
+    __assign({ triggers: ['squirrels'], responses: ['squirrels arent real'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['surefour'], responses: [
             'bro surefour is from calgary how cool is that\r\nme and him literally went to the same laser tag place when we were little\r\nnot at the same time but still',
-        ] }, defaultWeights),
-    __assign({ triggers: ['legs'], responses: ['crazy calves bro\r\nim not jealous at all :ANGRYCRYING:'] }, defaultWeights),
-    __assign({ triggers: ['pokemon'], responses: ['i forget how to fuxkint spell it'] }, defaultWeights),
-    __assign({ triggers: ['party'], responses: ['invite me next time :heart_eyes: :heart_eyes:'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['legs'], responses: ['crazy calves bro\r\nim not jealous at all :ANGRYCRYING:'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['pokemon'], responses: ['i forget how to fuxkint spell it'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['party'], responses: ['invite me next time :heart_eyes: :heart_eyes:'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['congrats', 'congratulations', 'grats'], responses: [
             'Thank you so much mr. Moderator. I deeply apperciate your congratulationsand will cherish this moment in my memories as a great moment and I respect you greatly.',
             'i cant tell what is genuine from you anymore\r\nbut thanks!!',
             'and the michael jackson insta account is celebrating by giving away cds lmao',
-        ] }, defaultWeights),
-    __assign({ triggers: ['among us'], responses: ['among us'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['among us'], responses: ['among us'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['donald glover', 'childish gambino'], responses: [
             'WAIT DONALD GLOVER IS CHILDISH GAMBINO??\r\nWHY DOES DONALD GLOVER DO EVERYTHING\r\nliterally fucking writes acts comdeians and then turns around and makes bangers with 1.2 billion streams\r\nand has won 5 grammys???\r\ngod dammit\r\ni need to jus stop',
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     {
         triggers: ['squishydough', 'squishy', 'squish'],
         responses: [
@@ -607,13 +598,13 @@ exports.oneOffTriggers = [
     },
     __assign({ triggers: ['burger'], responses: [
             'they put too many onion on my quarter pounder with cheese and now i feel icky ☹️',
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['dog', 'hotdog'], responses: [
             'i resent this lack of respect for me. i always put ketchup and mustard on my dogs',
             'hot dog lore',
             'just saw a place selling a poutine dog\r\nwhich is a hot dog with gracy and cheese on',
-        ] }, defaultWeights),
-    __assign({ triggers: ['thankful', 'grateful'], responses: ['im thankful for your cute face'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['thankful', 'grateful'], responses: ['im thankful for your cute face'] }, weights_1.DEFAULT_WEIGHT),
     {
         triggers: ['onnen'],
         responses: ['happy thanksigiving @Onnen#7393'],
@@ -621,7 +612,7 @@ exports.oneOffTriggers = [
         lowestWeight: 1,
         highestWeight: 10,
     },
-    __assign({ triggers: ['mansplain'], responses: ['IT WAS JUST A DISCLAIMER I DIDNT MEAN TO MANSPLAIN'] }, defaultWeights),
+    __assign({ triggers: ['mansplain'], responses: ['IT WAS JUST A DISCLAIMER I DIDNT MEAN TO MANSPLAIN'] }, weights_1.DEFAULT_WEIGHT),
     {
         triggers: ['stupid'],
         responses: [
@@ -631,7 +622,7 @@ exports.oneOffTriggers = [
         lowestWeight: 1,
         highestWeight: 10,
     },
-    __assign({ triggers: ['egg'], responses: ['ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'] }, defaultWeights),
+    __assign({ triggers: ['egg'], responses: ['ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'] }, weights_1.DEFAULT_WEIGHT),
     {
         triggers: ['food', 'hungry'],
         responses: [
@@ -642,20 +633,20 @@ exports.oneOffTriggers = [
         lowestWeight: 1,
         highestWeight: 10,
     },
-    __assign({ triggers: ['vegetable'], responses: ['i dojt eat vegetabled'] }, defaultWeights),
-    __assign({ triggers: ['breakfast'], responses: ['OMG I WAS JUST EATING BREAKFAST TOO'] }, defaultWeights),
-    __assign({ triggers: ['dairy queen'], responses: ['bro i havent had a dairy queen salad in a lonngass time'] }, defaultWeights),
-    __assign({ triggers: ['musk'], responses: ['musk fetish 😨😨😨💀💀'] }, defaultWeights),
-    __assign({ triggers: ['dj khaled'], responses: ['god dj khaled is so cringe'] }, defaultWeights),
-    __assign({ triggers: ['mercy'], responses: ['bro whats this gotta do with my support'] }, defaultWeights),
-    __assign({ triggers: ['toronto', 'montreal'], responses: ['toronto and montreal are the only decent jazz scenes'] }, defaultWeights),
-    __assign({ triggers: ['alberta'], responses: ['only cool thing here is the jazz musicians'] }, defaultWeights),
-    __assign({ triggers: ['club'], responses: ['theres this place called the yardbirde suite its a jazz club'] }, defaultWeights),
+    __assign({ triggers: ['vegetable'], responses: ['i dojt eat vegetabled'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['breakfast'], responses: ['OMG I WAS JUST EATING BREAKFAST TOO'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['dairy queen'], responses: ['bro i havent had a dairy queen salad in a lonngass time'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['musk'], responses: ['musk fetish 😨😨😨💀💀'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['dj khaled'], responses: ['god dj khaled is so cringe'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['mercy'], responses: ['bro whats this gotta do with my support'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['toronto', 'montreal'], responses: ['toronto and montreal are the only decent jazz scenes'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['alberta'], responses: ['only cool thing here is the jazz musicians'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['club'], responses: ['theres this place called the yardbirde suite its a jazz club'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['camp'], responses: [
             'i thought it was supposed to be like a jazz camp with a bunch of young whippersnappers\r\nbut 4/9 people are at least 40\r\n1 of the guys is literally 72 fucking years old',
-        ] }, defaultWeights),
-    __assign({ triggers: ['anime'], responses: ['its an anime about jazz'] }, defaultWeights),
-    __assign({ triggers: ['league of legends'], responses: ['you should play jazz music instead'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['anime'], responses: ['its an anime about jazz'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['league of legends'], responses: ['you should play jazz music instead'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['michael jackson', 'king of pop'], responses: [
             'michael jackson died on the same day joey alexander was born',
             'i was reading a story about someone saying they went to high school with michael jackson and then i realized it was probably fanfiction',
@@ -663,31 +654,31 @@ exports.oneOffTriggers = [
             'bro did you know that kid is the godfather of 2 of michael jacksons kids',
             'i just gave up and now listening to michael jackson',
             'someone in my game yesterday told me michael jackson was overrated',
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['classical'], responses: [
             'not much classical music i can actually jam out to but this is it',
-        ] }, defaultWeights),
-    __assign({ triggers: ['apple'], responses: ['sheesh whats the deal with apple music'] }, defaultWeights),
-    __assign({ triggers: ['jeopardy'], responses: ['who was the dancer on the music video for Moments Notice'] }, defaultWeights),
-    __assign({ triggers: ['beatles'], responses: ['not a joke i know more music theory than the beatles'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['apple'], responses: ['sheesh whats the deal with apple music'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['jeopardy'], responses: ['who was the dancer on the music video for Moments Notice'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['beatles'], responses: ['not a joke i know more music theory than the beatles'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['fall guys', 'fall beans'], responses: [
             'i would love to put down my saxophone right now and play fall guys with you (my best friends)',
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['shorts'], responses: [
             "but also the first thing i think when i see those shorts is 'squishy wears those'",
-        ] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['quincy jones'], responses: [
             'QUNCY JONES IS OBSCURE https://en.wikipedia.org/wiki/Quincy_Jones',
-        ] }, defaultWeights),
-    __assign({ triggers: ['committed'], responses: ['why the fuck is he so committed'] }, defaultWeights),
-    __assign({ triggers: ['theater', 'theatre'], responses: ['gonna accidentally rizz up everyone in the theatre'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['committed'], responses: ['why the fuck is he so committed'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['theater', 'theatre'], responses: ['gonna accidentally rizz up everyone in the theatre'] }, weights_1.DEFAULT_WEIGHT),
     __assign({ triggers: ['bronze'], responses: [
             'i mean those bronze players are pretty tough to play againsy\r\ni would know',
-        ] }, defaultWeights),
-    __assign({ triggers: ['rhythm'], responses: ['listen you dont know anything ab my rhythm ok'] }, defaultWeights),
-    __assign({ triggers: ['gym', 'exercise'], responses: ['u aint tge only one at the gym shitter'] }, defaultWeights),
-    __assign({ triggers: ['frog', 'toad'], responses: ["i dont need this frog\r\ni have jazz"] }, defaultWeights),
-    __assign({ triggers: ['fuck you'], responses: ["fuck you too bitch"] }, defaultWeights),
-    __assign({ triggers: ['money', 'bank', 'cash'], responses: ['thanks to you i can bank responsibly'] }, defaultWeights),
-    __assign({ triggers: ['bitwarden', 'password manager'], responses: ['ive BEEN using bit warden bro fym'] }, defaultWeights),
+        ] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['rhythm'], responses: ['listen you dont know anything ab my rhythm ok'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['gym', 'exercise'], responses: ['u aint tge only one at the gym shitter'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['frog', 'toad'], responses: ["i dont need this frog\r\ni have jazz"] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['fuck you'], responses: ["fuck you too bitch"] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['money', 'bank', 'cash'], responses: ['thanks to you i can bank responsibly'] }, weights_1.DEFAULT_WEIGHT),
+    __assign({ triggers: ['bitwarden', 'password manager'], responses: ['ive BEEN using bit warden bro fym'] }, weights_1.DEFAULT_WEIGHT),
 ];

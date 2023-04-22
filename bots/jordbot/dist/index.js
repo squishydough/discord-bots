@@ -39,9 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
-var RANDOM_RESPONSE_TRIGGER_WEIGHT = { lowest: 1, highest: 100, weight: 2 };
-var ARTIST_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 2 };
-var INSTRUMENT_TRIGGER_WEIGHT = { lowest: 1, highest: 10, weight: 2 };
+var weights_1 = require("./weights");
 /**
  * Picks a random number between two numbers
  */
@@ -148,8 +146,8 @@ function checkArtistTriggers(message) {
             "with that dope of a name he has to be good ".concat(artistWikipediaUrl),
             "hey ".concat(artistTrigger.artist, " is from florida show some respect \uD83D\uDE24"),
         ];
-        var lowest = ARTIST_TRIGGER_WEIGHT.lowest, highest = ARTIST_TRIGGER_WEIGHT.highest, weight = ARTIST_TRIGGER_WEIGHT.weight;
-        var random = randomNumber(lowest, highest);
+        var lowestWeight = weights_1.ARTIST_TRIGGER_WEIGHT.lowestWeight, highestWeight = weights_1.ARTIST_TRIGGER_WEIGHT.highestWeight, weight = weights_1.ARTIST_TRIGGER_WEIGHT.weight;
+        var random = randomNumber(lowestWeight, highestWeight);
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
@@ -190,8 +188,8 @@ function checkInstrumentTriggers(message) {
             "NOOOOO\r\nONE OF MY FAVORITE ".concat(instrumentTrigger.instrument.toUpperCase(), "S IS MOVING TO JAPAN"),
             "wow.. who is that ".concat(instrumentTrigger.instrument, " player.."),
         ];
-        var lowest = INSTRUMENT_TRIGGER_WEIGHT.lowest, highest = INSTRUMENT_TRIGGER_WEIGHT.highest, weight = INSTRUMENT_TRIGGER_WEIGHT.weight;
-        var random = randomNumber(lowest, highest);
+        var lowestWeight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.lowestWeight, highestWeight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.highestWeight, weight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.weight;
+        var random = randomNumber(lowestWeight, highestWeight);
         var shouldReturnResponse = random <= weight;
         if (shouldReturnResponse) {
             // Send the response
@@ -262,8 +260,8 @@ function getRandomResponse() {
         "this is the airport in lauderdale",
         "ok good cause thats what i was just about to ask",
     ];
-    var lowest = RANDOM_RESPONSE_TRIGGER_WEIGHT.lowest, highest = RANDOM_RESPONSE_TRIGGER_WEIGHT.highest, weight = RANDOM_RESPONSE_TRIGGER_WEIGHT.weight;
-    var random = randomNumber(lowest, highest);
+    var lowestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.lowestWeight, highestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.highestWeight, weight = weights_1.RANDOM_RESPONSE_WEIGHT.weight;
+    var random = randomNumber(lowestWeight, highestWeight);
     var shouldReturnResponse = random <= weight;
     if (shouldReturnResponse) {
         var randomIndex = randomNumber(0, responses.length - 1);
