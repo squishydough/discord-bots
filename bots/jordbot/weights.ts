@@ -18,7 +18,7 @@ export const DEFAULT_WEIGHT: Weight = {
 export const RANDOM_RESPONSE_WEIGHT: Weight = {
   lowestWeight: 1,
   highestWeight: 100,
-  weight: 20,
+  weight: 3,
 }
 
 export const ARTIST_TRIGGER_WEIGHT: Weight = {

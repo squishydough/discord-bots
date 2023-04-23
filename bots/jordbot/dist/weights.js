@@ -9,7 +9,7 @@ exports.DEFAULT_WEIGHT = {
 exports.RANDOM_RESPONSE_WEIGHT = {
     lowestWeight: 1,
     highestWeight: 100,
-    weight: 20,
+    weight: 3,
 };
 exports.ARTIST_TRIGGER_WEIGHT = {
     lowestWeight: 1,
