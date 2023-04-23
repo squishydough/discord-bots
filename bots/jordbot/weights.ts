@@ -4,15 +4,15 @@
 // So if the weight is a number between 1 and 10, such as 6, it will trigger if a
 // random between 1 and 10 is 6 or less, i.e. a 60% chance.
 type Weight = {
-  weight: number
   lowestWeight: number
   highestWeight: number
+  weight: number
 }
 
 export const DEFAULT_WEIGHT: Weight = {
-  weight: 20,
   lowestWeight: 1,
   highestWeight: 100,
+  weight: 20,
 }
 
 export const RANDOM_RESPONSE_WEIGHT: Weight = {
