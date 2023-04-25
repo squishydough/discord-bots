@@ -1,7 +1,7 @@
 declare type Weight = {
-    weight: number;
     lowestWeight: number;
     highestWeight: number;
+    weight: number;
 };
 export declare const DEFAULT_WEIGHT: Weight;
 export declare const RANDOM_RESPONSE_WEIGHT: Weight;

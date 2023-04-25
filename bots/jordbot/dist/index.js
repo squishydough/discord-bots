@@ -259,6 +259,7 @@ function getRandomResponse() {
         "YO WHY THE QUESTION MARKS IN MY NICKNAME",
         "this is the airport in lauderdale",
         "ok good cause thats what i was just about to ask",
+        "CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED",
     ];
     var lowestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.lowestWeight, highestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.highestWeight, weight = weights_1.RANDOM_RESPONSE_WEIGHT.weight;
     var random = randomNumber(lowestWeight, highestWeight);

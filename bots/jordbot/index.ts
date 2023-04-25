@@ -263,6 +263,7 @@ function getRandomResponse(): string | undefined {
     `YO WHY THE QUESTION MARKS IN MY NICKNAME`,
     `this is the airport in lauderdale`,
     `ok good cause thats what i was just about to ask`,
+    `CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED`,
   ]
 
   const { lowestWeight, highestWeight, weight } = RANDOM_RESPONSE_WEIGHT
