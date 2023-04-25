@@ -7,17 +7,29 @@ import {
   type ArtistInstrumentTrigger,
   type OneOffTrigger,
 } from './triggers'
-import {
-  ARTIST_TRIGGER_WEIGHT,
-  INSTRUMENT_TRIGGER_WEIGHT,
-  RANDOM_RESPONSE_WEIGHT,
-} from './weights'
+
+// Sometimes we may not want a term to always trigger a response.
+// In those cases, we can use a weight to randomize whether it actually triggers.
+//
+// So if the weight is a number between 1 and 10, such as 6, it will trigger if a
+// random between 1 and 10 is 6 or less, i.e. a 60% chance.
+export const DEFAULT_WEIGHT = 20
+export const RANDOM_RESPONSE_WEIGHT = 3
+export const ARTIST_TRIGGER_WEIGHT = 20
+export const INSTRUMENT_TRIGGER_WEIGHT = 20
 
 /**
- * Picks a random number between two numbers
+ * Returns a random number between min and max
  */
 function randomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+/**
+ * Returns a random number between 1 - 100
+ */
+function randomWeight(): number {
+  return randomNumber(1, 100)
 }
 
 /**
@@ -41,10 +53,7 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (oneOffTrigger) {
-    const shouldReturnResponse =
-      randomNumber(oneOffTrigger.lowestWeight, oneOffTrigger.highestWeight) <=
-      oneOffTrigger.weight
-
+    const shouldReturnResponse = randomWeight() <= oneOffTrigger.weight
     if (shouldReturnResponse) {
       // Pick a random response
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
@@ -59,6 +68,13 @@ function checkOneOffTriggers(message: string): string | undefined {
  * same instrument is better, along with a link to their Wikipedia page.
  */
 function checkArtistTriggers(message: string): string | undefined {
+  // Exit if the weight is too high
+  const weight = randomWeight()
+  const shouldReturnResponse = weight <= ARTIST_TRIGGER_WEIGHT
+  if (!shouldReturnResponse) {
+    return
+  }
+
   let artistTrigger: ArtistInstrumentTrigger | null = null
   for (const trigger of artistTriggers) {
     const artist = trigger.artist.toLowerCase()
@@ -140,14 +156,8 @@ function checkArtistTriggers(message: string): string | undefined {
       `hey ${artistTrigger.artist} is from florida show some respect 😤`,
     ]
 
-    const { lowestWeight, highestWeight, weight } = ARTIST_TRIGGER_WEIGHT
-    const random = randomNumber(lowestWeight, highestWeight)
-    const shouldReturnResponse = random <= weight
-    if (shouldReturnResponse) {
-      // Send the response
-      const randomIndex = randomNumber(0, responses.length - 1)
-      return responses[randomIndex]
-    }
+    const randomIndex = randomNumber(0, responses.length - 1)
+    return responses[randomIndex]
   }
 }
 
@@ -157,6 +167,13 @@ function checkArtistTriggers(message: string): string | undefined {
  * and recommend a different instrument.
  */
 function checkInstrumentTriggers(message: string): string | undefined {
+  // Exit if weight is too high
+  const weight = randomWeight()
+  const shouldReturnResponse = weight <= INSTRUMENT_TRIGGER_WEIGHT
+  if (!shouldReturnResponse) {
+    return
+  }
+
   let instrumentTrigger: ArtistInstrumentTrigger | null = null
   for (const trigger of instrumentTriggers) {
     const instrument = trigger.instrument.toLowerCase()
@@ -191,18 +208,19 @@ function checkInstrumentTriggers(message: string): string | undefined {
       `wow.. who is that ${instrumentTrigger.instrument} player..`,
     ]
 
-    const { lowestWeight, highestWeight, weight } = INSTRUMENT_TRIGGER_WEIGHT
-    const random = randomNumber(lowestWeight, highestWeight)
-    const shouldReturnResponse = random <= weight
-    if (shouldReturnResponse) {
-      // Send the response
-      const randomIndex = randomNumber(0, responses.length - 1)
-      return responses[randomIndex]
-    }
+    const randomIndex = randomNumber(0, responses.length - 1)
+    return responses[randomIndex]
   }
 }
 
 function getRandomResponse(): string | undefined {
+  // Exit if weight is too high
+  const weight = randomWeight()
+  const shouldReturnResponse = weight <= RANDOM_RESPONSE_WEIGHT
+  if (!shouldReturnResponse) {
+    return
+  }
+
   const responses = [
     'YOOOO LETS GO',
     'NOO THEY NERFED BALL MINES',
@@ -266,13 +284,8 @@ function getRandomResponse(): string | undefined {
     `CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED`,
   ]
 
-  const { lowestWeight, highestWeight, weight } = RANDOM_RESPONSE_WEIGHT
-  const random = randomNumber(lowestWeight, highestWeight)
-  const shouldReturnResponse = random <= weight
-  if (shouldReturnResponse) {
-    const randomIndex = randomNumber(0, responses.length - 1)
-    return responses[randomIndex]
-  }
+  const randomIndex = randomNumber(0, responses.length - 1)
+  return responses[randomIndex]
 }
 
 /** Discord.js client */

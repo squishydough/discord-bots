@@ -36,15 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.INSTRUMENT_TRIGGER_WEIGHT = exports.ARTIST_TRIGGER_WEIGHT = exports.RANDOM_RESPONSE_WEIGHT = exports.DEFAULT_WEIGHT = void 0;
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
-var weights_1 = require("./weights");
+// Sometimes we may not want a term to always trigger a response.
+// In those cases, we can use a weight to randomize whether it actually triggers.
+//
+// So if the weight is a number between 1 and 10, such as 6, it will trigger if a
+// random between 1 and 10 is 6 or less, i.e. a 60% chance.
+exports.DEFAULT_WEIGHT = 20;
+exports.RANDOM_RESPONSE_WEIGHT = 3;
+exports.ARTIST_TRIGGER_WEIGHT = 20;
+exports.INSTRUMENT_TRIGGER_WEIGHT = 20;
 /**
- * Picks a random number between two numbers
+ * Returns a random number between min and max
  */
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+/**
+ * Returns a random number between 1 - 100
+ */
+function randomWeight() {
+    return randomNumber(1, 100);
 }
 /**
  * Checks if the message contains a one-off trigger.
@@ -68,8 +83,7 @@ function checkOneOffTriggers(message) {
         }
     }
     if (oneOffTrigger) {
-        var shouldReturnResponse = randomNumber(oneOffTrigger.lowestWeight, oneOffTrigger.highestWeight) <=
-            oneOffTrigger.weight;
+        var shouldReturnResponse = randomWeight() <= oneOffTrigger.weight;
         if (shouldReturnResponse) {
             // Pick a random response
             var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
@@ -83,6 +97,12 @@ function checkOneOffTriggers(message) {
  * same instrument is better, along with a link to their Wikipedia page.
  */
 function checkArtistTriggers(message) {
+    // Exit if the weight is too high
+    var weight = randomWeight();
+    var shouldReturnResponse = weight <= exports.ARTIST_TRIGGER_WEIGHT;
+    if (!shouldReturnResponse) {
+        return;
+    }
     var artistTrigger = null;
     for (var _i = 0, artistTriggers_1 = triggers_1.artistTriggers; _i < artistTriggers_1.length; _i++) {
         var trigger = artistTriggers_1[_i];
@@ -146,14 +166,8 @@ function checkArtistTriggers(message) {
             "with that dope of a name he has to be good ".concat(artistWikipediaUrl),
             "hey ".concat(artistTrigger.artist, " is from florida show some respect \uD83D\uDE24"),
         ];
-        var lowestWeight = weights_1.ARTIST_TRIGGER_WEIGHT.lowestWeight, highestWeight = weights_1.ARTIST_TRIGGER_WEIGHT.highestWeight, weight = weights_1.ARTIST_TRIGGER_WEIGHT.weight;
-        var random = randomNumber(lowestWeight, highestWeight);
-        var shouldReturnResponse = random <= weight;
-        if (shouldReturnResponse) {
-            // Send the response
-            var randomIndex = randomNumber(0, responses.length - 1);
-            return responses[randomIndex];
-        }
+        var randomIndex = randomNumber(0, responses.length - 1);
+        return responses[randomIndex];
     }
 }
 /**
@@ -162,6 +176,12 @@ function checkArtistTriggers(message) {
  * and recommend a different instrument.
  */
 function checkInstrumentTriggers(message) {
+    // Exit if weight is too high
+    var weight = randomWeight();
+    var shouldReturnResponse = weight <= exports.INSTRUMENT_TRIGGER_WEIGHT;
+    if (!shouldReturnResponse) {
+        return;
+    }
     var instrumentTrigger = null;
     for (var _i = 0, instrumentTriggers_1 = triggers_1.instrumentTriggers; _i < instrumentTriggers_1.length; _i++) {
         var trigger = instrumentTriggers_1[_i];
@@ -188,17 +208,17 @@ function checkInstrumentTriggers(message) {
             "NOOOOO\r\nONE OF MY FAVORITE ".concat(instrumentTrigger.instrument.toUpperCase(), "S IS MOVING TO JAPAN"),
             "wow.. who is that ".concat(instrumentTrigger.instrument, " player.."),
         ];
-        var lowestWeight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.lowestWeight, highestWeight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.highestWeight, weight = weights_1.INSTRUMENT_TRIGGER_WEIGHT.weight;
-        var random = randomNumber(lowestWeight, highestWeight);
-        var shouldReturnResponse = random <= weight;
-        if (shouldReturnResponse) {
-            // Send the response
-            var randomIndex = randomNumber(0, responses.length - 1);
-            return responses[randomIndex];
-        }
+        var randomIndex = randomNumber(0, responses.length - 1);
+        return responses[randomIndex];
     }
 }
 function getRandomResponse() {
+    // Exit if weight is too high
+    var weight = randomWeight();
+    var shouldReturnResponse = weight <= exports.RANDOM_RESPONSE_WEIGHT;
+    if (!shouldReturnResponse) {
+        return;
+    }
     var responses = [
         'YOOOO LETS GO',
         'NOO THEY NERFED BALL MINES',
@@ -261,13 +281,8 @@ function getRandomResponse() {
         "ok good cause thats what i was just about to ask",
         "CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED",
     ];
-    var lowestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.lowestWeight, highestWeight = weights_1.RANDOM_RESPONSE_WEIGHT.highestWeight, weight = weights_1.RANDOM_RESPONSE_WEIGHT.weight;
-    var random = randomNumber(lowestWeight, highestWeight);
-    var shouldReturnResponse = random <= weight;
-    if (shouldReturnResponse) {
-        var randomIndex = randomNumber(0, responses.length - 1);
-        return responses[randomIndex];
-    }
+    var randomIndex = randomNumber(0, responses.length - 1);
+    return responses[randomIndex];
 }
 /** Discord.js client */
 var client = new discord_js_1.Client({
