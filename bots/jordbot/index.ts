@@ -13,7 +13,6 @@ import {
 //
 // So if the weight is a number between 1 and 10, such as 6, it will trigger if a
 // random between 1 and 10 is 6 or less, i.e. a 60% chance.
-export const DEFAULT_WEIGHT = 20
 export const RANDOM_RESPONSE_WEIGHT = 3
 export const ARTIST_TRIGGER_WEIGHT = 20
 export const INSTRUMENT_TRIGGER_WEIGHT = 20
@@ -53,7 +52,12 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (oneOffTrigger) {
-    const shouldReturnResponse = randomWeight() <= oneOffTrigger.weight
+    const weight = randomWeight()
+    const shouldReturnResponse = weight <= oneOffTrigger.weight
+    console.info(
+      `One-off trigger weight: ${oneOffTrigger.weight}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    )
+
     if (shouldReturnResponse) {
       // Pick a random response
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
@@ -71,6 +75,9 @@ function checkArtistTriggers(message: string): string | undefined {
   // Exit if the weight is too high
   const weight = randomWeight()
   const shouldReturnResponse = weight <= ARTIST_TRIGGER_WEIGHT
+  console.info(
+    `Artist trigger weight: ${ARTIST_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+  )
   if (!shouldReturnResponse) {
     return
   }
@@ -170,6 +177,9 @@ function checkInstrumentTriggers(message: string): string | undefined {
   // Exit if weight is too high
   const weight = randomWeight()
   const shouldReturnResponse = weight <= INSTRUMENT_TRIGGER_WEIGHT
+  console.info(
+    `Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+  )
   if (!shouldReturnResponse) {
     return
   }
@@ -217,6 +227,9 @@ function getRandomResponse(): string | undefined {
   // Exit if weight is too high
   const weight = randomWeight()
   const shouldReturnResponse = weight <= RANDOM_RESPONSE_WEIGHT
+  console.info(
+    `Random response weight: ${RANDOM_RESPONSE_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+  )
   if (!shouldReturnResponse) {
     return
   }
@@ -308,24 +321,28 @@ client.on('messageCreate', async (message) => {
 
   const oneOffResponse = checkOneOffTriggers(content)
   if (oneOffResponse) {
+    console.info(`One off responses triggered: ${oneOffResponse}`)
     message.reply(oneOffResponse)
     return
   }
 
   const artistResponse = checkArtistTriggers(content)
   if (artistResponse) {
+    console.info(`Artist response triggered: ${artistResponse}`)
     message.reply(artistResponse)
     return
   }
 
   const instrumentResponse = checkInstrumentTriggers(content)
   if (instrumentResponse) {
+    console.info(`Instrument response triggered: ${instrumentResponse}`)
     message.reply(instrumentResponse)
     return
   }
 
   const randomResponse = getRandomResponse()
   if (randomResponse) {
+    console.info(`Random response triggered: ${randomResponse}`)
     message.reply(randomResponse)
     return
   }

@@ -11,8 +11,6 @@ export declare type OneOffTrigger = {
     triggers: string[];
     responses: string[];
     weight: number;
-    lowestWeight: number;
-    highestWeight: number;
 };
 export declare const oneOffTriggers: OneOffTrigger[];
 //# sourceMappingURL=triggers.d.ts.map
