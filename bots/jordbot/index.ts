@@ -55,7 +55,9 @@ function checkOneOffTriggers(message: string): string | undefined {
     const weight = randomWeight()
     const shouldReturnResponse = weight <= oneOffTrigger.weight
     console.info(
-      `One-off trigger weight: ${oneOffTrigger.weight}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+      `${new Date()} - One-off trigger weight: ${
+        oneOffTrigger.weight
+      }, random weight: ${weight}, should return response: ${shouldReturnResponse}`
     )
 
     if (shouldReturnResponse) {
@@ -76,7 +78,7 @@ function checkArtistTriggers(message: string): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= ARTIST_TRIGGER_WEIGHT
   console.info(
-    `Artist trigger weight: ${ARTIST_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Artist trigger weight: ${ARTIST_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
   )
   if (!shouldReturnResponse) {
     return
@@ -178,7 +180,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= INSTRUMENT_TRIGGER_WEIGHT
   console.info(
-    `Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
   )
   if (!shouldReturnResponse) {
     return
@@ -228,7 +230,7 @@ function getRandomResponse(): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= RANDOM_RESPONSE_WEIGHT
   console.info(
-    `Random response weight: ${RANDOM_RESPONSE_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Random response weight: ${RANDOM_RESPONSE_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
   )
   if (!shouldReturnResponse) {
     return
@@ -321,28 +323,32 @@ client.on('messageCreate', async (message) => {
 
   const oneOffResponse = checkOneOffTriggers(content)
   if (oneOffResponse) {
-    console.info(`One off responses triggered: ${oneOffResponse}`)
+    console.info(
+      `${new Date()} - One off responses triggered: ${oneOffResponse}`
+    )
     message.reply(oneOffResponse)
     return
   }
 
   const artistResponse = checkArtistTriggers(content)
   if (artistResponse) {
-    console.info(`Artist response triggered: ${artistResponse}`)
+    console.info(`${new Date()} - Artist response triggered: ${artistResponse}`)
     message.reply(artistResponse)
     return
   }
 
   const instrumentResponse = checkInstrumentTriggers(content)
   if (instrumentResponse) {
-    console.info(`Instrument response triggered: ${instrumentResponse}`)
+    console.info(
+      `${new Date()} - Instrument response triggered: ${instrumentResponse}`
+    )
     message.reply(instrumentResponse)
     return
   }
 
   const randomResponse = getRandomResponse()
   if (randomResponse) {
-    console.info(`Random response triggered: ${randomResponse}`)
+    console.info(`${new Date()} - Random response triggered: ${randomResponse}`)
     message.reply(randomResponse)
     return
   }
