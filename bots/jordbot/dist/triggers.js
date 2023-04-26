@@ -643,7 +643,7 @@ exports.oneOffTriggers = [
             'hot dog lore',
             'just saw a place selling a poutine dog\r\nwhich is a hot dog with gracy and cheese on',
         ],
-        weight: DEFAULT_WEIGHT,
+        weight: 10,
     },
     {
         triggers: ['thankful', 'grateful'],
