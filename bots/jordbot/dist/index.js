@@ -236,7 +236,7 @@ function getRandomResponse() {
         'jesus',
         'like why are you so quick with it\r\ngive me a chance\r\njesus',
         'kinda real though',
-        'im not jealous at all :ANGRYCRYING:',
+        'im not jealous at all',
         'HOW DO YOU KNOW',
         'im parked. in a parking lot.',
         'ok WHY was i kicked',
