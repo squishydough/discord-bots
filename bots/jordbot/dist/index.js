@@ -85,7 +85,7 @@ function checkOneOffTriggers(message, author) {
         if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
             console.info("".concat(new Date(), " - Dust egg trigger activated"));
             var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
-            return ":egg: I HEAR YOUR CALL, EGG SUMMONER :egg: \r\n ".concat(oneOffTrigger.responses[randomIndex]);
+            return "\uD83E\uDD5A I HEAR YOUR CALL, EGG SUMMONER \uD83E\uDD5A \r\n ".concat(oneOffTrigger.responses[randomIndex]);
         }
         var weight = randomWeight();
         var shouldReturnResponse = weight <= oneOffTrigger.weight;
@@ -313,6 +313,9 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         if (oneOffResponse) {
             console.info("".concat(new Date(), " - One off responses triggered: ").concat(oneOffResponse));
             message.reply(oneOffResponse);
+            if (message.author.username === 'Dust') {
+                message.react('🥚');
+            }
             return [2 /*return*/];
         }
         artistResponse = checkArtistTriggers(content);

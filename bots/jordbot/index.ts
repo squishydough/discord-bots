@@ -58,7 +58,7 @@ function checkOneOffTriggers(
     if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
       console.info(`${new Date()} - Dust egg trigger activated`)
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
-      return `:egg: I HEAR YOUR CALL, EGG SUMMONER :egg: \r\n ${oneOffTrigger.responses[randomIndex]}`
+      return `🥚 I HEAR YOUR CALL, EGG SUMMONER 🥚 \r\n ${oneOffTrigger.responses[randomIndex]}`
     }
 
     const weight = randomWeight()
@@ -336,6 +336,9 @@ client.on('messageCreate', async (message) => {
       `${new Date()} - One off responses triggered: ${oneOffResponse}`
     )
     message.reply(oneOffResponse)
+    if (message.author.username === 'Dust') {
+      message.react('🥚')
+    }
     return
   }
 
