@@ -680,7 +680,11 @@ export const oneOffTriggers: OneOffTrigger[] = [
   },
   {
     triggers: ['egg'],
-    responses: ['ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'],
+    responses: [
+      'ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE',
+      'eggs benny squish',
+      'i havent had a benny in so long',
+    ],
     weight: DEFAULT_WEIGHT,
   },
   {
