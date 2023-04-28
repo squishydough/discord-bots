@@ -317,6 +317,8 @@ client.on('messageCreate', async (message) => {
   // Exit if message is from a bot
   if (message.author.bot) return
 
+  console.log('author', message.author)
+
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
 

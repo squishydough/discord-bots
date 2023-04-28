@@ -302,6 +302,7 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         // Exit if message is from a bot
         if (message.author.bot)
             return [2 /*return*/];
+        console.log('author', message.author);
         content = message.content.toLowerCase();
         oneOffResponse = checkOneOffTriggers(content);
         if (oneOffResponse) {
