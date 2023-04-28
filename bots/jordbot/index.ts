@@ -306,6 +306,8 @@ function getRandomResponse(): string | undefined {
     `this is the airport in lauderdale`,
     `ok good cause thats what i was just about to ask`,
     `CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED`,
+    `YO CHILL\r\nI AINT EVEN DO ANYTHIBG`,
+    `that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

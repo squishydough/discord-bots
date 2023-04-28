@@ -859,4 +859,16 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: ['ive BEEN using bit warden bro fym'],
     weight: DEFAULT_WEIGHT,
   },
+  {
+    triggers: ['code', 'coding', 'programming', 'c++'],
+    responses: ['ehat cant i do\r\ncode? pretty true'],
+    weight: DEFAULT_WEIGHT,
+  },
+  {
+    triggers: ['northern lights'],
+    responses: [
+      'that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday',
+    ],
+    weight: DEFAULT_WEIGHT,
+  },
 ]
