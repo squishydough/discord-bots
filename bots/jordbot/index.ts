@@ -33,7 +33,10 @@ function randomWeight(): number {
 /**
  * Checks if the message contains a one-off trigger.
  */
-function checkOneOffTriggers(message: string): string | undefined {
+function checkOneOffTriggers(
+  message: string,
+  author: string
+): string | undefined {
   let oneOffTrigger: OneOffTrigger | null = null
   for (const trigger of oneOffTriggers) {
     let triggerFound = false
@@ -51,6 +54,13 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (oneOffTrigger) {
+    // Dust egg trigger check
+    if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
+      console.info(`${new Date()} - Dust egg trigger activated`)
+      const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
+      return `:egg: I HEAR YOUR CALL, EGG SUMMONER :egg: \r\n ${oneOffTrigger.responses[randomIndex]}`
+    }
+
     const weight = randomWeight()
     const shouldReturnResponse = weight <= oneOffTrigger.weight
     console.info(
@@ -317,12 +327,10 @@ client.on('messageCreate', async (message) => {
   // Exit if message is from a bot
   if (message.author.bot) return
 
-  console.log('author', message.author)
-
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
 
-  const oneOffResponse = checkOneOffTriggers(content)
+  const oneOffResponse = checkOneOffTriggers(content, message.author.username)
   if (oneOffResponse) {
     console.info(
       `${new Date()} - One off responses triggered: ${oneOffResponse}`

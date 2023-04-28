@@ -62,7 +62,7 @@ function randomWeight() {
 /**
  * Checks if the message contains a one-off trigger.
  */
-function checkOneOffTriggers(message) {
+function checkOneOffTriggers(message, author) {
     var oneOffTrigger = null;
     for (var _i = 0, oneOffTriggers_1 = triggers_1.oneOffTriggers; _i < oneOffTriggers_1.length; _i++) {
         var trigger = oneOffTriggers_1[_i];
@@ -81,6 +81,12 @@ function checkOneOffTriggers(message) {
         }
     }
     if (oneOffTrigger) {
+        // Dust egg trigger check
+        if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
+            console.info("".concat(new Date(), " - Dust egg trigger activated"));
+            var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
+            return ":egg: I HEAR YOUR CALL, EGG SUMMONER :egg: \r\n ".concat(oneOffTrigger.responses[randomIndex]);
+        }
         var weight = randomWeight();
         var shouldReturnResponse = weight <= oneOffTrigger.weight;
         console.info("".concat(new Date(), " - One-off trigger weight: ").concat(oneOffTrigger.weight, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
@@ -302,9 +308,8 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         // Exit if message is from a bot
         if (message.author.bot)
             return [2 /*return*/];
-        console.log('author', message.author);
         content = message.content.toLowerCase();
-        oneOffResponse = checkOneOffTriggers(content);
+        oneOffResponse = checkOneOffTriggers(content, message.author.username);
         if (oneOffResponse) {
             console.info("".concat(new Date(), " - One off responses triggered: ").concat(oneOffResponse));
             message.reply(oneOffResponse);
