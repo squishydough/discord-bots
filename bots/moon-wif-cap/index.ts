@@ -92,7 +92,7 @@ client.on('messageCreate', async (message) => {
     'get high',
     'dank',
   ]
-  const term_found = weed_terms.some((term) => content.indexOf(term))
+  const term_found = weed_terms.some((term) => content.indexOf(term) > -1)
 
   if (term_found) {
     message.reply(

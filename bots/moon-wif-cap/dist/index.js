@@ -142,7 +142,7 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
             'get high',
             'dank',
         ];
-        term_found = weed_terms.some(function (term) { return content.indexOf(term); });
+        term_found = weed_terms.some(function (term) { return content.indexOf(term) > -1; });
         if (term_found) {
             message.reply('<:moonDank:980216144818499604> <:moonDank:980216144818499604> <:moonDank:980216144818499604>');
             return [2 /*return*/];
