@@ -121,7 +121,7 @@ client.once('ready', function () {
 });
 // When a message is received, run this code
 client.on('messageCreate', function (message) { return __awaiter(void 0, void 0, void 0, function () {
-    var invalidChannel, authorIsBot, content, identifiedSynonym, _i, synonyms_2, synonym, synonymLabel, foundAt, synonymFound, randomPhrase, finalPhrase;
+    var invalidChannel, authorIsBot, content, identifiedSynonym, weed_terms, term_found, _i, synonyms_2, synonym, synonymLabel, foundAt, synonymFound, randomPhrase, finalPhrase;
     return __generator(this, function (_a) {
         invalidChannel = message.channel.id !== '874747632319361075' &&
             message.channel.id !== '696877172186677291' &&
@@ -132,6 +132,21 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
             return [2 /*return*/];
         content = message.content.toLowerCase();
         identifiedSynonym = null;
+        weed_terms = [
+            'weed',
+            'blaze it',
+            'smoke up',
+            'bong',
+            '420',
+            '4:20',
+            'get high',
+            'dank',
+        ];
+        term_found = weed_terms.some(function (term) { return content.indexOf(term); });
+        if (term_found) {
+            message.reply('<:moonDank:980216144818499604> <:moonDank:980216144818499604> <:moonDank:980216144818499604>');
+            return [2 /*return*/];
+        }
         // Check all synonyms for a match, exit as soon as one is found
         for (_i = 0, synonyms_2 = synonyms_1.default; _i < synonyms_2.length; _i++) {
             synonym = synonyms_2[_i];

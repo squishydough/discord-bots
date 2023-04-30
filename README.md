@@ -18,3 +18,9 @@ Just some fun bots I made for friends in the Cheesehaven Discord community. Mayb
    - `INVITE` token is not required, I just use it to store the invite link to invite my bot to the server.
 4. Run all bots with `turbo run dev`
    - Run individual bots by navigating to a specific bot folder and running `npm run dev`.
+
+## Helpful info
+
+### Getting discord emote id
+
+`\:emote:`

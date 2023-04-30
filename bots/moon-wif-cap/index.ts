@@ -81,6 +81,26 @@ client.on('messageCreate', async (message) => {
   /** The synonym found in the message content. */
   let identifiedSynonym: Synonym | null = null
 
+  // First check if we need to reply to a comment about blazing
+  const weed_terms = [
+    'weed',
+    'blaze it',
+    'smoke up',
+    'bong',
+    '420',
+    '4:20',
+    'get high',
+    'dank',
+  ]
+  const term_found = weed_terms.some((term) => content.indexOf(term))
+
+  if (term_found) {
+    message.reply(
+      '<:moonDank:980216144818499604> <:moonDank:980216144818499604> <:moonDank:980216144818499604>'
+    )
+    return
+  }
+
   // Check all synonyms for a match, exit as soon as one is found
   for (const synonym of synonyms) {
     const synonymLabel = synonym.label.toLowerCase()
