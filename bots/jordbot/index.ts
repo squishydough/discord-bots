@@ -33,7 +33,10 @@ function randomWeight(): number {
 /**
  * Checks if the message contains a one-off trigger.
  */
-function checkOneOffTriggers(message: string): string | undefined {
+function checkOneOffTriggers(
+  message: string,
+  author: string
+): string | undefined {
   let oneOffTrigger: OneOffTrigger | null = null
   for (const trigger of oneOffTriggers) {
     let triggerFound = false
@@ -51,6 +54,13 @@ function checkOneOffTriggers(message: string): string | undefined {
   }
 
   if (oneOffTrigger) {
+    // Dust egg trigger check
+    if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
+      console.info(`${new Date()} - Dust egg trigger activated`)
+      const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
+      return `🥚 I HEAR YOUR CALL, EGG SUMMONER 🥚 \r\n ${oneOffTrigger.responses[randomIndex]}`
+    }
+
     const weight = randomWeight()
     const shouldReturnResponse = weight <= oneOffTrigger.weight
     console.info(
@@ -243,7 +253,7 @@ function getRandomResponse(): string | undefined {
     'jesus',
     'like why are you so quick with it\r\ngive me a chance\r\njesus',
     'kinda real though',
-    'im not jealous at all :ANGRYCRYING:',
+    'im not jealous at all',
     'HOW DO YOU KNOW',
     'im parked. in a parking lot.',
     'ok WHY was i kicked',
@@ -296,6 +306,8 @@ function getRandomResponse(): string | undefined {
     `this is the airport in lauderdale`,
     `ok good cause thats what i was just about to ask`,
     `CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED`,
+    `YO CHILL\r\nI AINT EVEN DO ANYTHIBG`,
+    `that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
@@ -320,12 +332,15 @@ client.on('messageCreate', async (message) => {
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
 
-  const oneOffResponse = checkOneOffTriggers(content)
+  const oneOffResponse = checkOneOffTriggers(content, message.author.username)
   if (oneOffResponse) {
     console.info(
       `${new Date()} - One off responses triggered: ${oneOffResponse}`
     )
     message.reply(oneOffResponse)
+    if (message.author.username === 'Dust') {
+      message.react('🥚')
+    }
     return
   }
 

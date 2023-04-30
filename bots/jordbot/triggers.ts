@@ -680,7 +680,11 @@ export const oneOffTriggers: OneOffTrigger[] = [
   },
   {
     triggers: ['egg'],
-    responses: ['ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE'],
+    responses: [
+      'ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE',
+      'eggs benny squish',
+      'i havent had a benny in so long',
+    ],
     weight: DEFAULT_WEIGHT,
   },
   {
@@ -853,6 +857,18 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['bitwarden', 'password manager'],
     responses: ['ive BEEN using bit warden bro fym'],
+    weight: DEFAULT_WEIGHT,
+  },
+  {
+    triggers: ['code', 'coding', 'programming', 'c++'],
+    responses: ['ehat cant i do\r\ncode? pretty true'],
+    weight: DEFAULT_WEIGHT,
+  },
+  {
+    triggers: ['northern lights'],
+    responses: [
+      'that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday',
+    ],
     weight: DEFAULT_WEIGHT,
   },
 ]

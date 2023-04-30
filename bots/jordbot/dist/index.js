@@ -62,7 +62,7 @@ function randomWeight() {
 /**
  * Checks if the message contains a one-off trigger.
  */
-function checkOneOffTriggers(message) {
+function checkOneOffTriggers(message, author) {
     var oneOffTrigger = null;
     for (var _i = 0, oneOffTriggers_1 = triggers_1.oneOffTriggers; _i < oneOffTriggers_1.length; _i++) {
         var trigger = oneOffTriggers_1[_i];
@@ -81,6 +81,12 @@ function checkOneOffTriggers(message) {
         }
     }
     if (oneOffTrigger) {
+        // Dust egg trigger check
+        if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
+            console.info("".concat(new Date(), " - Dust egg trigger activated"));
+            var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
+            return "\uD83E\uDD5A I HEAR YOUR CALL, EGG SUMMONER \uD83E\uDD5A \r\n ".concat(oneOffTrigger.responses[randomIndex]);
+        }
         var weight = randomWeight();
         var shouldReturnResponse = weight <= oneOffTrigger.weight;
         console.info("".concat(new Date(), " - One-off trigger weight: ").concat(oneOffTrigger.weight, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
@@ -230,7 +236,7 @@ function getRandomResponse() {
         'jesus',
         'like why are you so quick with it\r\ngive me a chance\r\njesus',
         'kinda real though',
-        'im not jealous at all :ANGRYCRYING:',
+        'im not jealous at all',
         'HOW DO YOU KNOW',
         'im parked. in a parking lot.',
         'ok WHY was i kicked',
@@ -283,6 +289,8 @@ function getRandomResponse() {
         "this is the airport in lauderdale",
         "ok good cause thats what i was just about to ask",
         "CAN YOL NOT FUCKING I TERRIPT ME I WASNT FUNISHED",
+        "YO CHILL\r\nI AINT EVEN DO ANYTHIBG",
+        "that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
@@ -303,10 +311,13 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         if (message.author.bot)
             return [2 /*return*/];
         content = message.content.toLowerCase();
-        oneOffResponse = checkOneOffTriggers(content);
+        oneOffResponse = checkOneOffTriggers(content, message.author.username);
         if (oneOffResponse) {
             console.info("".concat(new Date(), " - One off responses triggered: ").concat(oneOffResponse));
             message.reply(oneOffResponse);
+            if (message.author.username === 'Dust') {
+                message.react('🥚');
+            }
             return [2 /*return*/];
         }
         artistResponse = checkArtistTriggers(content);
