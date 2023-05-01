@@ -141,6 +141,8 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
             '4:20',
             'get high',
             'dank',
+            'schmoke',
+            'hoots',
         ];
         term_found = weed_terms.some(function (term) { return content.indexOf(term) > -1; });
         if (term_found) {
