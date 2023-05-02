@@ -871,4 +871,11 @@ export const oneOffTriggers: OneOffTrigger[] = [
     ],
     weight: DEFAULT_WEIGHT,
   },
+  {
+    triggers: ['quote'],
+    responses: [
+      'in that quote they gave she forgot to mention that i also like to roll the shit out of randoms as rein in competitive overwatch matches',
+    ],
+    weight: DEFAULT_WEIGHT,
+  },
 ]
