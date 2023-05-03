@@ -673,6 +673,7 @@ exports.oneOffTriggers = [
             'ILL SHOVEL THE HARD BOILDE EGGS INTO MY MOUTH UNTIL I DIE',
             'eggs benny squish',
             'i havent had a benny in so long',
+            'i had a montecristo benedict a long ass time ago\r\ni remember not liking it but i eas like 12 so',
         ],
         weight: DEFAULT_WEIGHT,
     },
