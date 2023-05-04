@@ -1,11 +1,5 @@
-declare type Weight = {
-    lowestWeight: number;
-    highestWeight: number;
-    weight: number;
-};
-export declare const DEFAULT_WEIGHT: Weight;
-export declare const RANDOM_RESPONSE_WEIGHT: Weight;
-export declare const ARTIST_TRIGGER_WEIGHT: Weight;
-export declare const INSTRUMENT_TRIGGER_WEIGHT: Weight;
-export {};
+export declare const RANDOM_RESPONSE_WEIGHT = 3;
+export declare const ARTIST_TRIGGER_WEIGHT = 15;
+export declare const INSTRUMENT_TRIGGER_WEIGHT = 15;
+export declare const ONE_OFF_TRIGGER_WEIGHT = 15;
 //# sourceMappingURL=weights.d.ts.map

@@ -7,14 +7,11 @@ import {
   type ArtistInstrumentTrigger,
   type OneOffTrigger,
 } from './triggers'
-
-// Before returning a response, the bot will generate a random
-// number between 1 and 100. If the number is less than or equal
-// to the weight, the response will be returned. Otherwise, no
-// response will be returned.
-export const RANDOM_RESPONSE_WEIGHT = 5
-export const ARTIST_TRIGGER_WEIGHT = 20
-export const INSTRUMENT_TRIGGER_WEIGHT = 20
+import {
+  RANDOM_RESPONSE_WEIGHT,
+  ARTIST_TRIGGER_WEIGHT,
+  INSTRUMENT_TRIGGER_WEIGHT,
+} from './weights'
 
 /**
  * Returns a random number between min and max

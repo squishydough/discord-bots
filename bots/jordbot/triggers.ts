@@ -1,4 +1,4 @@
-const DEFAULT_WEIGHT = 20
+import { ONE_OFF_TRIGGER_WEIGHT } from './weights'
 
 export type ArtistInstrumentTrigger = {
   instrument: string
@@ -551,17 +551,17 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i live in a small town there are no jazz here ;(',
       'am i allowed to talk ab music in here',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['miles davis'],
     responses: ['https://i.imgur.com/jSO2YvA.png'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['shoes'],
     responses: ['https://i.imgur.com/Epm6dQl.png'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['joey alexander'],
@@ -576,39 +576,39 @@ export const oneOffTriggers: OneOffTrigger[] = [
       `WERE NOT ON THE FIFTH FUCKINF JOEY ALEXANDER`,
       `im so happy joey alexander himself deleted my comment`,
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['chess'],
     responses: ['YOU WONT LAST 0.0035 SECONDS PLAYING THIS GAME'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['squirrels'],
     responses: ['squirrels arent real'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['surefour'],
     responses: [
       'bro surefour is from calgary how cool is that\r\nme and him literally went to the same laser tag place when we were little\r\nnot at the same time but still',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['legs'],
     responses: ['crazy calves bro\r\nim not jealous at all :ANGRYCRYING:'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['pokemon'],
     responses: ['i forget how to fuxkint spell it'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['party'],
     responses: ['invite me next time :heart_eyes: :heart_eyes:'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['congrats', 'congratulations', 'grats'],
@@ -617,19 +617,19 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i cant tell what is genuine from you anymore\r\nbut thanks!!',
       'and the michael jackson insta account is celebrating by giving away cds lmao',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['among us'],
     responses: ['among us'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['donald glover', 'childish gambino'],
     responses: [
       'WAIT DONALD GLOVER IS CHILDISH GAMBINO??\r\nWHY DOES DONALD GLOVER DO EVERYTHING\r\nliterally fucking writes acts comdeians and then turns around and makes bangers with 1.2 billion streams\r\nand has won 5 grammys???\r\ngod dammit\r\ni need to jus stop',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['squishydough', 'squishy', 'squish'],
@@ -638,14 +638,14 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i want to go to christmas dinner with squishydough ☹️',
       'but squish said thats how the song gods\r\nbut its not',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['burger'],
     responses: [
       'they put too many onion on my quarter pounder with cheese and now i feel icky ☹️',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['dog', 'hotdog'],
@@ -659,24 +659,24 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['thankful', 'grateful'],
     responses: ['im thankful for your cute face'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['onnen'],
     responses: ['happy thanksigiving @Onnen#7393'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['mansplain'],
     responses: ['IT WAS JUST A DISCLAIMER I DIDNT MEAN TO MANSPLAIN'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['stupid'],
     responses: [
       `“It's not just that I'm stupid; it's that I'm just smart enough to know how stupid I am. I wish I weren't so stupid. Or that I were stupider.” - John Hall`,
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['egg'],
@@ -686,7 +686,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i havent had a benny in so long',
       'i had a montecristo benedict a long ass time ago\r\ni remember not liking it but i eas like 12 so',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['food', 'hungry'],
@@ -694,69 +694,69 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'AT A TABLE\r\nWE ARE EATINGN',
       'ILL COOK 5 AND EAT EACH ONE IN A BITE',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['vegetable'],
     responses: ['i dojt eat vegetabled'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['breakfast'],
     responses: ['OMG I WAS JUST EATING BREAKFAST TOO'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['dairy queen'],
     responses: ['bro i havent had a dairy queen salad in a lonngass time'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['musk'],
     responses: ['musk fetish 😨😨😨💀💀'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['dj khaled'],
     responses: ['god dj khaled is so cringe'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['mercy'],
     responses: ['bro whats this gotta do with my support'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['toronto', 'montreal'],
     responses: ['toronto and montreal are the only decent jazz scenes'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['alberta'],
     responses: ['only cool thing here is the jazz musicians'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['club'],
     responses: ['theres this place called the yardbirde suite its a jazz club'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['camp'],
     responses: [
       'i thought it was supposed to be like a jazz camp with a bunch of young whippersnappers\r\nbut 4/9 people are at least 40\r\n1 of the guys is literally 72 fucking years old',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['anime'],
     responses: ['its an anime about jazz'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['league of legends'],
     responses: ['you should play jazz music instead'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['michael jackson', 'king of pop'],
@@ -768,120 +768,120 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i just gave up and now listening to michael jackson',
       'someone in my game yesterday told me michael jackson was overrated',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['classical'],
     responses: [
       'not much classical music i can actually jam out to but this is it',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['apple'],
     responses: ['sheesh whats the deal with apple music'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['jeopardy'],
     responses: ['who was the dancer on the music video for Moments Notice'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['beatles'],
     responses: ['not a joke i know more music theory than the beatles'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['fall guys', 'fall beans'],
     responses: [
       'i would love to put down my saxophone right now and play fall guys with you (my best friends)',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['shorts'],
     responses: [
       `but also the first thing i think when i see those shorts is 'squishy wears those'`,
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['quincy jones'],
     responses: [
       'QUNCY JONES IS OBSCURE https://en.wikipedia.org/wiki/Quincy_Jones',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['committed'],
     responses: ['why the fuck is he so committed'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['theater', 'theatre'],
     responses: ['gonna accidentally rizz up everyone in the theatre'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['bronze'],
     responses: [
       'i mean those bronze players are pretty tough to play againsy\r\ni would know',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['rhythm'],
     responses: ['listen you dont know anything ab my rhythm ok'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['gym', 'exercise'],
     responses: ['u aint tge only one at the gym shitter'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['frog', 'toad'],
     responses: [`i dont need this frog\r\ni have jazz`],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['fuck you'],
     responses: [`fuck you too bitch`],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['money', 'bank', 'cash'],
     responses: ['thanks to you i can bank responsibly'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['bitwarden', 'password manager'],
     responses: ['ive BEEN using bit warden bro fym'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['code', 'coding', 'programming', 'c++'],
     responses: ['ehat cant i do\r\ncode? pretty true'],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['northern lights'],
     responses: [
       'that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['quote'],
     responses: [
       'in that quote they gave she forgot to mention that i also like to roll the shit out of randoms as rein in competitive overwatch matches',
     ],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
     triggers: ['jordo'],
     responses: [`this jordo guy is getting a little out of hand`],
-    weight: DEFAULT_WEIGHT,
+    weight: ONE_OFF_TRIGGER_WEIGHT,
   },
 ]

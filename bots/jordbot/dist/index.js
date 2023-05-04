@@ -36,17 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.INSTRUMENT_TRIGGER_WEIGHT = exports.ARTIST_TRIGGER_WEIGHT = exports.RANDOM_RESPONSE_WEIGHT = void 0;
 require("dotenv/config");
 var discord_js_1 = require("discord.js");
 var triggers_1 = require("./triggers");
-// Before returning a response, the bot will generate a random
-// number between 1 and 100. If the number is less than or equal
-// to the weight, the response will be returned. Otherwise, no
-// response will be returned.
-exports.RANDOM_RESPONSE_WEIGHT = 5;
-exports.ARTIST_TRIGGER_WEIGHT = 20;
-exports.INSTRUMENT_TRIGGER_WEIGHT = 20;
+var weights_1 = require("./weights");
 /**
  * Returns a random number between min and max
  */
@@ -105,8 +98,8 @@ function checkOneOffTriggers(message, author) {
 function checkArtistTriggers(message) {
     // Exit if the weight is too high
     var weight = randomWeight();
-    var shouldReturnResponse = weight <= exports.ARTIST_TRIGGER_WEIGHT;
-    console.info("".concat(new Date(), " - Artist trigger weight: ").concat(exports.ARTIST_TRIGGER_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
+    var shouldReturnResponse = weight <= weights_1.ARTIST_TRIGGER_WEIGHT;
+    console.info("".concat(new Date(), " - Artist trigger weight: ").concat(weights_1.ARTIST_TRIGGER_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
     if (!shouldReturnResponse) {
         return;
     }
@@ -185,8 +178,8 @@ function checkArtistTriggers(message) {
 function checkInstrumentTriggers(message) {
     // Exit if weight is too high
     var weight = randomWeight();
-    var shouldReturnResponse = weight <= exports.INSTRUMENT_TRIGGER_WEIGHT;
-    console.info("".concat(new Date(), " - Instrument trigger weight: ").concat(exports.INSTRUMENT_TRIGGER_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
+    var shouldReturnResponse = weight <= weights_1.INSTRUMENT_TRIGGER_WEIGHT;
+    console.info("".concat(new Date(), " - Instrument trigger weight: ").concat(weights_1.INSTRUMENT_TRIGGER_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
     if (!shouldReturnResponse) {
         return;
     }
@@ -223,8 +216,8 @@ function checkInstrumentTriggers(message) {
 function getRandomResponse() {
     // Exit if weight is too high
     var weight = randomWeight();
-    var shouldReturnResponse = weight <= exports.RANDOM_RESPONSE_WEIGHT;
-    console.info("".concat(new Date(), " - Random response weight: ").concat(exports.RANDOM_RESPONSE_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
+    var shouldReturnResponse = weight <= weights_1.RANDOM_RESPONSE_WEIGHT;
+    console.info("".concat(new Date(), " - Random response weight: ").concat(weights_1.RANDOM_RESPONSE_WEIGHT, ", random weight: ").concat(weight, ", should return response: ").concat(shouldReturnResponse));
     if (!shouldReturnResponse) {
         return;
     }
