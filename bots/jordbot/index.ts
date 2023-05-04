@@ -327,6 +327,11 @@ client.on('messageCreate', async (message) => {
   // Exit if message is from a bot
   if (message.author.bot) return
 
+  // Add reactions to Omar's messages
+  if (message.author.username == 'Omar2727') {
+    message.react('<:jordoWeezer:986338341773541477>')
+  }
+
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
 

@@ -304,6 +304,10 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
         // Exit if message is from a bot
         if (message.author.bot)
             return [2 /*return*/];
+        // Add reactions to Omar's messages
+        if (message.author.username == 'Omar2727') {
+            message.react('<:jordoWeezer:986338341773541477>');
+        }
         content = message.content.toLowerCase();
         oneOffResponse = checkOneOffTriggers(content, message.author.username);
         if (oneOffResponse) {
