@@ -102,8 +102,12 @@ function checkArtistTriggers(message: string): string | undefined {
     }
   }
 
+  if(!artistTrigger) {
+    console.error(`${new Date()} - No artist trigger found`)
+    return
+  }
+
   // No action required if no trigger found
-  if (artistTrigger) {
     // Find triggers from the same instrument type
     const similarArtistTriggers = artistTriggers.filter(
       (t) =>
@@ -173,7 +177,7 @@ function checkArtistTriggers(message: string): string | undefined {
 
     const randomIndex = randomNumber(0, responses.length - 1)
     return responses[randomIndex]
-  }
+  
 }
 
 /**
@@ -188,6 +192,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
   console.info(
     `${new Date()} - Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
   )
+
   if (!shouldReturnResponse) {
     return
   }
@@ -204,31 +209,35 @@ function checkInstrumentTriggers(message: string): string | undefined {
     }
   }
 
-  // No action required if no trigger found
-  if (instrumentTrigger) {
-    // Find triggers from the same instrument type
-    const similarInstrumentTriggers = instrumentTriggers.filter(
-      (trigger) => trigger.instrument !== instrumentTrigger?.instrument
-    )
-    const similarInstrumentTrigger =
-      similarInstrumentTriggers[
-        randomNumber(0, similarInstrumentTriggers.length - 1)
-      ]
+  if(!instrumentTrigger) {
+    console.error(`${new Date()} - No instrument trigger found`)
+    return
+  }
 
-    const responses = [
-      `bro ${similarInstrumentTrigger.artist} is the best ${instrumentTrigger.instrument} player`,
-      `it plays me my jazz`,
-      `incase you dont know: the highest regular note on ${instrumentTrigger.instrument} is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with`,
-      `i TAUGHT those kids how to play ${instrumentTrigger.instrument}`,
-      `‘what if i played the halo theme on every single audio filter this ${instrumentTrigger.instrument} has’`,
-      `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${similarInstrumentTrigger.instrument} but i can never play overwatch against you again`,
-      `NOOOOO\r\nONE OF MY FAVORITE ${instrumentTrigger.instrument.toUpperCase()}S IS MOVING TO JAPAN`,
-      `wow.. who is that ${instrumentTrigger.instrument} player..`,
+  // No action required if no trigger found
+  // Find triggers from the same instrument type
+  const similarInstrumentTriggers = instrumentTriggers.filter(
+    (trigger) => trigger.instrument !== instrumentTrigger?.instrument
+  )
+  const similarInstrumentTrigger =
+    similarInstrumentTriggers[
+      randomNumber(0, similarInstrumentTriggers.length - 1)
     ]
 
-    const randomIndex = randomNumber(0, responses.length - 1)
-    return responses[randomIndex]
-  }
+  const responses = [
+    `bro ${similarInstrumentTrigger.artist} is the best ${instrumentTrigger.instrument} player`,
+    `it plays me my jazz`,
+    `incase you dont know: the highest regular note on ${instrumentTrigger.instrument} is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with`,
+    `i TAUGHT those kids how to play ${instrumentTrigger.instrument}`,
+    `‘what if i played the halo theme on every single audio filter this ${instrumentTrigger.instrument} has’`,
+    `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${similarInstrumentTrigger.instrument} but i can never play overwatch against you again`,
+    `NOOOOO\r\nONE OF MY FAVORITE ${instrumentTrigger.instrument.toUpperCase()}S IS MOVING TO JAPAN`,
+    `wow.. who is that ${instrumentTrigger.instrument} player..`,
+  ]
+
+  const randomIndex = randomNumber(0, responses.length - 1)
+  return responses[randomIndex]
+  
 }
 
 function getRandomResponse(): string | undefined {
@@ -328,7 +337,7 @@ client.on('messageCreate', async (message) => {
   if (message.author.bot) return
 
   // Add reactions to Omar's messages
-  if (message.author.username == 'Omar2727') {
+  if (message.author.username === 'Omar2727') {
     message.react('<:jordoWeezer:986338341773541477>')
   }
 

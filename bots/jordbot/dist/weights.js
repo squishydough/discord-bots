@@ -6,7 +6,7 @@ exports.ONE_OFF_TRIGGER_WEIGHT = exports.INSTRUMENT_TRIGGER_WEIGHT = exports.ART
 // to the weight, the response will be returned. Otherwise, no
 // response will be returned.
 var DEFAULT_WEIGHT = 15;
-exports.RANDOM_RESPONSE_WEIGHT = 3;
+exports.RANDOM_RESPONSE_WEIGHT = 4;
 exports.ARTIST_TRIGGER_WEIGHT = DEFAULT_WEIGHT;
 exports.INSTRUMENT_TRIGGER_WEIGHT = DEFAULT_WEIGHT;
 exports.ONE_OFF_TRIGGER_WEIGHT = DEFAULT_WEIGHT;
