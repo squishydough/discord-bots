@@ -53,8 +53,8 @@ function checkOneOffTriggers(
   if (oneOffTrigger) {
     // Dust egg trigger check
     if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
-      console.info(`${new Date()} - Dust egg trigger activated`)
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
+            console.info(`${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`)
       return `🥚 I HEAR YOUR CALL, EGG SUMMONER 🥚 \r\n ${oneOffTrigger.responses[randomIndex]}`
     }
 

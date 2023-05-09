@@ -76,8 +76,8 @@ function checkOneOffTriggers(message, author) {
     if (oneOffTrigger) {
         // Dust egg trigger check
         if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
-            console.info("".concat(new Date(), " - Dust egg trigger activated"));
             var randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1);
+            console.info("".concat(new Date(), " - randomIndex: ").concat(randomIndex, " - Dust egg trigger activated"));
             return "\uD83E\uDD5A I HEAR YOUR CALL, EGG SUMMONER \uD83E\uDD5A \r\n ".concat(oneOffTrigger.responses[randomIndex]);
         }
         var weight = randomWeight();
