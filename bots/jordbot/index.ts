@@ -337,9 +337,10 @@ client.on('messageCreate', async (message) => {
   if (message.author.bot) return
 
   // Add reactions to Omar's messages
-  if (message.author.username === 'Omar2727') {
-    message.react('<:jordoWeezer:986338341773541477>')
-  }
+  // TODO Bring back of Omar is mean to poor lil Jordbot
+  // if (message.author.username === 'Omar2727') {
+  //   message.react('<:jordoWeezer:986338341773541477>')
+  // }
 
   /** Discord message content, lower-cased for better string matching. */
   const content = message.content.toLowerCase()
