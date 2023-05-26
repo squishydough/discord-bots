@@ -315,6 +315,7 @@ function getRandomResponse(): string | undefined {
     `YO CHILL\r\nI AINT EVEN DO ANYTHIBG`,
     `that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday`,
     `HEY\r\nLISTEN HERE PAL\r\nWE AINT GONNA HAVE A PROBLEM HERE IS WE`,
+    `what in the british`
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
