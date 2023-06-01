@@ -675,6 +675,7 @@ exports.oneOffTriggers = [
             'eggs benny squish',
             'i havent had a benny in so long',
             'i had a montecristo benedict a long ass time ago\r\ni remember not liking it but i eas like 12 so',
+            'bro stop now i want a montecristo benedict'
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
