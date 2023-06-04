@@ -54,7 +54,9 @@ function checkOneOffTriggers(
     // Dust egg trigger check
     if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
-            console.info(`${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`)
+      console.info(
+        `${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`
+      )
       return `🥚 I HEAR YOUR CALL, EGG SUMMONER 🥚 \r\n ${oneOffTrigger.responses[randomIndex]}`
     }
 
@@ -102,82 +104,79 @@ function checkArtistTriggers(message: string): string | undefined {
     }
   }
 
-  if(!artistTrigger) {
+  if (!artistTrigger) {
     console.error(`${new Date()} - No artist trigger found`)
     return
   }
 
   // No action required if no trigger found
-    // Find triggers from the same instrument type
-    const similarArtistTriggers = artistTriggers.filter(
-      (t) =>
-        t.instrument === artistTrigger?.instrument &&
-        t.artist !== artistTrigger.artist
-    )
-    const similarArtistTrigger =
-      similarArtistTriggers[randomNumber(0, similarArtistTriggers.length - 1)]
+  // Find triggers from the same instrument type
+  const similarArtistTriggers = artistTriggers.filter(
+    (t) =>
+      t.instrument === artistTrigger?.instrument &&
+      t.artist !== artistTrigger.artist
+  )
+  const similarArtistTrigger =
+    similarArtistTriggers[randomNumber(0, similarArtistTriggers.length - 1)]
 
-    // Swap blank spaces with underscores for wikipedia urls
-    const artistWikipediaUrl = `https://en.wikipedia.org/wiki/${artistTrigger.artist.replace(
-      / /g,
-      '_'
-    )}`
-    const similarArtistWikipediaUrl = `https://en.wikipedia.org/wiki/${similarArtistTrigger.artist.replace(
-      / /g,
-      '_'
-    )}`
+  // Swap blank spaces with underscores for wikipedia urls
+  const artistWikipediaUrl = `https://en.wikipedia.org/wiki/${artistTrigger.artist.replace(
+    / /g,
+    '_'
+  )}`
+  const similarArtistWikipediaUrl = `https://en.wikipedia.org/wiki/${similarArtistTrigger.artist.replace(
+    / /g,
+    '_'
+  )}`
 
-    // Find triggers from other instrument types other than the one that was detected.
-    const otherInstrumentTriggers = instrumentTriggers.filter(
-      (i) => i.instrument !== artistTrigger?.instrument
-    )
-    const otherInstrumentTrigger =
-      otherInstrumentTriggers[
-        randomNumber(0, otherInstrumentTriggers.length - 1)
-      ]
+  // Find triggers from other instrument types other than the one that was detected.
+  const otherInstrumentTriggers = instrumentTriggers.filter(
+    (i) => i.instrument !== artistTrigger?.instrument
+  )
+  const otherInstrumentTrigger =
+    otherInstrumentTriggers[randomNumber(0, otherInstrumentTriggers.length - 1)]
 
-    const responses = [
-      `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
-      `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
-      `they are pieces of art on the same level as da vinci and miles davis. ${artistWikipediaUrl}`,
-      `bro is famous ${artistWikipediaUrl}`,
-      `they are hairy and bulging ${artistWikipediaUrl}`,
-      `finally some god damn facts.\r\n${similarArtistTrigger.artist} is a better ${similarArtistTrigger.instrument} player. ${similarArtistWikipediaUrl}`,
-      `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
-      `god they're all so fancily dressed. ${artistWikipediaUrl}`,
-      `that man cannot play swing. check out ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
-      `and they are such a classical ${artistTrigger.instrument} player its making me cringe when they play swing. ${artistWikipediaUrl}`,
-      `but im better than them so its okay ${artistWikipediaUrl}`,
-      `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
-      `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarArtistWikipediaUrl}`,
-      `not me arranging a ${artistTrigger.artist} song for my jazz combo ${artistWikipediaUrl}`,
-      `holy shit ~~bill clinton~~ ${artistTrigger.artist} on the ${artistTrigger.instrument} ${artistWikipediaUrl}`,
-      `WHY IS ${artistTrigger.artist.toUpperCase()} PLAYING A D# OVER A B MINOR CHORD. ${similarArtistTrigger.artist.toUpperCase()} IS BETTER ${similarArtistWikipediaUrl}`,
-      `currently plays in an all female jazz group called artemis that literaly just has some of the best jazz players of the modern day ${artistWikipediaUrl}`,
-      `fun fact: they also play jazz ${artistWikipediaUrl}`,
-      `well actually this one woman and ${artistTrigger.instrument} player dude did kids songs, but it was jazz and that was actualyl dope ${artistWikipediaUrl}`,
-      `dont tell me you guys think ${artistTrigger.artist} can only play smooth jazz ${artistWikipediaUrl}`,
-      `i saw a video of an ai music robot and like you could program it to play 50% like ${artistTrigger.artist} and 50% like ${similarArtistTrigger.artist}`,
-      `the music side is great, they got this amazing ${similarArtistTrigger.instrument} player named ${similarArtistTrigger.artist} who is just insane, they play ${otherInstrumentTrigger} too at an insane level ${artistWikipediaUrl}`,
-      `i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ${artistWikipediaUrl}`,
-      `theyve inspired me to quit music forever ${artistWikipediaUrl}`,
-      `you think this 12 year old was blasting music next to you too? ${artistWikipediaUrl}`,
-      `but they dont play music. try ${similarArtistTrigger.artist} ${similarArtistWikipediaUrl}`,
-      `not a joke i know more music theory than ${artistTrigger.artist} ${artistWikipediaUrl}`,
-      `OH MY GOD SAME ${artistTrigger.instrument.toUpperCase()} PLAYERS AND RHYTHM SECTION B TWITH JOEY ALEXANDER ${artistWikipediaUrl}`,
-      `magical things happen on ${artistTrigger.artist}s birthday ${artistWikipediaUrl}`,
-      `welp now i know youre a real ${artistTrigger.artist} fan ${artistWikipediaUrl}`,
-      `so if youre a bigger ${artistTrigger.artist} fand and you even know his dad then youd know the answer too ${artistWikipediaUrl}`,
-      `regular sized woman plays oversized ${artistTrigger.instrument} ${artistWikipediaUrl}`,
-      `i found another piano idol ${artistWikipediaUrl}`,
-      `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
-      `with that dope of a name he has to be good ${artistWikipediaUrl}`,
-      `hey ${artistTrigger.artist} is from florida show some respect 😤`,
-    ]
+  const responses = [
+    `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
+    `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
+    `they are pieces of art on the same level as da vinci and miles davis. ${artistWikipediaUrl}`,
+    `bro is famous ${artistWikipediaUrl}`,
+    `they are hairy and bulging ${artistWikipediaUrl}`,
+    `finally some god damn facts.\r\n${similarArtistTrigger.artist} is a better ${similarArtistTrigger.instrument} player. ${similarArtistWikipediaUrl}`,
+    `${artistTrigger.artist} when he sees a cute animal :heart_eyes: ${artistWikipediaUrl}`,
+    `god they're all so fancily dressed. ${artistWikipediaUrl}`,
+    `that man cannot play swing. check out ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
+    `and they are such a classical ${artistTrigger.instrument} player its making me cringe when they play swing. ${artistWikipediaUrl}`,
+    `but im better than them so its okay ${artistWikipediaUrl}`,
+    `the ${artistTrigger.instrument} players tone oh my goddddddddddddddddddd\r\nits so gorgeous\r\nthis is now my fav ${artistTrigger.artist} song. ${artistWikipediaUrl}`,
+    `2 of my favorite ${artistTrigger.instrument} players got sponsored by overwatch\r\nkind of large actually\r\n${artistWikipediaUrl} ${similarArtistWikipediaUrl}`,
+    `not me arranging a ${artistTrigger.artist} song for my jazz combo ${artistWikipediaUrl}`,
+    `holy shit ~~bill clinton~~ ${artistTrigger.artist} on the ${artistTrigger.instrument} ${artistWikipediaUrl}`,
+    `WHY IS ${artistTrigger.artist.toUpperCase()} PLAYING A D# OVER A B MINOR CHORD. ${similarArtistTrigger.artist.toUpperCase()} IS BETTER ${similarArtistWikipediaUrl}`,
+    `currently plays in an all female jazz group called artemis that literaly just has some of the best jazz players of the modern day ${artistWikipediaUrl}`,
+    `fun fact: they also play jazz ${artistWikipediaUrl}`,
+    `well actually this one woman and ${artistTrigger.instrument} player dude did kids songs, but it was jazz and that was actualyl dope ${artistWikipediaUrl}`,
+    `dont tell me you guys think ${artistTrigger.artist} can only play smooth jazz ${artistWikipediaUrl}`,
+    `i saw a video of an ai music robot and like you could program it to play 50% like ${artistTrigger.artist} and 50% like ${similarArtistTrigger.artist}`,
+    `the music side is great, they got this amazing ${similarArtistTrigger.instrument} player named ${similarArtistTrigger.artist} who is just insane, they play ${otherInstrumentTrigger} too at an insane level ${artistWikipediaUrl}`,
+    `i was watching his tiny desk and was like 'what a nice young artist i wonder if he is making any more new music' ${artistWikipediaUrl}`,
+    `theyve inspired me to quit music forever ${artistWikipediaUrl}`,
+    `you think this 12 year old was blasting music next to you too? ${artistWikipediaUrl}`,
+    `but they dont play music. try ${similarArtistTrigger.artist} ${similarArtistWikipediaUrl}`,
+    `not a joke i know more music theory than ${artistTrigger.artist} ${artistWikipediaUrl}`,
+    `OH MY GOD SAME ${artistTrigger.instrument.toUpperCase()} PLAYERS AND RHYTHM SECTION B TWITH JOEY ALEXANDER ${artistWikipediaUrl}`,
+    `magical things happen on ${artistTrigger.artist}s birthday ${artistWikipediaUrl}`,
+    `welp now i know youre a real ${artistTrigger.artist} fan ${artistWikipediaUrl}`,
+    `so if youre a bigger ${artistTrigger.artist} fand and you even know his dad then youd know the answer too ${artistWikipediaUrl}`,
+    `regular sized woman plays oversized ${artistTrigger.instrument} ${artistWikipediaUrl}`,
+    `i found another piano idol ${artistWikipediaUrl}`,
+    `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
+    `with that dope of a name he has to be good ${artistWikipediaUrl}`,
+    `hey ${artistTrigger.artist} is from florida show some respect 😤`,
+  ]
 
-    const randomIndex = randomNumber(0, responses.length - 1)
-    return responses[randomIndex]
-  
+  const randomIndex = randomNumber(0, responses.length - 1)
+  return responses[randomIndex]
 }
 
 /**
@@ -209,7 +208,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
     }
   }
 
-  if(!instrumentTrigger) {
+  if (!instrumentTrigger) {
     console.error(`${new Date()} - No instrument trigger found`)
     return
   }
@@ -237,7 +236,6 @@ function checkInstrumentTriggers(message: string): string | undefined {
 
   const randomIndex = randomNumber(0, responses.length - 1)
   return responses[randomIndex]
-  
 }
 
 function getRandomResponse(): string | undefined {
@@ -315,7 +313,8 @@ function getRandomResponse(): string | undefined {
     `YO CHILL\r\nI AINT EVEN DO ANYTHIBG`,
     `that fuxking remidns me\r\nthere were northern lights in my tiny ass souther town on sunday`,
     `HEY\r\nLISTEN HERE PAL\r\nWE AINT GONNA HAVE A PROBLEM HERE IS WE`,
-    `what in the british`
+    `what in the british`,
+    `what does that have to do with walmart lettuce`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
