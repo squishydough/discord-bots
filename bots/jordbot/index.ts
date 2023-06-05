@@ -315,6 +315,7 @@ function getRandomResponse(): string | undefined {
     `HEY\r\nLISTEN HERE PAL\r\nWE AINT GONNA HAVE A PROBLEM HERE IS WE`,
     `what in the british`,
     `what does that have to do with walmart lettuce`,
+    `WAIT THATS FUXKING ADORABLE`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
