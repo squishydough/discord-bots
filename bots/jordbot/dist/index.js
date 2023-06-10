@@ -202,15 +202,18 @@ function checkInstrumentTriggers(message) {
     }
     // No action required if no trigger found
     // Find triggers from the same instrument type
-    var similarInstrumentTriggers = triggers_1.instrumentTriggers.filter(function (trigger) { return trigger.instrument !== (instrumentTrigger === null || instrumentTrigger === void 0 ? void 0 : instrumentTrigger.instrument); });
-    var similarInstrumentTrigger = similarInstrumentTriggers[randomNumber(0, similarInstrumentTriggers.length - 1)];
+    var otherInstrumentArtists = triggers_1.instrumentTriggers.filter(function (trigger) {
+        return trigger.instrument === (instrumentTrigger === null || instrumentTrigger === void 0 ? void 0 : instrumentTrigger.instrument) &&
+            trigger.artist !== (instrumentTrigger === null || instrumentTrigger === void 0 ? void 0 : instrumentTrigger.artist);
+    });
+    var otherInstrumentArtist = otherInstrumentArtists[randomNumber(0, otherInstrumentArtists.length - 1)];
     var responses = [
-        "bro ".concat(similarInstrumentTrigger.artist, " is the best ").concat(instrumentTrigger.instrument, " player"),
+        "bro ".concat(otherInstrumentArtist.artist, " is the best ").concat(instrumentTrigger.instrument, " player"),
         "it plays me my jazz",
         "incase you dont know: the highest regular note on ".concat(instrumentTrigger.instrument, " is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with"),
         "i TAUGHT those kids how to play ".concat(instrumentTrigger.instrument),
         "\u2018what if i played the halo theme on every single audio filter this ".concat(instrumentTrigger.instrument, " has\u2019"),
-        "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(similarInstrumentTrigger.instrument, " but i can never play overwatch against you again"),
+        "i hope i break my arm in a way that still lets me play ".concat(instrumentTrigger.instrument, " and ").concat(otherInstrumentArtist.instrument, " but i can never play overwatch against you again"),
         "NOOOOO\r\nONE OF MY FAVORITE ".concat(instrumentTrigger.instrument.toUpperCase(), "S IS MOVING TO JAPAN"),
         "wow.. who is that ".concat(instrumentTrigger.instrument, " player.."),
     ];

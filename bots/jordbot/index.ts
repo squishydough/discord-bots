@@ -215,21 +215,21 @@ function checkInstrumentTriggers(message: string): string | undefined {
 
   // No action required if no trigger found
   // Find triggers from the same instrument type
-  const similarInstrumentTriggers = instrumentTriggers.filter(
-    (trigger) => trigger.instrument !== instrumentTrigger?.instrument
+  const otherInstrumentArtists = instrumentTriggers.filter(
+    (trigger) =>
+      trigger.instrument === instrumentTrigger?.instrument &&
+      trigger.artist !== instrumentTrigger?.artist
   )
-  const similarInstrumentTrigger =
-    similarInstrumentTriggers[
-      randomNumber(0, similarInstrumentTriggers.length - 1)
-    ]
+  const otherInstrumentArtist =
+    otherInstrumentArtists[randomNumber(0, otherInstrumentArtists.length - 1)]
 
   const responses = [
-    `bro ${similarInstrumentTrigger.artist} is the best ${instrumentTrigger.instrument} player`,
+    `bro ${otherInstrumentArtist.artist} is the best ${instrumentTrigger.instrument} player`,
     `it plays me my jazz`,
     `incase you dont know: the highest regular note on ${instrumentTrigger.instrument} is F# (not concert), so anything above that is going into altissimo which has totally non standard fingerings which are incredibly hard to get a sound with`,
     `i TAUGHT those kids how to play ${instrumentTrigger.instrument}`,
     `‘what if i played the halo theme on every single audio filter this ${instrumentTrigger.instrument} has’`,
-    `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${similarInstrumentTrigger.instrument} but i can never play overwatch against you again`,
+    `i hope i break my arm in a way that still lets me play ${instrumentTrigger.instrument} and ${otherInstrumentArtist.instrument} but i can never play overwatch against you again`,
     `NOOOOO\r\nONE OF MY FAVORITE ${instrumentTrigger.instrument.toUpperCase()}S IS MOVING TO JAPAN`,
     `wow.. who is that ${instrumentTrigger.instrument} player..`,
   ]
@@ -351,10 +351,12 @@ client.on('messageCreate', async (message) => {
     console.info(
       `${new Date()} - One off responses triggered: ${oneOffResponse}`
     )
+
     message.reply(oneOffResponse)
     if (message.author.username === 'Dust') {
       message.react('🥚')
     }
+
     return
   }
 
