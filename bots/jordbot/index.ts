@@ -34,6 +34,8 @@ function checkOneOffTriggers(
   message: string,
   author: string
 ): string | undefined {
+  console.info('message author', author)
+
   let oneOffTrigger: OneOffTrigger | null = null
   for (const trigger of oneOffTriggers) {
     let triggerFound = false
@@ -52,7 +54,7 @@ function checkOneOffTriggers(
 
   if (oneOffTrigger) {
     // Dust egg trigger check
-    if (oneOffTrigger.triggers.includes('egg') && author === 'Dust') {
+    if (oneOffTrigger.triggers.includes('egg') && author === 'dustadept') {
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
       console.info(
         `${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`
