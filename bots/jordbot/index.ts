@@ -34,8 +34,6 @@ function checkOneOffTriggers(
   message: string,
   author: string
 ): string | undefined {
-  console.info('message author', author)
-
   let oneOffTrigger: OneOffTrigger | null = null
   for (const trigger of oneOffTriggers) {
     let triggerFound = false
@@ -318,6 +316,7 @@ function getRandomResponse(): string | undefined {
     `what in the british`,
     `what does that have to do with walmart lettuce`,
     `WAIT THATS FUXKING ADORABLE`,
+    `i dotn get it. bad joke.`
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

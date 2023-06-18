@@ -56,7 +56,6 @@ function randomWeight() {
  * Checks if the message contains a one-off trigger.
  */
 function checkOneOffTriggers(message, author) {
-    console.info('message author', author);
     var oneOffTrigger = null;
     for (var _i = 0, oneOffTriggers_1 = triggers_1.oneOffTriggers; _i < oneOffTriggers_1.length; _i++) {
         var trigger = oneOffTriggers_1[_i];
@@ -296,6 +295,7 @@ function getRandomResponse() {
         "what in the british",
         "what does that have to do with walmart lettuce",
         "WAIT THATS FUXKING ADORABLE",
+        "i dotn get it. bad joke."
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];

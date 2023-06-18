@@ -626,7 +626,7 @@ exports.oneOffTriggers = [
             'squish you enhance my qualities',
             'i want to go to christmas dinner with squishydough ☹️',
             'but squish said thats how the song gods\r\nbut its not',
-            "i would never lie about squish"
+            "i would never lie about squish",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
@@ -675,7 +675,8 @@ exports.oneOffTriggers = [
             'eggs benny squish',
             'i havent had a benny in so long',
             'i had a montecristo benedict a long ass time ago\r\ni remember not liking it but i eas like 12 so',
-            'bro stop now i want a montecristo benedict'
+            'bro stop now i want a montecristo benedict',
+            'not a monty and the biscuit tasted goofy but overall not bad',
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
