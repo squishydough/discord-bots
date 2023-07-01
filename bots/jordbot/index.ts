@@ -253,7 +253,7 @@ function getRandomResponse(): string | undefined {
     'YOOOO LETS GO',
     'NOO THEY NERFED BALL MINES',
     'I SAID BOFA DEEZ NUTS',
-    'bro just started going off on a 17 year old on the internet.',
+    'bro just started going off on a 17 year old on the internet',
     'jesus',
     'like why are you so quick with it\r\ngive me a chance\r\njesus',
     'kinda real though',
@@ -316,7 +316,8 @@ function getRandomResponse(): string | undefined {
     `what in the british`,
     `what does that have to do with walmart lettuce`,
     `WAIT THATS FUXKING ADORABLE`,
-    `i dotn get it. bad joke.`
+    `i dotn get it. bad joke.`,
+    `wait wad there a period when i said that\r\ni dont remember there being a period`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
