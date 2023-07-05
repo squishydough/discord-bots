@@ -297,6 +297,7 @@ function getRandomResponse() {
         "WAIT THATS FUXKING ADORABLE",
         "i dotn get it. bad joke.",
         "wait wad there a period when i said that\r\ni dont remember there being a period",
+        "why do i look like skinny peter griffin",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
