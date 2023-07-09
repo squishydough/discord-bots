@@ -876,4 +876,11 @@ exports.oneOffTriggers = [
         responses: ["this jordo guy is getting a little out of hand"],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['rocket league'],
+        responses: [
+            "KEEP TALAKING ABOUT ROCKET LEAGE GUYS SO I CAN GET MORE POKEMON"
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT
+    }
 ];
