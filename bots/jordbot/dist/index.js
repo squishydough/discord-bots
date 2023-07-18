@@ -298,7 +298,8 @@ function getRandomResponse() {
         "i dotn get it. bad joke.",
         "wait wad there a period when i said that\r\ni dont remember there being a period",
         "why do i look like skinny peter griffin",
-        "just joined a discord linked to my university never felt so crinfe"
+        "just joined a discord linked to my university never felt so crinfe",
+        "WHY IS THIS FUCKING ROBOT EXPOSING MY PAST",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
