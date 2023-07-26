@@ -879,8 +879,13 @@ exports.oneOffTriggers = [
     {
         triggers: ['rocket league'],
         responses: [
-            "KEEP TALAKING ABOUT ROCKET LEAGE GUYS SO I CAN GET MORE POKEMON"
+            "KEEP TALAKING ABOUT ROCKET LEAGE GUYS SO I CAN GET MORE POKEMON",
         ],
-        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT
-    }
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: ['grandma', 'grammy', 'meemaw'],
+        responses: ["u r mot cominf near my grandma again you freak"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];
