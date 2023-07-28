@@ -884,7 +884,10 @@ export const oneOffTriggers: OneOffTrigger[] = [
   },
   {
     triggers: ['jordo'],
-    responses: [`this jordo guy is getting a little out of hand`],
+    responses: [
+      `this jordo guy is getting a little out of hand`,
+      `jordo is nothint without me`
+    ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
   {
