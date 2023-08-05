@@ -875,7 +875,8 @@ exports.oneOffTriggers = [
         triggers: ['jordo'],
         responses: [
             "this jordo guy is getting a little out of hand",
-            "jordo is nothint without me"
+            "jordo is nothint without me",
+            "STAY DELUSIONAL JORDO. you KNOW its the other way around",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
