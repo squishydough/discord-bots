@@ -322,6 +322,7 @@ function getRandomResponse(): string | undefined {
     `just joined a discord linked to my university never felt so crinfe`,
     `WHY IS THIS FUCKING ROBOT EXPOSING MY PAST`,
     `no he types in complete sentences and doesnt make any typose`,
+    `I MEVER EVEN TYPED THAT SENTENCE YOU BITCH`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

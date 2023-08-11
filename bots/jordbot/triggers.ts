@@ -550,6 +550,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'I LOVE JAZZ SO MUCH OMG',
       'i live in a small town there are no jazz here ;(',
       'am i allowed to talk ab music in here',
+      `but true english isnt my first lengsuge\r\njazz is.`,
     ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
