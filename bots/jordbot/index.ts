@@ -321,6 +321,7 @@ function getRandomResponse(): string | undefined {
     `why do i look like skinny peter griffin`,
     `just joined a discord linked to my university never felt so crinfe`,
     `WHY IS THIS FUCKING ROBOT EXPOSING MY PAST`,
+    `no he types in complete sentences and doesnt make any typose`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
