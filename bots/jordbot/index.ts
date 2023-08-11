@@ -266,7 +266,7 @@ function getRandomResponse(): string | undefined {
     'sorry i hate men',
     `you can just search 'land of the misty giants'\r\nor my name when i show up\r\nill lyk when im up`,
     'WAIT HOW TFDID YOU KNOW THE NAME OF MY FILE',
-    'i wish i appreciated jazz the way squishy does',
+    // 'i wish i appreciated jazz the way squishy does',
     'AHHHHHHHHHHHHHHHHHHHHHHHHHHHH',
     'i will literally unleash my inner beast\r\nmy demons',
     'jimmy car is coming to my city should i go see him',
