@@ -238,7 +238,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
   return responses[randomIndex]
 }
 
-function getRandomResponse(): string | undefined {
+function getRandomResponse(author: string): string | undefined {
   // Exit if weight is too high
   const weight = randomWeight()
   const shouldReturnResponse = weight <= RANDOM_RESPONSE_WEIGHT
@@ -323,6 +323,7 @@ function getRandomResponse(): string | undefined {
     `WHY IS THIS FUCKING ROBOT EXPOSING MY PAST`,
     `no he types in complete sentences and doesnt make any typose`,
     `I MEVER EVEN TYPED THAT SENTENCE YOU BITCH`,
+    `ill headbitt yoy any time ${author}`
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
@@ -383,7 +384,7 @@ client.on('messageCreate', async (message) => {
     return
   }
 
-  const randomResponse = getRandomResponse()
+  const randomResponse = getRandomResponse(message.author.username)
   if (randomResponse) {
     console.info(`${new Date()} - Random response triggered: ${randomResponse}`)
     message.reply(randomResponse)

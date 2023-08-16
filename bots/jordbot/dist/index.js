@@ -220,7 +220,7 @@ function checkInstrumentTriggers(message) {
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
 }
-function getRandomResponse() {
+function getRandomResponse(author) {
     // Exit if weight is too high
     var weight = randomWeight();
     var shouldReturnResponse = weight <= weights_1.RANDOM_RESPONSE_WEIGHT;
@@ -302,6 +302,7 @@ function getRandomResponse() {
         "WHY IS THIS FUCKING ROBOT EXPOSING MY PAST",
         "no he types in complete sentences and doesnt make any typose",
         "I MEVER EVEN TYPED THAT SENTENCE YOU BITCH",
+        "ill headbitt yoy any time ".concat(author)
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
@@ -343,7 +344,7 @@ client.on('messageCreate', function (message) { return __awaiter(void 0, void 0,
             message.reply(instrumentResponse);
             return [2 /*return*/];
         }
-        randomResponse = getRandomResponse();
+        randomResponse = getRandomResponse(message.author.username);
         if (randomResponse) {
             console.info("".concat(new Date(), " - Random response triggered: ").concat(randomResponse));
             message.reply(randomResponse);
