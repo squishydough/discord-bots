@@ -302,7 +302,8 @@ function getRandomResponse(author) {
         "WHY IS THIS FUCKING ROBOT EXPOSING MY PAST",
         "no he types in complete sentences and doesnt make any typose",
         "I MEVER EVEN TYPED THAT SENTENCE YOU BITCH",
-        "ill headbitt yoy any time ".concat(author)
+        "ill headbitt yoy any time ".concat(author),
+        "".concat(author, " is the banana case i am me and my messages are the bananas"),
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
