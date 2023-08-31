@@ -889,6 +889,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
       `this jordo guy is getting a little out of hand`,
       `jordo is nothint without me`,
       `STAY DELUSIONAL JORDO. you KNOW its the other way around`,
+      `LMAO\r\nobviously me duh im smarter than jordbo\r\nlike why the hell is jordos knight on a3 😂😂`,
     ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
