@@ -850,7 +850,7 @@ exports.oneOffTriggers = [
     },
     {
         triggers: ['bitwarden', 'password manager'],
-        responses: ['ive BEEN using bit warden bro fym'],
+        responses: ['ive BEEN using bit warden bro fym', 'we stan bit warden'],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
     {
