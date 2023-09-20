@@ -905,4 +905,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`u r mot cominf near my grandma again you freak`],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: ['anal', 'butt'],
+    responses: [`hey anal can be straight too\r\ncome on its 2024`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]

@@ -325,6 +325,7 @@ function getRandomResponse(author: string): string | undefined {
     `I MEVER EVEN TYPED THAT SENTENCE YOU BITCH`,
     `ill headbitt yoy any time ${author}`,
     `${author} is the banana case i am me and my messages are the bananas`,
+    `come on ${author} its 2024`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

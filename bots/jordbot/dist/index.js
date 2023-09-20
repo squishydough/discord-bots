@@ -304,6 +304,7 @@ function getRandomResponse(author) {
         "I MEVER EVEN TYPED THAT SENTENCE YOU BITCH",
         "ill headbitt yoy any time ".concat(author),
         "".concat(author, " is the banana case i am me and my messages are the bananas"),
+        "come on ".concat(author, " its 2024"),
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
