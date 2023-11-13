@@ -639,6 +639,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
       'i want to go to christmas dinner with squishydough ☹️',
       'but squish said thats how the song gods\r\nbut its not',
       `i would never lie about squish`,
+      `thankyoy squoshy`,
     ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
