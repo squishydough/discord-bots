@@ -880,6 +880,7 @@ exports.oneOffTriggers = [
             "jordo is nothint without me",
             "STAY DELUSIONAL JORDO. you KNOW its the other way around",
             "LMAO\r\nobviously me duh im smarter than jordo\r\nlike why the hell is jordos knight on a3 \uD83D\uDE02\uD83D\uDE02",
+            "EVERYONE KEEPS SAYING HE LOOKS LIKE ME\r\nHE DOES NOT",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
