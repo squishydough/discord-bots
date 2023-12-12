@@ -912,4 +912,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`hey anal can be straight too\r\ncome on its 2024`],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: ['dog', 'cat', 'bird', 'animal'],
+    responses: ['tbf that is a cute mountain lion or whatever tf that is'],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]
