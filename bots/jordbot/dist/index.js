@@ -305,6 +305,7 @@ function getRandomResponse(author) {
         "ill headbitt yoy any time ".concat(author),
         "".concat(author, " is the banana case i am me and my messages are the bananas"),
         "come on ".concat(author, " its 2024"),
+        "thats the shit you would see in a popeyes too",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
