@@ -906,4 +906,11 @@ exports.oneOffTriggers = [
         responses: ['tbf that is a cute mountain lion or whatever tf that is'],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['chicken', 'popeyes', 'kfc'],
+        responses: [
+            "come by my place bro\r\ni love like 10 feet away from a popeyes"
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT
+    }
 ];
