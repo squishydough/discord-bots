@@ -920,8 +920,22 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['chicken', 'popeyes', 'kfc'],
     responses: [
-      `come by my place bro\r\ni love like 10 feet away from a popeyes`
+      `come by my place bro\r\ni love like 10 feet away from a popeyes`,
     ],
-    weight: ONE_OFF_TRIGGER_WEIGHT
-  }
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
+  {
+    triggers: [
+      'water',
+      'ocean',
+      'lake',
+      'pool',
+      'river',
+      'sea',
+      'waterfall',
+      'waterpark',
+    ],
+    responses: [`i fell into that water when i was a kid`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]
