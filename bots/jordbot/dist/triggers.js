@@ -882,6 +882,7 @@ exports.oneOffTriggers = [
             "LMAO\r\nobviously me duh im smarter than jordo\r\nlike why the hell is jordos knight on a3 \uD83D\uDE02\uD83D\uDE02",
             "EVERYONE KEEPS SAYING HE LOOKS LIKE ME\r\nHE DOES NOT",
             "he my doppleganger fr. gonna become smarter than me and mrder my wife one day",
+            "bro did NOT read frankenstein smh",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
@@ -946,6 +947,11 @@ exports.oneOffTriggers = [
         responses: [
             "hehe sorry guys! im actually just a little guy lolz. just got my license vroom vroom!!",
         ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: ['frankenstein', 'mary shelly', 'mary shelley'],
+        responses: ["bro did NOT read frankenstein smh"],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
 ];
