@@ -909,8 +909,42 @@ exports.oneOffTriggers = [
     {
         triggers: ['chicken', 'popeyes', 'kfc'],
         responses: [
-            "come by my place bro\r\ni love like 10 feet away from a popeyes"
+            "come by my place bro\r\ni love like 10 feet away from a popeyes",
         ],
-        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT
-    }
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: [
+            'water',
+            'ocean',
+            'lake',
+            'pool',
+            'river',
+            'sea',
+            'waterfall',
+            'waterpark',
+        ],
+        responses: ["i fell into that water when i was a kid"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: [
+            'car',
+            'automobile',
+            'vehicle',
+            'truck',
+            'van',
+            'suv',
+            'drive',
+            'road',
+            'highway',
+            'street',
+            'traffic',
+            'parking',
+        ],
+        responses: [
+            "hehe sorry guys! im actually just a little guy lolz. just got my license vroom vroom!!",
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];
