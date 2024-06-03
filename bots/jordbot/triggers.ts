@@ -938,4 +938,24 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`i fell into that water when i was a kid`],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: [
+      'car',
+      'automobile',
+      'vehicle',
+      'truck',
+      'van',
+      'suv',
+      'drive',
+      'road',
+      'highway',
+      'street',
+      'traffic',
+      'parking',
+    ],
+    responses: [
+      `hehe sorry guys! im actually just a little guy lolz. just got my license vroom vroom!!`,
+    ],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]
