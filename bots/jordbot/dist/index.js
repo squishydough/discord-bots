@@ -306,7 +306,8 @@ function getRandomResponse(author) {
         "".concat(author, " is the banana case i am me and my messages are the bananas"),
         "come on ".concat(author, " its 2024"),
         "thats the shit you would see in a popeyes too",
-        "THE MONER LISA BHIST BEEN STOILEN \uD83D\uDE2D \uD83D\uDE2D"
+        "THE MONER LISA BHIST BEEN STOILEN \uD83D\uDE2D \uD83D\uDE2D",
+        "man the fuck is this. the fuck is wrong with me",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
