@@ -329,6 +329,7 @@ function getRandomResponse(author: string): string | undefined {
     `thats the shit you would see in a popeyes too`,
     `THE MONER LISA BHIST BEEN STOILEN 😭 😭`,
     `man the fuck is this. the fuck is wrong with me`,
+    `facebook is long gone 😭\r\nunfixable i reckon`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

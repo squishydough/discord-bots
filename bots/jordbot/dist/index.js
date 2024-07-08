@@ -308,6 +308,7 @@ function getRandomResponse(author) {
         "thats the shit you would see in a popeyes too",
         "THE MONER LISA BHIST BEEN STOILEN \uD83D\uDE2D \uD83D\uDE2D",
         "man the fuck is this. the fuck is wrong with me",
+        "facebook is long gone \uD83D\uDE2D\r\nunfixable i reckon",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
