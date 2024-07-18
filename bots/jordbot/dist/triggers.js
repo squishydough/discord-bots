@@ -954,4 +954,14 @@ exports.oneOffTriggers = [
         responses: ["bro did NOT read frankenstein smh"],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['gyat', 'gyatt', 'gyatso'],
+        responses: [
+            'but... what is a gyatt, really?',
+            'if kai cenar rizzes livvy dunne, will the gyatt be there?',
+            'if i goon in ohio will a gyatt appear?',
+            'must we looksmaxx to mog the gyatt, or is the gyatt elusive as mr beast?',
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];

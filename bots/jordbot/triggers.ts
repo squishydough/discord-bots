@@ -918,7 +918,6 @@ export const oneOffTriggers: OneOffTrigger[] = [
     triggers: ['dog', 'cat', 'bird', 'animal'],
     responses: ['tbf that is a cute mountain lion or whatever tf that is'],
     weight: ONE_OFF_TRIGGER_WEIGHT,
-    
   },
   {
     triggers: ['chicken', 'popeyes', 'kfc'],
@@ -964,6 +963,16 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['frankenstein', 'mary shelly', 'mary shelley'],
     responses: [`bro did NOT read frankenstein smh`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
+  {
+    triggers: ['gyat', 'gyatt', 'gyatso'],
+    responses: [
+      'but... what is a gyatt, really?',
+      'if kai cenar rizzes livvy dunne, will the gyatt be there?',
+      'if i goon in ohio will a gyatt appear?',
+      'must we looksmaxx to mog the gyatt, or is the gyatt elusive as mr beast?',
+    ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
 ]
