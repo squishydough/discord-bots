@@ -136,6 +136,8 @@ function checkArtistTriggers(message: string): string | undefined {
   const otherInstrumentTrigger =
     otherInstrumentTriggers[randomNumber(0, otherInstrumentTriggers.length - 1)]
 
+  // #region Artist Triggers
+
   const responses = [
     `${artistTrigger.artist} is an awesome ${artistTrigger.instrument} player who won the best rhythm section player award at the alberta international band festival. ${artistWikipediaUrl}`,
     `${artistTrigger.artist} is a decent ${artistTrigger.instrument} player, but they're no ${similarArtistTrigger.artist}. ${similarArtistWikipediaUrl}`,
@@ -249,6 +251,8 @@ function getRandomResponse(author: string): string | undefined {
     return
   }
 
+  // #region Random Responses
+
   const responses = [
     'YOOOO LETS GO',
     'NOO THEY NERFED BALL MINES',
@@ -330,6 +334,8 @@ function getRandomResponse(author: string): string | undefined {
     `THE MONER LISA BHIST BEEN STOILEN 😭 😭`,
     `man the fuck is this. the fuck is wrong with me`,
     `facebook is long gone 😭\r\nunfixable i reckon`,
+    `just be normal for ONE MESSAGE\r\ngod`,
+    `if i streamed me playing aooni for the first time would you gugs watch`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

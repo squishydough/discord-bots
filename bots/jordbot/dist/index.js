@@ -131,6 +131,7 @@ function checkArtistTriggers(message) {
     // Find triggers from other instrument types other than the one that was detected.
     var otherInstrumentTriggers = triggers_1.instrumentTriggers.filter(function (i) { return i.instrument !== (artistTrigger === null || artistTrigger === void 0 ? void 0 : artistTrigger.instrument); });
     var otherInstrumentTrigger = otherInstrumentTriggers[randomNumber(0, otherInstrumentTriggers.length - 1)];
+    // #region Artist Triggers
     var responses = [
         "".concat(artistTrigger.artist, " is an awesome ").concat(artistTrigger.instrument, " player who won the best rhythm section player award at the alberta international band festival. ").concat(artistWikipediaUrl),
         "".concat(artistTrigger.artist, " is a decent ").concat(artistTrigger.instrument, " player, but they're no ").concat(similarArtistTrigger.artist, ". ").concat(similarArtistWikipediaUrl),
@@ -228,6 +229,7 @@ function getRandomResponse(author) {
     if (!shouldReturnResponse) {
         return;
     }
+    // #region Random Responses
     var responses = [
         'YOOOO LETS GO',
         'NOO THEY NERFED BALL MINES',
@@ -309,6 +311,8 @@ function getRandomResponse(author) {
         "THE MONER LISA BHIST BEEN STOILEN \uD83D\uDE2D \uD83D\uDE2D",
         "man the fuck is this. the fuck is wrong with me",
         "facebook is long gone \uD83D\uDE2D\r\nunfixable i reckon",
+        "just be normal for ONE MESSAGE\r\ngod",
+        "if i streamed me playing aooni for the first time would you gugs watch",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
