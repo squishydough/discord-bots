@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.oneOffTriggers = exports.instrumentTriggers = exports.artistTriggers = void 0;
 var weights_1 = require("./weights");
+// #region Artist Triggers
 exports.artistTriggers = [
     { instrument: 'trumpet', artist: 'Buddy Bolden' },
     { instrument: 'trumpet', artist: 'Freddie Keppard' },
@@ -530,6 +531,7 @@ exports.instrumentTriggers = exports.artistTriggers
     }
     return acc;
 }, []);
+// #region One-Off Triggers
 exports.oneOffTriggers = [
     {
         triggers: ['jazz'],

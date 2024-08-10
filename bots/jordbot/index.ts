@@ -240,6 +240,8 @@ function checkInstrumentTriggers(message: string): string | undefined {
   return responses[randomIndex]
 }
 
+// #region Random Responses
+
 function getRandomResponse(author: string): string | undefined {
   // Exit if weight is too high
   const weight = randomWeight()
@@ -336,6 +338,8 @@ function getRandomResponse(author: string): string | undefined {
     `facebook is long gone 😭\r\nunfixable i reckon`,
     `just be normal for ONE MESSAGE\r\ngod`,
     `if i streamed me playing aooni for the first time would you gugs watch`,
+    `heh. i know you cant live without me and my sex ${author}. dont try bluff me here`,
+    `if you ever say this to me i am either going to never speak to you again or feel closer to you than ever`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

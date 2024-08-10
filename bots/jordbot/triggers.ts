@@ -5,6 +5,8 @@ export type ArtistInstrumentTrigger = {
   artist: string
 }
 
+// #region Artist Triggers
+
 export const artistTriggers: ArtistInstrumentTrigger[] = [
   { instrument: 'trumpet', artist: 'Buddy Bolden' },
   { instrument: 'trumpet', artist: 'Freddie Keppard' },
@@ -540,6 +542,8 @@ export type OneOffTrigger = {
   responses: string[]
   weight: number
 }
+
+// #region One-Off Triggers
 
 export const oneOffTriggers: OneOffTrigger[] = [
   {

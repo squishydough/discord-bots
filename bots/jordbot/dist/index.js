@@ -221,6 +221,7 @@ function checkInstrumentTriggers(message) {
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
 }
+// #region Random Responses
 function getRandomResponse(author) {
     // Exit if weight is too high
     var weight = randomWeight();
@@ -313,6 +314,8 @@ function getRandomResponse(author) {
         "facebook is long gone \uD83D\uDE2D\r\nunfixable i reckon",
         "just be normal for ONE MESSAGE\r\ngod",
         "if i streamed me playing aooni for the first time would you gugs watch",
+        "heh. i know you cant live without me and my sex ".concat(author, ". dont try bluff me here"),
+        "if you ever say this to me i am either going to never speak to you again or feel closer to you than ever",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
