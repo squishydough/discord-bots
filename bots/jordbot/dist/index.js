@@ -316,6 +316,8 @@ function getRandomResponse(author) {
         "if i streamed me playing aooni for the first time would you gugs watch",
         "heh. i know you cant live without me and my sex ".concat(author, ". dont try bluff me here"),
         "if you ever say this to me i am either going to never speak to you again or feel closer to you than ever",
+        "".concat(author, " really hawk tuah'd with this one yall"),
+        "holy gyatt are you gen z???"
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
