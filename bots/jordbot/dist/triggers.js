@@ -966,4 +966,33 @@ exports.oneOffTriggers = [
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['prison', 'cell', 'jail', 'penitentiary', 'lockup'],
+        responses: ["id be a fire prison mate?"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: [
+            'school',
+            'class',
+            'masterclass',
+            'lesson',
+            'teacher',
+            'student',
+        ],
+        responses: ["bro we had a masterclass at school today"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: ['house', 'home', 'apartment', 'condo', 'mansion', 'cabin'],
+        responses: [
+            "the guy was just talking about how he bought his first house for 120 000",
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: ['song', 'music', 'album', 'track', 'record', 'tune', 'melody'],
+        responses: ["heh. like, at least send me the verse first!\r\namirite"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];

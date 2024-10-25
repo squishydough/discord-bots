@@ -341,7 +341,11 @@ function getRandomResponse(author: string): string | undefined {
     `heh. i know you cant live without me and my sex ${author}. dont try bluff me here`,
     `if you ever say this to me i am either going to never speak to you again or feel closer to you than ever`,
     `${author} really hawk tuah'd with this one yall`,
-    `holy gyatt are you gen z???`
+    `holy gyatt are you gen z???`,
+    `ok mr carn thank you`,
+    `sorry i just crashed this convo`,
+    `PLEEEASE LT ME PLAY SAX ON IT`,
+    `OH MY GOD PLAESE IM BEGGING YOU`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
