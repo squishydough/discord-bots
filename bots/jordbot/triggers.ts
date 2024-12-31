@@ -1008,4 +1008,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`heh. like, at least send me the verse first!\r\namirite`],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: ['vacation', 'holiday', 'journey', 'adventure'],
+    responses: [`going on vaca`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]

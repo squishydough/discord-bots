@@ -322,6 +322,8 @@ function getRandomResponse(author) {
         "sorry i just crashed this convo",
         "PLEEEASE LT ME PLAY SAX ON IT",
         "OH MY GOD PLAESE IM BEGGING YOU",
+        'one hand job bro',
+        'wont be around long, gram gram is taking me and pookie on a cruise',
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];

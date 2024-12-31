@@ -32,7 +32,7 @@ function randomWeight(): number {
  */
 function checkOneOffTriggers(
   message: string,
-  author: string
+  author: string,
 ): string | undefined {
   let oneOffTrigger: OneOffTrigger | null = null
   for (const trigger of oneOffTriggers) {
@@ -55,7 +55,7 @@ function checkOneOffTriggers(
     if (oneOffTrigger.triggers.includes('egg') && author === 'dustadept') {
       const randomIndex = randomNumber(0, oneOffTrigger.responses.length - 1)
       console.info(
-        `${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`
+        `${new Date()} - randomIndex: ${randomIndex} - Dust egg trigger activated`,
       )
       return `🥚 I HEAR YOUR CALL, EGG SUMMONER 🥚 \r\n ${oneOffTrigger.responses[randomIndex]}`
     }
@@ -65,7 +65,7 @@ function checkOneOffTriggers(
     console.info(
       `${new Date()} - One-off trigger weight: ${
         oneOffTrigger.weight
-      }, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+      }, random weight: ${weight}, should return response: ${shouldReturnResponse}`,
     )
 
     if (shouldReturnResponse) {
@@ -86,7 +86,7 @@ function checkArtistTriggers(message: string): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= ARTIST_TRIGGER_WEIGHT
   console.info(
-    `${new Date()} - Artist trigger weight: ${ARTIST_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Artist trigger weight: ${ARTIST_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`,
   )
   if (!shouldReturnResponse) {
     return
@@ -114,7 +114,7 @@ function checkArtistTriggers(message: string): string | undefined {
   const similarArtistTriggers = artistTriggers.filter(
     (t) =>
       t.instrument === artistTrigger?.instrument &&
-      t.artist !== artistTrigger.artist
+      t.artist !== artistTrigger.artist,
   )
   const similarArtistTrigger =
     similarArtistTriggers[randomNumber(0, similarArtistTriggers.length - 1)]
@@ -122,16 +122,16 @@ function checkArtistTriggers(message: string): string | undefined {
   // Swap blank spaces with underscores for wikipedia urls
   const artistWikipediaUrl = `https://en.wikipedia.org/wiki/${artistTrigger.artist.replace(
     / /g,
-    '_'
+    '_',
   )}`
   const similarArtistWikipediaUrl = `https://en.wikipedia.org/wiki/${similarArtistTrigger.artist.replace(
     / /g,
-    '_'
+    '_',
   )}`
 
   // Find triggers from other instrument types other than the one that was detected.
   const otherInstrumentTriggers = instrumentTriggers.filter(
-    (i) => i.instrument !== artistTrigger?.instrument
+    (i) => i.instrument !== artistTrigger?.instrument,
   )
   const otherInstrumentTrigger =
     otherInstrumentTriggers[randomNumber(0, otherInstrumentTriggers.length - 1)]
@@ -191,7 +191,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= INSTRUMENT_TRIGGER_WEIGHT
   console.info(
-    `${new Date()} - Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Instrument trigger weight: ${INSTRUMENT_TRIGGER_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`,
   )
 
   if (!shouldReturnResponse) {
@@ -220,7 +220,7 @@ function checkInstrumentTriggers(message: string): string | undefined {
   const otherInstrumentArtists = instrumentTriggers.filter(
     (trigger) =>
       trigger.instrument === instrumentTrigger?.instrument &&
-      trigger.artist !== instrumentTrigger?.artist
+      trigger.artist !== instrumentTrigger?.artist,
   )
   const otherInstrumentArtist =
     otherInstrumentArtists[randomNumber(0, otherInstrumentArtists.length - 1)]
@@ -247,7 +247,7 @@ function getRandomResponse(author: string): string | undefined {
   const weight = randomWeight()
   const shouldReturnResponse = weight <= RANDOM_RESPONSE_WEIGHT
   console.info(
-    `${new Date()} - Random response weight: ${RANDOM_RESPONSE_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`
+    `${new Date()} - Random response weight: ${RANDOM_RESPONSE_WEIGHT}, random weight: ${weight}, should return response: ${shouldReturnResponse}`,
   )
   if (!shouldReturnResponse) {
     return
@@ -346,6 +346,8 @@ function getRandomResponse(author: string): string | undefined {
     `sorry i just crashed this convo`,
     `PLEEEASE LT ME PLAY SAX ON IT`,
     `OH MY GOD PLAESE IM BEGGING YOU`,
+    'one hand job bro',
+    'wont be around long, gram gram is taking me and pookie on a cruise',
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
@@ -379,7 +381,7 @@ client.on('messageCreate', async (message) => {
   const oneOffResponse = checkOneOffTriggers(content, message.author.username)
   if (oneOffResponse) {
     console.info(
-      `${new Date()} - One off responses triggered: ${oneOffResponse}`
+      `${new Date()} - One off responses triggered: ${oneOffResponse}`,
     )
 
     message.reply(oneOffResponse)
@@ -400,7 +402,7 @@ client.on('messageCreate', async (message) => {
   const instrumentResponse = checkInstrumentTriggers(content)
   if (instrumentResponse) {
     console.info(
-      `${new Date()} - Instrument response triggered: ${instrumentResponse}`
+      `${new Date()} - Instrument response triggered: ${instrumentResponse}`,
     )
     message.reply(instrumentResponse)
     return

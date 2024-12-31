@@ -995,4 +995,9 @@ exports.oneOffTriggers = [
         responses: ["heh. like, at least send me the verse first!\r\namirite"],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['vacation', 'holiday', 'journey', 'adventure'],
+        responses: ["going on vaca"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];
