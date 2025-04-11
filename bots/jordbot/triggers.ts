@@ -898,6 +898,7 @@ export const oneOffTriggers: OneOffTrigger[] = [
       `EVERYONE KEEPS SAYING HE LOOKS LIKE ME\r\nHE DOES NOT`,
       `he my doppleganger fr. gonna become smarter than me and mrder my wife one day`,
       `bro did NOT read frankenstein smh`,
+      `thank uuu 🥹`,
     ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
@@ -1011,6 +1012,15 @@ export const oneOffTriggers: OneOffTrigger[] = [
   {
     triggers: ['vacation', 'holiday', 'journey', 'adventure'],
     responses: [`going on vaca`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
+  {
+    triggers: ['birthday', 'bday', 'birth'],
+    responses: [
+      `IT MY BIRT DAY TODAYYY\r\nIM 200000`,
+      `hey. you be careful birthday boy.`,
+      `yuuuge happy birthday big brother`,
+    ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
 ]

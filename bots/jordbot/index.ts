@@ -348,6 +348,7 @@ function getRandomResponse(author: string): string | undefined {
     `OH MY GOD PLAESE IM BEGGING YOU`,
     'one hand job bro',
     'wont be around long, gram gram is taking me and pookie on a cruise',
+    `ts fr fire af nc 🔥🔥`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)
