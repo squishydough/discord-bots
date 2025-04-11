@@ -885,6 +885,7 @@ exports.oneOffTriggers = [
             "EVERYONE KEEPS SAYING HE LOOKS LIKE ME\r\nHE DOES NOT",
             "he my doppleganger fr. gonna become smarter than me and mrder my wife one day",
             "bro did NOT read frankenstein smh",
+            "thank uuu \uD83E\uDD79",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
@@ -998,6 +999,15 @@ exports.oneOffTriggers = [
     {
         triggers: ['vacation', 'holiday', 'journey', 'adventure'],
         responses: ["going on vaca"],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
+        triggers: ['birthday', 'bday', 'birth'],
+        responses: [
+            "IT MY BIRT DAY TODAYYY\r\nIM 200000",
+            "hey. you be careful birthday boy.",
+            "yuuuge happy birthday big brother",
+        ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
 ];

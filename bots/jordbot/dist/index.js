@@ -324,6 +324,7 @@ function getRandomResponse(author) {
         "OH MY GOD PLAESE IM BEGGING YOU",
         'one hand job bro',
         'wont be around long, gram gram is taking me and pookie on a cruise',
+        "ts fr fire af nc \uD83D\uDD25\uD83D\uDD25",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
