@@ -1015,4 +1015,11 @@ exports.oneOffTriggers = [
         responses: ["idk what looks better the meat or that cute guy \uD83D\uDE0D\uD83D\uDE0D"],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
+    {
+        triggers: ['a.i.', 'artificial intelligence', 'grok', 'chatgpt', 'openai'],
+        responses: [
+            "just goes to show the flaws of artifical intelligence\r\nand how it can never recreate the personal depth within each and every one of us\r\ncherish yourself. you are unique. YOU ARE SPECIAL \uD83D\uDC97\uD83D\uDC97\uD83D\uDC97\r\n#spreadlove",
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
 ];

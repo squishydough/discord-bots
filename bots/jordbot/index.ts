@@ -175,6 +175,7 @@ function checkArtistTriggers(message: string): string | undefined {
     `i shjould also say that is my ${artistTrigger.instrument} teacehr ${artistWikipediaUrl}`,
     `with that dope of a name he has to be good ${artistWikipediaUrl}`,
     `hey ${artistTrigger.artist} is from florida show some respect 😤`,
+    `if i said that youd perma ban me`,
   ]
 
   const randomIndex = randomNumber(0, responses.length - 1)

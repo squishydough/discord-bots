@@ -1028,4 +1028,11 @@ export const oneOffTriggers: OneOffTrigger[] = [
     responses: [`idk what looks better the meat or that cute guy 😍😍`],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: ['a.i.', 'artificial intelligence', 'grok', 'chatgpt', 'openai'],
+    responses: [
+      `just goes to show the flaws of artifical intelligence\r\nand how it can never recreate the personal depth within each and every one of us\r\ncherish yourself. you are unique. YOU ARE SPECIAL 💗💗💗\r\n#spreadlove`,
+    ],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]

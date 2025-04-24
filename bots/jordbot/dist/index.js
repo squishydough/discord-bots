@@ -169,6 +169,7 @@ function checkArtistTriggers(message) {
         "i shjould also say that is my ".concat(artistTrigger.instrument, " teacehr ").concat(artistWikipediaUrl),
         "with that dope of a name he has to be good ".concat(artistWikipediaUrl),
         "hey ".concat(artistTrigger.artist, " is from florida show some respect \uD83D\uDE24"),
+        "if i said that youd perma ban me",
     ];
     var randomIndex = randomNumber(0, responses.length - 1);
     return responses[randomIndex];
