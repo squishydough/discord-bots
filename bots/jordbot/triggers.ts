@@ -1023,4 +1023,9 @@ export const oneOffTriggers: OneOffTrigger[] = [
     ],
     weight: ONE_OFF_TRIGGER_WEIGHT,
   },
+  {
+    triggers: ['meat', 'beef', 'pork', 'chicken', 'fish', 'steak', 'poultry'],
+    responses: [`idk what looks better the meat or that cute guy 😍😍`],
+    weight: ONE_OFF_TRIGGER_WEIGHT,
+  },
 ]
