@@ -796,6 +796,13 @@ exports.oneOffTriggers = [
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
     {
+        triggers: ['friend', 'pal', 'bestie'],
+        responses: [
+            'BRO\r\nIT FUCKING SLIPPED OUT THE OTHER DAY WHEN I WAS TALKING TO MY FRIEND',
+        ],
+        weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
+    },
+    {
         triggers: ['shorts'],
         responses: [
             "but also the first thing i think when i see those shorts is 'squishy wears those'",
@@ -1019,6 +1026,8 @@ exports.oneOffTriggers = [
         triggers: ['a.i.', 'artificial intelligence', 'grok', 'chatgpt', 'openai'],
         responses: [
             "just goes to show the flaws of artifical intelligence\r\nand how it can never recreate the personal depth within each and every one of us\r\ncherish yourself. you are unique. YOU ARE SPECIAL \uD83D\uDC97\uD83D\uDC97\uD83D\uDC97\r\n#spreadlove",
+            "like \"when your daughter finally brings home the boyfriend she told you about and its a clanker\"",
+            "MY DAUGHTER WONT BE DATING NO CLANKER!",
         ],
         weight: weights_1.ONE_OFF_TRIGGER_WEIGHT,
     },
